@@ -13,5 +13,6 @@
 </head>
 <body>
 @yield('main')
+@yield('jsFooter')
 </body>
 </html>
