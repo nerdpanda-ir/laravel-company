@@ -9,7 +9,7 @@
 @show
 @yield('jsHeader')
 @yield('css')
-    <title>Document</title>
+    <title>@yield('title')</title>
 </head>
 <body>
 
