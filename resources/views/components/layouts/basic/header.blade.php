@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    @yield('jsHeader')
-    @yield('css')
+    <x-layouts.basic.header-partials.meta-tags />
+@yield('jsHeader')
+@yield('css')
     <title>@yield('title')</title>
 </head>
