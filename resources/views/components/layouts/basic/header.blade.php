@@ -2,7 +2,7 @@
     'language'
 ])
 <!doctype html>
-<html lang="en">
+<html lang="{!! $language !!}">
 <head>
     <x-layouts.basic.header-partials.meta-tags />
     <x-layouts.basic.header-partials.assets />
