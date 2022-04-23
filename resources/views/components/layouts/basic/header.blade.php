@@ -1,3 +1,6 @@
+@props([
+    'language'
+])
 <!doctype html>
 <html lang="en">
 <head>
