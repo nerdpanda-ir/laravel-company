@@ -2,7 +2,7 @@
     'language'
 ])
 <!doctype html>
-<html lang="{!! $language !!}">
+<html lang="{!! $language !!}" @yield('htmlAttributes')>
 <head>
     <x-layouts.basic.header-partials.meta-tags />
     <x-layouts.basic.header-partials.assets />
