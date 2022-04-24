@@ -1,3 +1,4 @@
+@aware(['charset'=>'UTF-8'])
 @section('metaTags')
     <meta charset="UTF-8">
     <meta name="viewport"
