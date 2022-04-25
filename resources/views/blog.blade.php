@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('title') صفحه وبلاگ @endsection
 @section('main')
-    
+    <x-preloader />
 
     <header>
         <!-- header-area start -->
