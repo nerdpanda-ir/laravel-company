@@ -1,9 +1,7 @@
 @extends('layouts.front')
 @section('title') صفحه اصلی @endsection
 @section('main')
-
-    
-
+    <x-preloader />
     <header>
         <!-- header-area start -->
         <div id="sticker" class="header-area">
