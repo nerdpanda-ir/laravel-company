@@ -1,5 +1,5 @@
 @extends('layouts.front')
-
+@section('title') صفحه وبلاگ @endsection
   <div id="preloader"></div>
 
   <header>
