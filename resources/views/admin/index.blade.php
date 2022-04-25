@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title') ناحیه ادمین @endsection
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
