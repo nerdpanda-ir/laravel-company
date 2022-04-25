@@ -11737,7 +11737,3 @@
 		</div>
 		<!--end::Modal - Users Search-->
 		<!--end::Modals-->
-
-	</body>
-	<!--end::Body-->
-</html>
