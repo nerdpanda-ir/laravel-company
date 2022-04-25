@@ -1,3 +1,4 @@
+@extends('layouts.front')
 <!doctype html>
 <html lang="en">
 <head>
