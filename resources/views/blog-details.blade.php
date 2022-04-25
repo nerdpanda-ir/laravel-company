@@ -1,9 +1,7 @@
 @extends('layouts.front')
 @section('title') عنوان پست@endsection
 @section('main')
-
-    <div id="preloader"></div>
-
+    
     <header>
         <!-- header-area start -->
         <div id="sticker" class="header-area">
