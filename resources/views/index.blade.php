@@ -1,5 +1,7 @@
 @extends('layouts.front')
+@section('title') پروژه company - صفحه اصلی @endsection
 @section('main')
+    
     <div id="preloader"></div>
 
     <header>
