@@ -1,4 +1,5 @@
-  <div id="preloader"></div>
+@extends('layouts.front')
+<div id="preloader"></div>
 
   <header>
     <!-- header-area start -->
