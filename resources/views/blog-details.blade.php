@@ -1,5 +1,5 @@
 @extends('layouts.front')
-
+@section('title') عنوان پست@endsection
 
   <div id="preloader"></div>
 
