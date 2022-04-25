@@ -6,3 +6,4 @@
 
 @section('bodyAttributes')id="kt_body" style="background-image: url()" class="dark-mode header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-enabled"@endsection
 
+<x-layouts.admin.java-scripts />
