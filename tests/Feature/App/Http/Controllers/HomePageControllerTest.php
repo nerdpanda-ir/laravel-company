@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\SingleActionControllerTestCase;
 use App\Http\Controllers\HomeController ;
 
-class HomePageControllerTest extends ControllerTestCase
+class HomePageControllerTest extends SingleActionControllerTestCase
 {
     protected string $namespace = HomeController::class ;
 }
