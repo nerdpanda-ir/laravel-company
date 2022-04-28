@@ -9,5 +9,5 @@ use App\Http\Controllers\HomeController ;
 
 class HomePageControllerTest extends ControllerTestCase
 {
-
+    protected string $namespace = HomeController::class ;
 }
