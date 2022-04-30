@@ -16,4 +16,12 @@ class HomePageTest extends TestCase
         );
         $testResponse->assertStatus(200);
     }
+
+    public function test_home_page_should_rendered_index_view() :void {
+        /** @var TestResponse $testResponse */
+        $testResponse = $this->get(
+            route('home')
+        );
+        $testResponse->assertViewIs('index');
+    }
 }
