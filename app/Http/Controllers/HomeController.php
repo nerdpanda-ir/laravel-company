@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function __invoke() :View {
         $data = [
             'language'=>'fa' ,
+            'charset'=> 'UTF8' ,
         ];
         return \view('index',$data);
     }
