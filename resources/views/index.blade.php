@@ -2,6 +2,8 @@
 @section('title') صفحه اصلی @endsection
 @section('main')
     <x-preloader />
+
+    <!-- start header -->
     <header>
         <!-- header-area start -->
         <div id="sticker" class="header-area">
