@@ -1,3 +1,1 @@
-<div>
-    <!-- Simplicity is the essence of happiness. - Cedric Bledsoe -->
-</div>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
