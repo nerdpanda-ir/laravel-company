@@ -4,3 +4,4 @@
 <x-partials.pages.home.our-skill-area />
 <x-partials.pages.home.faq-area />
 <x-partials.pages.home.welcome-area />
+<x-partials.pages.home.team-area />
