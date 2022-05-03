@@ -3,7 +3,7 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-
+                <x-partials.footer.about />
             </div>
         </div>
     </div>
