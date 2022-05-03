@@ -11,3 +11,4 @@
 <x-partials.pages.home.customer-comments-area />
 <x-partials.pages.home.last-news-area />
 <x-partials.pages.home.message-area />
+<x-partials.pages.home.contact-area />
