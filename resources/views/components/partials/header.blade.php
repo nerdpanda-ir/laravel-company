@@ -1,3 +1,6 @@
+<!-- start preloader -->
+<x-preloader />
+<!-- end preloader --> 
 <!-- start header -->
 <header>
     <!-- header-area start -->
