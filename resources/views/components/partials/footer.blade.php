@@ -4,6 +4,7 @@
         <div class="container">
             <div class="row">
                 <x-partials.footer.about />
+                <x-partials.footer.information />
             </div>
         </div>
     </div>
