@@ -7,3 +7,4 @@
 <x-partials.pages.home.team-area />
 <x-partials.pages.home.working-with-us-area />
 <x-partials.pages.home.portfolio-area />
+<x-partials.pages.home.pricing-area />
