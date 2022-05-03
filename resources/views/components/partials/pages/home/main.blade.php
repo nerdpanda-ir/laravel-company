@@ -9,3 +9,4 @@
 <x-partials.pages.home.portfolio-area />
 <x-partials.pages.home.pricing-area />
 <x-partials.pages.home.customer-comments-area />
+<x-partials.pages.home.last-news-area />
