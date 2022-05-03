@@ -5,3 +5,4 @@
 <x-partials.pages.home.faq-area />
 <x-partials.pages.home.welcome-area />
 <x-partials.pages.home.team-area />
+<x-partials.pages.home.working-with-us-area />
