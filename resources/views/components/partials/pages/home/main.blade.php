@@ -6,3 +6,4 @@
 <x-partials.pages.home.welcome-area />
 <x-partials.pages.home.team-area />
 <x-partials.pages.home.working-with-us-area />
+<x-partials.pages.home.portfolio-area />
