@@ -5,6 +5,7 @@
             <div class="row">
                 <x-partials.footer.about />
                 <x-partials.footer.information />
+                <x-partials.footer.gallery />
             </div>
         </div>
     </div>
