@@ -13,5 +13,6 @@ class HomePageApiController extends Controller
         $data = [
             'messsage' => 'welcome to home page !!! '
         ];
+        return HomePageResource::make($data);
     }
 }
