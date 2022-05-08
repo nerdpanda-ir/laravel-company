@@ -1,7 +1,7 @@
 <?php namespace Tests ; ?>
 <?php
 use Tests\TestCase ;
-abstract class PageTestCase extends TestCase {
+class PageTestCase extends TestCase {
     protected string $pageRoute;
     protected abstract function url():string ;
 }
