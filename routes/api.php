@@ -23,6 +23,8 @@ Route::name('api.v1.')
                 ->prefix('page/')
                 ->group(function (){
 
+                    Route::get('home',HomePageApiController::class)
+                            ->name('home');
 
                 });
 
