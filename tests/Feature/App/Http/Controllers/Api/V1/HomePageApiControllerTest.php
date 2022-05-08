@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\SingleActionControllerTestCase as TestCase;
 use App\Http\Controllers\Api\V1\HomePageApiController;
+use Illuminate\Http\Resources\Json\JsonResource ;
 
 class HomePageApiControllerTest extends TestCase
 {
