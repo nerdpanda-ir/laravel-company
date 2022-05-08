@@ -18,4 +18,12 @@ Route::name('api.v1.')
         ->prefix('api/v1/')
         ->group(function (){
 
+            Route::name('page.')
+                ->prefix('page/')
+                ->group(function (){
+
+
+                });
+
+
         });
