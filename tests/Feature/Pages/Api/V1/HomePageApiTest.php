@@ -8,5 +8,6 @@ use Tests\ApiV1PageTestCase as TestCase;
 
 class HomePageApiTest extends TestCase
 {
+    protected string $pageRoute = 'home';
 
 }
