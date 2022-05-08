@@ -16,7 +16,7 @@ use App\Http\Controllers\Api\V1\HomePageApiController ;
 */
 
 Route::name('api.v1.')
-        ->prefix('api/v1/')
+        ->prefix('/v1/')
         ->group(function (){
 
             Route::name('page.')
