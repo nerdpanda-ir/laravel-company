@@ -10,4 +10,8 @@ use App\Http\Controllers\Api\V1\HomePageApiController;
 class HomePageApiControllerTest extends TestCase
 {
     protected string $namespace = HomePageApiController::class ;
+
+    public function test_invoke_method_should_return_JsonResource_object():void {
+
+    }
 }
