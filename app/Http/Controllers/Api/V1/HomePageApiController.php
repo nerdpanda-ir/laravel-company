@@ -10,6 +10,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class HomePageApiController extends Controller
 {
     public function __invoke() :JsonResource {
-
+        $data = [
+            'messsage' => 'welcome to home page !!! '
+        ];
     }
 }
