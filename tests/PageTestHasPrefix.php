@@ -12,4 +12,8 @@ trait PageTestHasPrefix {
     ):string {
         return $this->pageRoutePrefix.$pageRoute;
     }
+
+    protected function pageRouteWithPrefix():string {
+        return $this->pageRouteGenerateWithPrefix($this->pageRoute);
+    }
 }
