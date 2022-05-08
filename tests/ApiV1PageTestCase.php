@@ -3,6 +3,6 @@
 use Tests\PageTestCase ;
 use Tests\PageTestHasPrefix ;
 
-class ApiV1PageTestCase extends PageTestCase{
-
+class ApiV1PageTestCase extends PageTestCase {
+    use \Tests\PageTestHasPrefix ;
 }
