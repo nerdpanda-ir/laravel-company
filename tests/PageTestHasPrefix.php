@@ -6,9 +6,7 @@ trait PageTestHasPrefix {
         return $this->pageRoutePrefix;
     }
 
-    protected function pageRouteGenerateWithPrefix(
-        string $pageRoute
-    ):string {
+    protected function pageRouteGenerateWithPrefix(string $pageRoute):string {
         return $this->pageRoutePrefix.$pageRoute;
     }
 
