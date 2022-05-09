@@ -5,7 +5,6 @@ namespace Tests\Feature\Pages\Api\V1;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\ApiV1PageTestCase as TestCase;
-/* @todo rename this class !!! */
 
 class HomePageApiTest extends TestCase
 {
@@ -26,7 +25,7 @@ class HomePageApiTest extends TestCase
         $testResponse->assertHeader('content-type','application/json');
     }
 
-    public function test_json_response_content_for_home_api_page():void{
+    public function test_home_api_page_json_response_body():void{
         $testResponse = $this->get(
             route($this->pageRouteWithPrefix())
         );
