@@ -12,4 +12,9 @@ class ControllerTestCase extends TestCase {
             'we not have this class -> '.$this->namespace()
         );
     }
+
+    protected function controllerInstance(array $controllerArgs = []) :object {
+        return $this->app->make($this->namespace,$controllerArgs);
+    }
+
 }
