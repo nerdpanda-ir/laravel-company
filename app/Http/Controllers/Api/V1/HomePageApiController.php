@@ -11,7 +11,7 @@ class HomePageApiController extends Controller
 {
     public function __invoke() :JsonResource {
         $data = [
-            'messsage' => 'welcome to home page !!! '
+            'message' => 'welcome to home'
         ];
         return HomePageResource::make($data);
     }
