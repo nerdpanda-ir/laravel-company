@@ -10,7 +10,7 @@ class PageTestCase extends TestCase {
         return $this->pageRoute;
     }
 
-    protected function sendGetRequestToPageRouteByRouteName(
+    protected function getRequestToPageRouteByRouteName(
         array $routeParameters = [] ,
         array $headers = []
     ):TestResponse {
