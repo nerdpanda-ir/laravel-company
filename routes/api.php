@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\V1\HomePageApiController ;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/* @todo modify route service provider */
 Route::name('api.v1.')
         ->prefix('/v1/')
         ->group(function (){
