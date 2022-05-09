@@ -13,8 +13,6 @@ class HomePageApiControllerTest extends TestCase
     protected string $namespace = HomePageApiController::class ;
 
     public function test_invoke_method_should_return_JsonResource_object():void {
-        $controller = $this->app->make($this->namespace);
-        $invokeResult = $this->app->call([$controller,'__invoke']);
-        $this->assertInstanceOf(JsonResource::class , $invokeResult);
+        $this->assertInvokeMethodReturnInstanceOf(JsonResource::class);
     }
 }
