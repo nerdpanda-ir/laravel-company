@@ -10,6 +10,11 @@ class SingleActionControllerTestCase extends ControllerTestCase {
         );
     }
 
+    protected function callInvoke(array $controllerArgs = [] , array $invokeArgs = []) {
+        $controller = $this->controllerInstance($controllerArgs);
+        return $this->app->call([$controller,'__invoke'],$invokeArgs);
+    }
+
     protected function assertInvokeMethodReturnInstanceOf(
         string $expected ,
         array $controllerArgs = [] ,
