@@ -11,12 +11,12 @@ class HomePageTest extends TestCase
     protected string $pageRoute = 'home' ;
 
     public function test_home_page_should_have_200_status_code() :void {
-        $testResponse = $this->sendBasicGetRequestToPageRouteByRouteName();
+        $testResponse = $this->sendGetRequestToPageRouteByRouteName();
         $testResponse->assertStatus(200);
     }
 
     public function test_home_page_should_rendered_index_view() :void {
-        $testResponse = $this->sendBasicGetRequestToPageRouteByRouteName();
+        $testResponse = $this->sendGetRequestToPageRouteByRouteName();
         $testResponse->assertViewIs('index');
     }
 }
