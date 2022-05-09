@@ -10,9 +10,12 @@ class PageTestCase extends TestCase {
         return $this->pageRoute;
     }
 
-    protected function sendBasicGetRequestToPageRouteByRouteName(array $headers = []):TestResponse {
+    protected function sendGetRequestToPageRouteByRouteName(
+        array $routeParameters = [] ,
+        array $headers = []
+    ):TestResponse {
         return $this->get(
-            route($this->pageRoute()) ,
+            route( $this->pageRoute() , $routeParameters ) ,
             $headers
         );
     }
