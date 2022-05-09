@@ -25,7 +25,7 @@ trait PageTestHasPrefix {
      * @param array $headers
      * @return TestResponse
      */
-    protected function sendGetRequestToCompletePageRouteByRouteName(
+    protected function getRequestToFullPageRouteByRouteName(
         array $routeParameters = [] ,
         array $headers = [] ,
     ):TestResponse {
