@@ -21,10 +21,8 @@ class SingleActionControllerTestCase extends ControllerTestCase {
         array $invokeArgs = [] ,
         string $message = ''
     ):void{
-        /** @todo can in segregate method !!! */
-        $controller = $this->app->make($this->namespace,$controllerArgs);
-        $invokeResult = $this->app->call([$controller , '__invoke'],$invokeArgs);
-        $this->assertInstanceOf($expected,$invokeResult,);
+        $invokeResult = $this->callInvoke($controllerArgs , $invokeArgs);
+        $this->assertInstanceOf($expected,$invokeResult,$message);
     }
 
 
