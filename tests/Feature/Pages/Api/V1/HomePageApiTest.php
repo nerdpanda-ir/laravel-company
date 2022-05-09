@@ -26,5 +26,14 @@ class HomePageApiTest extends TestCase
         $testResponse->assertHeader('content-type','application/json');
     }
 
-
+    public function test_json_response_content_for_home_api_page():void{
+        $testResponse = $this->get(
+            route($this->pageRouteWithPrefix())
+        );
+        $testResponse->assertJson([
+            'data'=> [
+                'message'=> 'welcome to home'
+            ]
+        ]);
+    }
 }
