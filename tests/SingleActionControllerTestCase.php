@@ -9,4 +9,19 @@ class SingleActionControllerTestCase extends ControllerTestCase {
             "every single action controllers should have __invoke method \n but {$this->namespace} class dont have __invoke method !!!! "
         );
     }
+
+    protected function assertInvokeMethodReturnInstanceOf(
+        string $expected ,
+        array $controllerArgs = [] ,
+        array $invokeArgs = [] ,
+        string $message = ''
+    ):void{
+        /** @todo can in segregate method !!! */
+        $controller = $this->app->make($this->namespace,$controllerArgs);
+        $invokeResult = $this->app->call([$controller , '__invoke'],$invokeArgs);
+        $this->assertInstanceOf($expected,$invokeResult,);
+    }
+
+
+
 }
