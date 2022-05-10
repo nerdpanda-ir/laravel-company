@@ -25,6 +25,8 @@ class SingleActionControllerTestCase extends ControllerTestCase {
         $this->assertInstanceOf($expected,$invokeResult,$message);
     }
 
-
+    protected function controllerHasInvokeMethod():bool {
+        return $this->controllerHasMethod('__invoke');
+    }
 
 }
