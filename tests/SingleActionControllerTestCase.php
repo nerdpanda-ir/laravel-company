@@ -3,9 +3,7 @@
 use Tests\ControllerTestCase ;
 class SingleActionControllerTestCase extends ControllerTestCase {
     public function test_controller_has_invoke_method():void {
-        $hasInvoke = method_exists($this->namespace(),'__invoke');
-        $this->assertTrue(
-            $hasInvoke ,
+        $this->assertControllerHasInvokeMethod(
             "every single action controllers should have __invoke method \n but {$this->namespace} class dont have __invoke method !!!! "
         );
     }
@@ -28,6 +26,7 @@ class SingleActionControllerTestCase extends ControllerTestCase {
     protected function controllerHasInvokeMethod():bool {
         return $this->controllerHasMethod('__invoke');
     }
+
     protected function assertControllerHasInvokeMethod(string $message=''):void{
         $this->assertControllerHasMethod('__invoke',$message);
     }
