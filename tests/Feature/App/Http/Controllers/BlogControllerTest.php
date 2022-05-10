@@ -8,5 +8,5 @@ use Tests\ControllerTestCase as TestCase ;
 use App\Http\Controllers\BlogController;
 
 class BlogControllerTest extends TestCase {
-    
+    protected string $namespace = BlogController::class ;
 }
