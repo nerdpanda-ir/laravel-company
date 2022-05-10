@@ -23,4 +23,12 @@ class ControllerTestCase extends TestCase {
         $controller = $this->controllerInstance($controllerArgs) ;
         return method_exists($controller , $method) ;
     }
+
+    protected function assertControllerHasMethod(
+        string $method ,
+        array $controllerArgs = [] ,
+    ):void {
+        $methodIsExist = $this->controllerHasMethod($method,$controllerArgs);
+        $this->assertTrue($methodIsExist);
+    }
 }
