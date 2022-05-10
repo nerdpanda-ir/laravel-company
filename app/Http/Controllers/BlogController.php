@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class BlogController extends Controller
 {
-    public function index() {
+    public function index():View {
 
     }
 }
