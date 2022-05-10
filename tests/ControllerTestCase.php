@@ -27,7 +27,7 @@ class ControllerTestCase extends TestCase {
     ):void {
         $methodIsExist = $this->controllerHasMethod($method);
         if (!$methodIsExist and strlen($message)==0)
-            $message = " controller -> {$this->namespace} should have {$method} method !!!  ";
+            $message = $this->messageForMissingMethodInController($method);
         $this->assertTrue($methodIsExist , $message);
     }
 
