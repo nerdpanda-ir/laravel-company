@@ -17,11 +17,8 @@ class ControllerTestCase extends TestCase {
         return $this->app->make($this->namespace,$controllerArgs);
     }
 
-    protected function controllerHasMethod(
-        string $method , array $controllerArgs = []
-    ) :bool {
-        $controller = $this->controllerInstance($controllerArgs) ;
-        return method_exists($controller , $method) ;
+    protected function controllerHasMethod(string $method) :bool {
+        return method_exists($this->namespace , $method) ;
     }
 
     protected function assertControllerHasMethod(
