@@ -30,4 +30,10 @@ class ControllerTestCase extends TestCase {
             $message = " controller -> {$this->namespace} should have {$method} method !!!  ";
         $this->assertTrue($methodIsExist , $message);
     }
+
+    protected function messageForMissingMethodInController(
+        string $method
+    ):string {
+        return " controller -> {$this->namespace} should have {$method} method !!!  ";
+    }
 }
