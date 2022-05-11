@@ -9,6 +9,6 @@ class BlogController extends Controller
 {
     public function index():View {
         $data = ['language'=>'en'];
-        return \view('blog');
+        return \view('blog',$data);
     }
 }
