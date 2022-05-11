@@ -8,7 +8,7 @@ use Tests\PageWithPrefixTestCase as TestCase ;
 
 class BlogPageTest extends TestCase
 {
-    protected string $pageRoutePrefix = 'blog.' ;
-    
+    protected string $pageRoutePrefix = 'blog.';
+    protected string $pageRoute = 'index';
 
 }
