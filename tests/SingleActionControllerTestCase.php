@@ -9,10 +9,8 @@ class SingleActionControllerTestCase extends ControllerTestCase {
     }
 
     protected function callInvoke(array $controllerArgs = [] , array $invokeArgs = []) {
-        return $this->callMethodFromController(
-            false,
-            '__invoke',
-            $invokeArgs,$controllerArgs
+        return $this->callNoneStaticMethodFromController(
+            '__invoke' , $invokeArgs , $controllerArgs
         );
     }
 
