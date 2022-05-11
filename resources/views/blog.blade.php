@@ -3,7 +3,7 @@
 @section('main')
     <x-preloader />
 
-
+    <x-partials.header />
 
     <!-- Start Bottom Header -->
     <div class="header-bg page-area">
