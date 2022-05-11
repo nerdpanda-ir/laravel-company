@@ -87,4 +87,16 @@ class ControllerTestCase extends TestCase {
     ):string {
         return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!";
     }
+
+    protected function assertStaticMethodInControllerReturnInstanceOf(
+        string $expected ,
+        string $method ,
+        array $methodArgs = [] ,
+        string $message = ''
+    ) :void {
+        $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
+        if (strlen($message)==0)
+            $message = $this->badTypeHintMessageForControllerMethod($message,$expected);
+        $this->assertInstanceOf($expected , $methodResult , $message );
+    }
 }
