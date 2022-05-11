@@ -36,4 +36,8 @@ class ControllerTestCase extends TestCase {
     ):string {
         return " controller -> {$this->namespace} should have {$method}() method !!!  ";
     }
+
+    protected function callStaticMethodFromController(string $method , array $methodArgs = [] ){
+        return $this->app->call([$this->namespace,$method],$methodArgs);
+    }
 }
