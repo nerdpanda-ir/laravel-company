@@ -77,15 +77,14 @@ class ControllerTestCase extends TestCase {
             $controllerArgs ,
         );
         if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected , $methodResult );
+            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected );
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
 
     protected function badTypeHintMessageForControllerMethod(
         string $method ,
         string $expected ,
-        $actual ,
     ):string {
-        return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!! but return -> {$actual} ";
+        return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!";
     }
 }
