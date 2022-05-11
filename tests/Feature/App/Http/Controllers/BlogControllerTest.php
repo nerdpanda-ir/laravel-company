@@ -14,10 +14,8 @@ class BlogControllerTest extends TestCase {
         $this->assertControllerHasMethod('index');
     }
     public function test_index_method_should_return_instance_of_View() :void {
-        /** @todo create global call */
-        /** @todo assert return instance -> for all methods !!! */
-        $controller = $this->controllerInstance();
-        $indexResult = $this->app->call([$controller,'index']);
-        $this->assertInstanceOf(View::class,$indexResult);
+        $this->assertNoneStaticMethodInControllerReturnInstanceOf(
+            View::class , 'index' , 
+        );
     }
 }
