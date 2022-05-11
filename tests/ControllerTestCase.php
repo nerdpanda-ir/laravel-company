@@ -81,4 +81,10 @@ class ControllerTestCase extends TestCase {
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
 
+    protected function badTypeHintMessageForControllerMethod(
+        string $method ,
+        string $expected
+    ):string {
+        return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!!";
+    }
 }
