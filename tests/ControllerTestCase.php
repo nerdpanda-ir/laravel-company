@@ -77,7 +77,7 @@ class ControllerTestCase extends TestCase {
             $controllerArgs ,
         );
         if (strlen($message)==0)
-            $message = " method {$method}() from class {$this->namespace} should return instance of {$expected} !!!";
+            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected );
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
 
