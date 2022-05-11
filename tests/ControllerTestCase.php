@@ -40,4 +40,14 @@ class ControllerTestCase extends TestCase {
     protected function callStaticMethodFromController(string $method , array $methodArgs = [] ){
         return $this->app->call([$this->namespace,$method],$methodArgs);
     }
+
+    protected function callNoneStaticMethodFromController(
+        string $method ,
+        array $methodArgs = [] ,
+        array $controllerArgs = [] ,
+    ){
+        $controller = $this->controllerInstance($controllerArgs);
+        return $this->app->call([$controller,$method],$methodArgs);
+    }
+    
 }
