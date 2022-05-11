@@ -70,15 +70,14 @@ class ControllerTestCase extends TestCase {
         array $controllerArgs = [] ,
         string $message = ''
     ):void {
-        $methodResult = $this->callMethodFromController(
-            $isStatic ,
-            $method ,
-            $methodArgs ,
-            $controllerArgs ,
-        );
-        if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected );
-        $this->assertInstanceOf($expected , $methodResult , $message );
+        if ($isStatic)
+            $this->assertStaticMethodInControllerReturnInstanceOf(
+                $expected,$method,$methodArgs,$message
+            );
+        else
+            $this->assertNoneStaticMethodInControllerReturnInstanceOf(
+                $expected , $method , $methodArgs , $controllerArgs , $message
+            );
     }
 
     protected function badTypeHintMessageForControllerMethod(
