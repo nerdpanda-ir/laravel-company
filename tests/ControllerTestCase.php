@@ -99,4 +99,18 @@ class ControllerTestCase extends TestCase {
             $message = $this->badTypeHintMessageForControllerMethod($message,$expected);
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
+
+    protected function assertNoneStaticMethodInControllerReturnInstanceOf(
+        string $expected ,
+        string $method ,
+        array $methodArgs = [] ,
+        array $controllerArgs = [] ,
+        string $message = ''
+    ):void {
+        $methodResult = $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
+        /** @todo have duplicated codes !!! */
+        if (strlen($message)==0)
+            $message = $this->badTypeHintMessageForControllerMethod($message , $expected);
+        $this->assertInstanceOf($expected,$methodResult,$message);
+    }
 }
