@@ -49,5 +49,16 @@ class ControllerTestCase extends TestCase {
         $controller = $this->controllerInstance($controllerArgs);
         return $this->app->call([$controller,$method],$methodArgs);
     }
-    
+
+    protected function callMethodFromController(
+        bool $isStatic ,
+        string $method ,
+        array $methodArgs = [] ,
+        array $controllerArgs = [] ,
+    ){
+        if ($isStatic)
+            $this->callStaticMethodFromController($method,$methodArgs);
+        else
+            $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
+    }
 }
