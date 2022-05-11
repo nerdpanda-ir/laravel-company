@@ -22,8 +22,14 @@ class SingleActionControllerTestCase extends ControllerTestCase {
         array $invokeArgs = [] ,
         string $message = ''
     ):void{
-        $invokeResult = $this->callInvoke($controllerArgs , $invokeArgs);
-        $this->assertInstanceOf($expected,$invokeResult,$message);
+        $this->assertMethodInControllerReturnInstanceOf(
+            $expected ,
+            false ,
+            '__invoke' ,
+            $invokeArgs ,
+            $controllerArgs ,
+            $message
+        );
     }
 
     protected function controllerHasInvokeMethod():bool {
