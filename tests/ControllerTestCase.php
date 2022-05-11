@@ -61,4 +61,24 @@ class ControllerTestCase extends TestCase {
         else
             $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
     }
+
+    protected function assertMethodInControllerReturnInstanceOf(
+        string $expected ,
+        bool $isStatic ,
+        string $method ,
+        array $methodArgs = [] ,
+        array $controllerArgs = [] ,
+        string $message = ''
+    ):void {
+        $methodResult = $this->callMethodFromController(
+            $isStatic ,
+            $method ,
+            $methodArgs ,
+            $controllerArgs ,
+        );
+        if (strlen($message)==0)
+            $message = " method {$method}() from class {$this->namespace} should return instance of {$expected} !!!";
+        $this->assertInstanceOf($expected , $methodResult , $message );
+    }
+
 }
