@@ -77,7 +77,7 @@ class ControllerTestCase extends TestCase {
             $controllerArgs ,
         );
         if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected );
+            $message = $this->badTypeHintMessageForControllerMethod( $method , $expected , $methodResult );
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
 
