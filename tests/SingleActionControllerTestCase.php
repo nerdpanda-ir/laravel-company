@@ -20,13 +20,8 @@ class SingleActionControllerTestCase extends ControllerTestCase {
         array $invokeArgs = [] ,
         string $message = ''
     ):void{
-        $this->assertMethodInControllerReturnInstanceOf(
-            $expected ,
-            false ,
-            '__invoke' ,
-            $invokeArgs ,
-            $controllerArgs ,
-            $message
+        $this->assertNoneStaticMethodInControllerReturnInstanceOf(
+            $expected , '__invoke', $invokeArgs , $controllerArgs , $message
         );
     }
 
