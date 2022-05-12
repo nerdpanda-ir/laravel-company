@@ -34,4 +34,12 @@ class PageWithPrefixTestCase extends TestCase {
              $headers
          );
      }
+
+     protected function assertOkFullPageRouteGetResponseThatReceivedByRouteName(
+         array $routeParameters = [] ,
+         array $headers = [] ,
+     ):void {
+         $testResponse = $this->getRequestToFullPageRouteByRouteName($routeParameters,$headers);
+         $testResponse->assertOk();
+     }
  }
