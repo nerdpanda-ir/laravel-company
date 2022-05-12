@@ -14,4 +14,10 @@ class BlogPageTest extends TestCase
         /** @todo review all test class for apply this assertion methods !!!! */
         $this->assertOkFullPageRouteGetResponseThatReceivedByRouteName();
     }
+
+    public function test_blogPage_should_rendered_blogView():void {
+        /** @todo maybe merge to one method !!!*/
+        $testResponse = $this->getRequestToFullPageRouteByRouteName();
+        $testResponse->assertViewIs('blog');
+    }
 }
