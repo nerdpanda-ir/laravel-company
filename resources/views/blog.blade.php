@@ -4,6 +4,6 @@
 
     <x-partials.header />
     <x-partials.pages.blog.main />
-
+    <x-partials.pages.blog.footer />
 
 @endsection
