@@ -5,7 +5,7 @@
 
 
 
-    <div class="clearfix"></div>
+
 
     <!-- Start Footer bottom Area -->
     <footer>
