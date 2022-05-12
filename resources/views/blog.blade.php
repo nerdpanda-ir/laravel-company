@@ -426,6 +426,6 @@
         </div>
     </footer>
 
-    
+    <x-back-to-top />
 
 @endsection
