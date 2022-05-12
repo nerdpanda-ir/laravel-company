@@ -20,4 +20,11 @@ class PageTestCase extends TestCase {
         );
     }
 
+    protected function assertOkPageRouteGetResponseThatReceivedViaRouteName(
+        array $routeParameters = [] ,
+        array $headers = [] ,
+    ):void {
+        $testResponse = $this->getRequestToPageRouteByRouteName( $routeParameters , $headers );
+        $testResponse->assertOk();
+    }
 }
