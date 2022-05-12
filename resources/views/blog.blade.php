@@ -1,11 +1,9 @@
 @extends('layouts.front')
 @section('title') صفحه وبلاگ @endsection
 @section('main')
-    <x-preloader />
-
     <x-partials.header />
 
-
+    <!-- End Blog Area -->
     <div class="blog-page area-padding">
         <div class="container">
             <div class="row">
