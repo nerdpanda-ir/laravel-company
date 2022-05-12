@@ -2,11 +2,7 @@
 @section('title') صفحه وبلاگ @endsection
 @section('main')
     <x-partials.header />
-
-
-
-
-
+    <x-partials.pages.blog.main />
     <!-- Start Footer bottom Area -->
     <footer>
         <div class="footer-area">
