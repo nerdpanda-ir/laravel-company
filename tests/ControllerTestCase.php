@@ -144,4 +144,15 @@ class ControllerTestCase extends TestCase {
         );
     }
 
+    protected function assertMethodInControllerReturnViewInstance(
+        bool $isStatic ,  string $method ,  array $methodArgs = [] ,
+        array $controllerArgs = [] , string $message = ''
+    ):void {
+        if ($isStatic)
+            $this->assertStaticMethodInControllerReturnViewInstance( $method , $methodArgs , $message );
+        else
+            $this->assertNoneStaticMethodInControllerReturnViewInstance(
+                $method , $methodArgs ,$controllerArgs , $message
+            );
+    }
 }
