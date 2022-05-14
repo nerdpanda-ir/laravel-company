@@ -17,9 +17,14 @@ class BlogPageTest extends TestCase
     public function test_blog_page_should_have_200_status_code():void {
         $this->assertOkPageRouteGetResponseThatReceivedViaRouteName();
     }
-    public function test_blogPage_should_rendered_blogView():void {
-        /** @todo maybe merge to one method !!!*/
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
+
+    public function test_blog_page_should_rendered_blog_view():void {
+        $testResponse = $this->getRequestToPageRouteByRouteName() ;
         $testResponse->assertViewIs('blog');
     }
+//    public function test_blogPage_should_rendered_blogView():void {
+//        /** @todo maybe merge to one method !!!*/
+//        $testResponse = $this->getRequestToFullPageRouteByRouteName();
+//        $testResponse->assertViewIs('blog');
+//    }
 }
