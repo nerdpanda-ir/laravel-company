@@ -134,4 +134,14 @@ class ControllerTestCase extends TestCase {
         );
     }
 
+
+    protected function assertNoneStaticMethodInControllerReturnViewInstance(
+        string $method , array $methodArgs = [] ,
+        array $controllerArgs = [] , string $message = '' ,
+    ):void {
+        $this->assertNoneStaticMethodInControllerReturnInstanceOf(
+            View::class , $method , $methodArgs , $controllerArgs , $message
+        );
+    }
+
 }
