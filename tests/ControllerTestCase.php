@@ -109,7 +109,7 @@ class ControllerTestCase extends TestCase {
         $methodResult = $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
         /** @todo have duplicated codes !!! */
         if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod($message , $expected);
+            $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
         $this->assertInstanceOf($expected,$methodResult,$message);
     }
 }
