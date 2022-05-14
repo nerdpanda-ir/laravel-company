@@ -8,5 +8,5 @@ use Tests\ApiV1PageTestCase as TestCase;
 
 class BlogPageApiTest extends TestCase
 {
-
+    protected string $pageRoute = 'blog'; 
 }
