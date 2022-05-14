@@ -11,4 +11,7 @@ class BlogController extends Controller
         $data = ['language'=>'en' , 'charset'=>'utf88888'];
         return \view('blog',$data);
     }
+    public function __invoke(){
+        
+    }
 }
