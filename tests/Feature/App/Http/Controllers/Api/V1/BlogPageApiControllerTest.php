@@ -9,5 +9,5 @@ use App\Http\Controllers\Api\V1\BlogPageApiController ;
 
 class BlogPageApiControllerTest extends TestCase
 {
-
+    protected string $namespace = BlogPageApiController::class ;
 }
