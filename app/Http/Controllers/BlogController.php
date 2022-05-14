@@ -12,6 +12,6 @@ class BlogController extends Controller
         return \view('blog',$data);
     }
     public function __invoke():View {
-
+        return \view('blog');
     }
 }
