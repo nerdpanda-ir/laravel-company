@@ -10,9 +10,6 @@ use App\Http\Controllers\BlogController;
 
 class BlogControllerTest extends TestCase {
     protected string $namespace = BlogController::class ;
-    public function test_index_method_should_exist():void {
-        $this->assertControllerHasMethod('index');
-    }
     public function test_index_method_should_return_instance_of_View() :void {
         $this->assertNoneStaticMethodInControllerReturnInstanceOf(
             View::class , 'index' ,
