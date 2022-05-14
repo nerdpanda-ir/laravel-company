@@ -4,7 +4,7 @@ namespace Tests\Feature\Pages;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\PageWithPrefixTestCase as TestCase ;
+use Tests\PageTestCase as TestCase ;
 
 class BlogPageTest extends TestCase
 {
