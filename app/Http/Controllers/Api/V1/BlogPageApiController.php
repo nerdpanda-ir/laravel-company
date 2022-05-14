@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class BlogPageApiController extends Controller
 {
-    //
+    public function __invoke() {
+
+    }
 }
