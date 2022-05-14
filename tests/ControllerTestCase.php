@@ -112,4 +112,13 @@ class ControllerTestCase extends TestCase {
             $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
         $this->assertInstanceOf($expected,$methodResult,$message);
     }
+
+    protected function whenMessageIsEmptyUseControllerMethodBadReturnTypeDefaultMessage(
+        string &$message ,
+        string $method ,
+        string $expected
+    ):void {
+        if (strlen($message)==0)
+            $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
+    }
 }
