@@ -10,6 +10,9 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class BlogPageApiController extends Controller
 {
     public function __invoke():JsonResource {
-        return BlogPageResource::make([]);
+        $data = [
+            'message' => 'welcome to blog page !!!'
+        ];
+        return BlogPageResource::make($data);
     }
 }
