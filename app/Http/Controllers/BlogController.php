@@ -10,6 +10,7 @@ class BlogController extends Controller
     public function __invoke():View {
         $data = [
             'language'=> 'en' ,
+            'charset' => 'blog charset just for fun !!! ',
         ];
         return \view('blog', $data );
     }
