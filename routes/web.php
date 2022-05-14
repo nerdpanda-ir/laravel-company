@@ -16,6 +16,4 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('', HomeController::class )->name('home');
-Route::name('blog.')->prefix('blog/')->group(function (){
-    Route::get('',BlogController::class)->name('index');
-});
+Route::get('blog',BlogController::class)->name('blog');
