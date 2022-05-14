@@ -9,8 +9,8 @@ class BlogController extends Controller
 {
     public function __invoke():View {
         $data = [
-            'language'=>'en'
+            'language'=> 'en' ,
         ];
-        return \view('blog');
+        return \view('blog', $data );
     }
 }
