@@ -1,5 +1,8 @@
 <?php namespace Tests ; ?>
 <?php
+
+use Illuminate\Contracts\View\View;
+
 class ControllerTestCase extends TestCase {
     protected string $namespace;
     protected function namespace() :string {
@@ -122,4 +125,13 @@ class ControllerTestCase extends TestCase {
         if (strlen($message)==0)
             $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
     }
+
+    protected function assertStaticMethodInControllerReturnViewInstance(
+        string $method , array $methodArgs = [] , string $message = '' ,
+    ):void {
+        $this->assertStaticMethodInControllerReturnInstanceOf(
+            View::class , $method , $methodArgs , $message
+        );
+    }
+
 }
