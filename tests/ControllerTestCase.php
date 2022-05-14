@@ -155,4 +155,21 @@ class ControllerTestCase extends TestCase {
                 $method , $methodArgs ,$controllerArgs , $message
             );
     }
+
+    protected function assertReturnedViewForStaticMethodInControllerShouldIs(
+        string $view , string $method ,  array $methodArgs = [] , string $message = '' ,
+    ):void{
+        /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!! */
+        /** @var View $methodResult */
+        $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
+        /** @todo if can  seperate to double method !!! */
+        if ($methodResult instanceof View) {
+            $actual = $methodResult->name() ;
+            if (strlen($message)==0)
+                $message = "method : {$method}() from class {$this->namespace} return {$actual} view but you expected {$view} view !!!";
+            $this->assertEquals($view,$actual,$message);
+        }
+        else
+            $this->fail(" method {$method}() from class {$this->namespace} doesnt return any view !!! ");
+    }
 }
