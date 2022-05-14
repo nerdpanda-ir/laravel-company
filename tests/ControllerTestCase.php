@@ -94,8 +94,9 @@ class ControllerTestCase extends TestCase {
         string $message = ''
     ) :void {
         $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
-        if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod($message,$expected);
+        $this->whenMessageIsEmptyUseControllerMethodBadReturnTypeDefaultMessage(
+            $message , $method , $expected
+        );
         $this->assertInstanceOf($expected , $methodResult , $message );
     }
 
@@ -107,9 +108,9 @@ class ControllerTestCase extends TestCase {
         string $message = ''
     ):void {
         $methodResult = $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
-        /** @todo have duplicated codes !!! */
-        if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
+        $this->whenMessageIsEmptyUseControllerMethodBadReturnTypeDefaultMessage(
+            $message , $method , $expected
+        );
         $this->assertInstanceOf($expected,$methodResult,$message);
     }
 
