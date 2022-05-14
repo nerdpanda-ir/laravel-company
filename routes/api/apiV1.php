@@ -22,4 +22,6 @@ Route::name('page.')
         Route::get('home', HomePageApiController::class)
             ->name('home');
 
+        Route::get('blog',BlogPageApiController::class)
+            ->name('blog');
     });
