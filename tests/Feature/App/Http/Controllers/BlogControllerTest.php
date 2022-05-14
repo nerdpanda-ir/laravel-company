@@ -5,7 +5,7 @@ namespace Tests\Feature\App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\ControllerTestCase as TestCase ;
+use Tests\SingleActionControllerTestCase as TestCase ;
 use App\Http\Controllers\BlogController;
 
 class BlogControllerTest extends TestCase {
@@ -15,7 +15,7 @@ class BlogControllerTest extends TestCase {
     }
     public function test_index_method_should_return_instance_of_View() :void {
         $this->assertNoneStaticMethodInControllerReturnInstanceOf(
-            View::class , 'index' , 
+            View::class , 'index' ,
         );
     }
 }
