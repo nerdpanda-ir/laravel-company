@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\View;
 class HomePageControllerTest extends TestCase
 {
     protected string $namespace = HomeController::class ;
-    public function test_invoke_method_should_return_view(){
-        $this->assertInvokeMethodReturnInstanceOf(View::class);
+    public function test_invoke_method_should_return_view():void {
+        $this->assertInvokeMethodReturnViewInstance();
     }
 }
