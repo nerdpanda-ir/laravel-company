@@ -1,5 +1,7 @@
 <?php namespace Tests ; ?>
 <?php
+
+use Illuminate\Contracts\View\View;
 use Tests\ControllerTestCase ;
 class SingleActionControllerTestCase extends ControllerTestCase {
     public function test_controller_has_invoke_method():void {
@@ -31,5 +33,13 @@ class SingleActionControllerTestCase extends ControllerTestCase {
 
     protected function assertControllerHasInvokeMethod(string $message=''):void{
         $this->assertControllerHasMethod('__invoke',$message);
+    }
+
+    protected function assertInvokeMethodReturnViewInstance(
+        array $controllerArgs = [] , array $invokeArgs = [] , string $message = ''
+    ):void {
+        $this->assertInvokeMethodReturnInstanceOf(
+            View::class , $controllerArgs , $invokeArgs , $message
+        );
     }
 }
