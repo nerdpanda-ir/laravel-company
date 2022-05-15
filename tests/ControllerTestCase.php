@@ -185,4 +185,12 @@ class ControllerTestCase extends TestCase {
             $message = "{$method}() from class : {$this->namespace} returned {$view} view !!! but you expected {$expected} view !!! " ;
         $this->assertEquals($expected,$view,$message);
     }
+
+    protected function defaultMessageForUnexpectedViewThatReturnedFromControllerMethod(
+        string $method ,
+        string $expected ,
+        string $actual
+    ):string {
+        return "method {$method}() from class : {$this->namespace} returned {$actual} view !!! but you expected {$expected} view !!!";
+    }
 }
