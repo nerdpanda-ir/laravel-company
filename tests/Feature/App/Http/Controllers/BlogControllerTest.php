@@ -16,12 +16,6 @@ class BlogControllerTest extends TestCase {
 
     public function test_invoke_method_should_return_blog_view():void {
         /** @todo should create this method for home controller !!! */
-        /* @todo create method in Controller test -> view name check for  methods !!!  */
-        /* @todo create method in single Action Test Case -> view name check for invoke methods !!!  */
-        /** @var View $invokeResult*/
-        $invokeResult = $this->callInvoke() ;
-        $actual = $invokeResult->name() ;
-        $expected = 'blog';
-        $this->assertEquals($expected , $actual , "invoke method should return {$expected} view ");
+        $this->assertReturnedViewForInvokeMethodShouldIs('blog');
     }
 }
