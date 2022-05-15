@@ -189,9 +189,7 @@ class ControllerTestCase extends TestCase {
     }
 
     protected function defaultMessageForUnexpectedViewThatReturnedFromControllerMethod(
-        string $method ,
-        string $expected ,
-        string $actual
+        string $method , string $expected , string $actual , ...$params
     ):string {
         return "method {$method}() from class : {$this->namespace} returned {$actual} view !!! but you expected {$expected} view !!!";
     }
