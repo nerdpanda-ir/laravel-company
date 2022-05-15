@@ -222,6 +222,6 @@ class ControllerTestCase extends TestCase {
      * @return string
      */
     protected function messageForNoReturnViewInControllerMethod(...$parameters):string {
-        return "method {$parameters[0]}() from class {$this->namespace} dosent return any view !!!";
+        return "method {$parameters[0]}() from class {$this->namespace} doesnt return any view !!!";
     }
 }
