@@ -237,4 +237,15 @@ class ControllerTestCase extends TestCase {
         else
             $this->doActionWhenMethodInControllerNoReturnView($method);
     }
+
+    protected function doHandleReturnedValueInControllerMethodIsExpectedView(
+        $value , string $expected , string $method , string $message
+    ):void {
+        if ($value instanceof View)
+            $this->doCheckReturnedViewInControllerMethodIsExpected(
+                $expected , $method , $value , $message
+            );
+        else
+            $this->doActionWhenMethodInControllerNoReturnView($method);
+    }
 }
