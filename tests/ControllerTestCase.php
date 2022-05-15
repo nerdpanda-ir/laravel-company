@@ -230,12 +230,9 @@ class ControllerTestCase extends TestCase {
         array $controllerArgs = [] , string $message = ''
     ):void{
         $methodResult = $this->callNoneStaticMethodFromController($method,$controllerArgs);
-        if ($methodResult instanceof View)
-            $this->doCheckReturnedViewInControllerMethodIsExpected(
-                $expected , $method , $methodResult , $message
-            );
-        else
-            $this->doActionWhenMethodInControllerNoReturnView($method);
+        $this->doHandleReturnedValueInControllerMethodIsExpectedView(
+            $methodResult,$expected,$method,$message
+        );
     }
 
     protected function doHandleReturnedValueInControllerMethodIsExpectedView(
