@@ -241,4 +241,18 @@ class ControllerTestCase extends TestCase {
         else
             $this->doActionWhenMethodInControllerNoReturnView($method);
     }
+
+    protected function assertReturnedViewForMethodInControllerShouldIs(
+        bool $isStatic , string $expected , string $method ,
+        array $methodArgs = [] , array $controllerArgs = [] , string $message = ''
+    ):void{
+        if ($isStatic)
+            $this->assertReturnedViewForStaticMethodInControllerShouldIs(
+                $expected , $method , $methodArgs , $message
+            );
+        else
+            $this->assertReturnedViewForNoneStaticMethodInControllerShouldIs(
+                $expected , $method , $methodArgs ,$controllerArgs , $message
+            );
+    }
 }
