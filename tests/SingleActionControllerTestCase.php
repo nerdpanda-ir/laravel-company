@@ -42,4 +42,12 @@ class SingleActionControllerTestCase extends ControllerTestCase {
             View::class , $controllerArgs , $invokeArgs , $message
         );
     }
+
+    protected function assertReturnedViewForInvokeMethodShouldIs(
+        string $expected , array $controllerArgs = [] , array $invokeArgs = [] , string $message = ''
+    ):void {
+        $this->assertReturnedViewForNoneStaticMethodInControllerShouldIs(
+            $expected , '__invoke' , $invokeArgs , $controllerArgs , $message
+        );
+    }
 }
