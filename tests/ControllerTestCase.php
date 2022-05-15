@@ -261,7 +261,10 @@ class ControllerTestCase extends TestCase {
     protected function strLenIs( string $value , int $length ):bool{
         return strlen($value)==$length;
     }
-    
+
+    protected function strLenIsZero(string $value):bool {
+        return $this->strLenIs($value,0);
+    }
 
     /* @todo temp methods */
 }
