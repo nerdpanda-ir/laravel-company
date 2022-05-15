@@ -182,7 +182,9 @@ class ControllerTestCase extends TestCase {
         $view = $view->name();
         /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
         if (strlen($message)==0)
-            $message = "{$method}() from class : {$this->namespace} returned {$view} view !!! but you expected {$expected} view !!! " ;
+            $message = $this->defaultMessageForUnexpectedViewThatReturnedFromControllerMethod(
+                $method , $expected , $view
+            );
         $this->assertEquals($expected,$view,$message);
     }
 
