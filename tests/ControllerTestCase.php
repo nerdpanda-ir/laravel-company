@@ -255,4 +255,13 @@ class ControllerTestCase extends TestCase {
                 $expected , $method , $methodArgs ,$controllerArgs , $message
             );
     }
+
+    /* @todo temp methods */
+
+    protected function strLenIs( string $value , int $length ):bool{
+        return strlen($value)==$length;
+    }
+    
+
+    /* @todo temp methods */
 }
