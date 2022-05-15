@@ -84,12 +84,14 @@ class ControllerTestCase extends TestCase {
             );
     }
 
-    protected function badTypeHintMessageForControllerMethod(
-        string $method ,
-        string $expected ,
-        ...$parameters
-    ):string {
-        return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!";
+
+    /**
+     * @param string $method
+     * @param string $expected
+     * @return string
+     */
+    protected function badTypeHintMessageForControllerMethod( ...$parameters ):string {
+        return " method {$parameters[0]}() from class {$this->namespace} should return instance of {$parameters[1]} !!";
     }
 
     protected function assertStaticMethodInControllerReturnInstanceOf(
