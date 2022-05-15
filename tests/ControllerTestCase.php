@@ -224,4 +224,17 @@ class ControllerTestCase extends TestCase {
     protected function messageForNoReturnViewInControllerMethod(...$parameters):string {
         return "method {$parameters[0]}() from class {$this->namespace} doesnt return any view !!!";
     }
+
+    protected function assertReturnedViewForNoneStaticMethodInControllerShouldIs(
+        string $expected , string $method, array $methodArgs = [] ,
+        array $controllerArgs = [] , string $message = ''
+    ):void{
+        $methodResult = $this->callNoneStaticMethodFromController($method,$controllerArgs);
+        if ($methodResult instanceof View)
+            $this->doCheckReturnedViewInControllerMethodIsExpected(
+                $expected , $method , $methodResult , $message
+            );
+        else
+            $this->doActionWhenMethodInControllerNoReturnView($method);
+    }
 }
