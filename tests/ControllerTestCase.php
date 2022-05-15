@@ -185,10 +185,9 @@ class ControllerTestCase extends TestCase {
         // @todo may be move to view helper !!!
         $view = $view->name();
         /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
-        if (strlen($message)==0)
-            $message = $this->defaultMessageForBadViewReturnInControllerMethod(
-                $method , $expected , $view
-            );
+        $this->useDefaultBadViewReturnMessageWhenMessageIsEmpty(
+            $message , $method , $expected , $view
+        );
         $this->assertEquals($expected,$view,$message);
     }
 
