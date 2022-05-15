@@ -162,16 +162,12 @@ class ControllerTestCase extends TestCase {
         /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!!
          create view service class  or view helper class -> but before create test for it
          */
-        /** @var View $methodResult */
         $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
         /** @todo if can  seperate to double method !!! */
-        if ($methodResult instanceof View) {
-            $actual = $methodResult->name() ; //may be move to view helper !!!
-            /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
-            if (strlen($message)==0)
-                $message = "method : {$method}() from class {$this->namespace} return {$actual} view but you expected {$view} view !!!";
-            $this->assertEquals($view,$actual,$message);
-        }
+        if ($methodResult instanceof View)
+            $this->doCheckReturnedViewInControllerMethodIsExpected(
+                $expected , $method , $methodResult , $message
+            );
         else
             $this->fail(" method {$method}() from class {$this->namespace} doesnt return any view !!! ");
     }
