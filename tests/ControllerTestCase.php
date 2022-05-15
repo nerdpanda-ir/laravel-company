@@ -85,7 +85,6 @@ class ControllerTestCase extends TestCase {
             );
     }
 
-
     /**
      * @param string $method
      * @param string $expected
@@ -193,7 +192,6 @@ class ControllerTestCase extends TestCase {
         $this->assertEquals($expected,$view,$message);
     }
 
-
     /**
      * @param string $method
      * @param string $expected
@@ -202,5 +200,14 @@ class ControllerTestCase extends TestCase {
      */
     protected function defaultMessageForBadViewReturnInControllerMethod( ...$parameters ):string {
         return "method {$parameters[0]}() from class : {$this->namespace} returned {$parameters[2]} view !!! but you expected {$parameters[1]} view !!!";
+    }
+
+    protected function useDefaultBadViewReturnMessageWhenMessageIsEmpty(
+        string &$message , string $method ,  string $expected ,  string $actual
+    ):void {
+        if (strlen($message)==0)
+            $message = $this->defaultMessageForBadViewReturnInControllerMethod(
+                $method , $expected , $actual
+            );
     }
 }
