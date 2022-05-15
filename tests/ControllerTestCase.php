@@ -35,7 +35,8 @@ class ControllerTestCase extends TestCase {
     }
 
     protected function messageForMissingMethodInController(
-        string $method
+        string $method ,
+        ...$parameters
     ):string {
         return " controller -> {$this->namespace} should have {$method}() method !!!  ";
     }
@@ -86,6 +87,7 @@ class ControllerTestCase extends TestCase {
     protected function badTypeHintMessageForControllerMethod(
         string $method ,
         string $expected ,
+        ...$parameters
     ):string {
         return " method {$method}() from class {$this->namespace} should return instance of {$expected} !!";
     }
