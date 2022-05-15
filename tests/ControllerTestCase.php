@@ -157,7 +157,7 @@ class ControllerTestCase extends TestCase {
     }
 
     protected function assertReturnedViewForStaticMethodInControllerShouldIs(
-        string $view , string $method ,  array $methodArgs = [] , string $message = '' ,
+        string $expected , string $method ,  array $methodArgs = [] , string $message = '' ,
     ):void{
         /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!!
          create view service class  or view helper class -> but before create test for it
@@ -166,7 +166,7 @@ class ControllerTestCase extends TestCase {
         $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
         /** @todo if can  seperate to double method !!! */
         if ($methodResult instanceof View) {
-            $actual = $methodResult->name() ;
+            $actual = $methodResult->name() ; //may be move to view helper !!!
             /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
             if (strlen($message)==0)
                 $message = "method : {$method}() from class {$this->namespace} return {$actual} view but you expected {$view} view !!!";
@@ -174,5 +174,19 @@ class ControllerTestCase extends TestCase {
         }
         else
             $this->fail(" method {$method}() from class {$this->namespace} doesnt return any view !!! ");
+    }
+
+    protected function doCheckReturnedViewInControllerMethodIsExpected(
+        string $expected ,
+        string $method ,
+        View $view ,
+        string $message ,
+    ):void {
+        // @todo may be move to view helper !!!
+        $view = $view->name();
+        /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
+        if (strlen($message)==0)
+            $message = "{$method}() from class : {$this->namespace} returned {$view} view !!! but you expected {$expected} view !!! " ;
+        $this->assertEquals($expected,$view,$message);
     }
 }
