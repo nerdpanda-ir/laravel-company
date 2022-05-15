@@ -173,7 +173,7 @@ class ControllerTestCase extends TestCase {
                 $expected , $method , $methodResult , $message
             );
         else
-            $this->fail(" method {$method}() from class {$this->namespace} doesnt return any view !!! ");
+            $this->doActionWhenMethodInControllerNoReturnView($method);
     }
 
     protected function doCheckReturnedViewInControllerMethodIsExpected(
