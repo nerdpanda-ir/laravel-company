@@ -34,11 +34,12 @@ class ControllerTestCase extends TestCase {
         $this->assertTrue($methodIsExist , $message);
     }
 
-    protected function messageForMissingMethodInController(
-        string $method ,
-        ...$parameters
-    ):string {
-        return " controller -> {$this->namespace} should have {$method}() method !!!  ";
+    /**
+     * @param string $method
+     * @return string
+     */
+    protected function messageForMissingMethodInController( ...$parameters ):string {
+        return " controller -> {$this->namespace} should have {$parameters[0]}() method !!!  ";
     }
 
     protected function callStaticMethodFromController(string $method , array $methodArgs = [] ){
