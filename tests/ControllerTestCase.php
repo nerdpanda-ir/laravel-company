@@ -167,7 +167,7 @@ class ControllerTestCase extends TestCase {
          create view service class  or view helper class -> but before create test for it
          */
         $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
-        /** @todo if can  seperate to double method !!! |||| move line 171 , 176 to other method */
+        /** @todo move line 171 , 176 to other method */
         if ($methodResult instanceof View)
             $this->doCheckReturnedViewInControllerMethodIsExpected(
                 $expected , $method , $methodResult , $message
