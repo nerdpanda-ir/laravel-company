@@ -190,9 +190,14 @@ class ControllerTestCase extends TestCase {
         $this->assertEquals($expected,$view,$message);
     }
 
-    protected function defaultMessageForBadViewReturnInControllerMethod(
-        string $method , string $expected , string $actual , ...$parameters
-    ):string {
-        return "method {$method}() from class : {$this->namespace} returned {$actual} view !!! but you expected {$expected} view !!!";
+
+    /**
+     * @param string $method
+     * @param string $expected
+     * @param string $actual
+     * @return string
+     */
+    protected function defaultMessageForBadViewReturnInControllerMethod( ...$parameters ):string {
+        return "method {$parameters[0]}() from class : {$this->namespace} returned {$parameters[2]} view !!! but you expected {$parameters[1]} view !!!";
     }
 }
