@@ -209,4 +209,10 @@ class ControllerTestCase extends TestCase {
                 $method , $expected , $actual
             );
     }
+
+    protected function doActionWhenMethodInControllerNoReturnView(
+        string $method ,
+    ):void{
+        $this->fail("method {$method} from class {$this->namespace} doesnt return any view !!! ");
+    }
 }
