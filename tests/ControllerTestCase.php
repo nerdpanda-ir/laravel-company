@@ -2,6 +2,7 @@
 <?php
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ControllerTestCase extends TestCase {
     protected string $namespace;
@@ -280,4 +281,13 @@ class ControllerTestCase extends TestCase {
             $value = $fallback(...$fallbackArgs);
     }
     /* @todo temp methods */
+
+    protected function assertStaticMethodInControllerReturnJsonResourceInstance(
+        string $method , array $methodArgs = [] , string $message = ''
+    ):void {
+        $this->assertStaticMethodInControllerReturnInstanceOf(
+            JsonResource::class , $method , $methodArgs , $message
+        );
+    }
+    
 }
