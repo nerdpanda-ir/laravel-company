@@ -126,8 +126,9 @@ class ControllerTestCase extends TestCase {
         string $method ,
         string $expected
     ):void {
-        if (strlen($message)==0)
-            $message = $this->badTypeHintMessageForControllerMethod($method , $expected);
+        $this->fillFromCallableWhenStrLengthIsZero(
+            $message , [$this,'badTypeHintMessageForControllerMethod'] , [$method,$expected]
+        );
     }
 
     protected function assertStaticMethodInControllerReturnViewInstance(
