@@ -16,6 +16,10 @@ class ControllerTestCase extends TestCase {
         );
     }
 
+    protected function messageForMissingController(...$parameters):string {
+        return "we not have {$this->namespace} class !!!";
+    }
+
     protected function controllerInstance(array $controllerArgs = []) :object {
         return $this->app->make($this->namespace,$controllerArgs);
     }
