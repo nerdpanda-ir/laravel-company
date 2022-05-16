@@ -2,6 +2,7 @@
 <?php
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Tests\ControllerTestCase ;
 class SingleActionControllerTestCase extends ControllerTestCase {
     public function test_controller_has_invoke_method():void {
@@ -48,6 +49,14 @@ class SingleActionControllerTestCase extends ControllerTestCase {
     ):void {
         $this->assertReturnedViewForNoneStaticMethodInControllerShouldIs(
             $expected , '__invoke' , $invokeArgs , $controllerArgs , $message
+        );
+    }
+
+    protected function assertInvokeMethodReturnJsonResourceInstance(
+        array $controllerArgs = [] , array $invokeArgs = [] , string $message = '' ,
+    ):void {
+        $this->assertInvokeMethodReturnInstanceOf(
+            JsonResource::class , $controllerArgs , $invokeArgs , $message
         );
     }
 }
