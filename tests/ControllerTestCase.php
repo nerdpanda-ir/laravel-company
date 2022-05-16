@@ -85,8 +85,8 @@ class ControllerTestCase extends TestCase {
         $this->conditionalCallableRunner(
             $isStatic ,
             [$this , 'assertStaticMethodInControllerReturnInstanceOf'] ,
-            [$expected , $method , $methodArgs , $message ] ,
             [$this,'assertNoneStaticMethodInControllerReturnInstanceOf'] ,
+            [$expected , $method , $methodArgs , $message ] ,
             [$expected , $method , $methodArgs , $controllerArgs , $message]
         );
     }
@@ -162,8 +162,8 @@ class ControllerTestCase extends TestCase {
         $this->conditionalCallableRunner(
             $isStatic ,
             [$this , 'assertStaticMethodInControllerReturnViewInstance'] ,
-            [ $method , $methodArgs , $message ] ,
             [ $this , 'assertNoneStaticMethodInControllerReturnViewInstance'] ,
+            [ $method , $methodArgs , $message ] ,
             [$method , $methodArgs , $controllerArgs , $message]
         );
     }
@@ -245,8 +245,8 @@ class ControllerTestCase extends TestCase {
         $this->conditionalCallableRunner(
             $valueIsView,
             [$this, 'doCheckReturnedViewInControllerMethodIsExpected'],
-            [$expected, $method, $value, $message],
-            [$this, 'doActionWhenMethodInControllerNoReturnView'] [$method],
+            [$this, 'doActionWhenMethodInControllerNoReturnView'] ,
+            [$expected, $method, $value, $message] , [$method]
         );
     }
 
@@ -257,8 +257,8 @@ class ControllerTestCase extends TestCase {
         $this->conditionalCallableRunner(
             $isStatic ,
             [$this , 'assertReturnedViewForStaticMethodInControllerShouldIs'] ,
-            [ $expected , $method , $methodArgs , $message ] ,
             [$this , 'assertReturnedViewForNoneStaticMethodInControllerShouldIs'] ,
+            [ $expected , $method , $methodArgs , $message ] ,
             [$expected , $method , $methodArgs , $controllerArgs , $message ]
         );
     }
@@ -315,9 +315,8 @@ class ControllerTestCase extends TestCase {
         $this->conditionalCallableRunner(
             $isStatic ,
             [$this,'assertStaticMethodInControllerReturnJsonResourceInstance'] ,
-            [ $method , $methodArgs , $message ] ,
             [$this,'assertNoneStaticMethodInControllerReturnJsonResourceInstance'] ,
-            [ $method , $methodArgs , $controllerArgs , $message ]
+            [ $method , $methodArgs , $message ] , [ $method , $methodArgs , $controllerArgs , $message ]
         );
     }
 }
