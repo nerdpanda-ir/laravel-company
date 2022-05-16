@@ -68,10 +68,12 @@ class ControllerTestCase extends TestCase {
         array $methodArgs = [] ,
         array $controllerArgs = [] ,
     ){
-        if ($isStatic)
-            return $this->callStaticMethodFromController($method,$methodArgs);
-        else
-            return $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
+        return $this->conditionalCallableRunner(
+            $isStatic,
+            [$this, 'callStaticMethodFromController'],
+            [$this,'callNoneStaticMethodFromController'],
+            [$method , $methodArgs], [$method , $methodArgs , $controllerArgs]
+        );
     }
 
     protected function assertMethodInControllerReturnInstanceOf(
