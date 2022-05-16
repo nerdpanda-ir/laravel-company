@@ -201,10 +201,10 @@ class ControllerTestCase extends TestCase {
     protected function useDefaultBadViewReturnMessageWhenMessageIsEmpty(
         string &$message , string $method ,  string $expected ,  string $actual
     ):void {
-        if (strlen($message)==0)
-            $message = $this->defaultMessageForBadViewReturnInControllerMethod(
-                $method , $expected , $actual
-            );
+        $this->fillFromCallableWhenStrLengthIsZero(
+            $message , [$this,'defaultMessageForBadViewReturnInControllerMethod'] ,
+            [$method , $expected , $actual]
+        );
     }
 
     protected function doActionWhenMethodInControllerNoReturnView(
