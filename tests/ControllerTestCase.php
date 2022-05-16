@@ -187,7 +187,7 @@ class ControllerTestCase extends TestCase {
     ):void {
         // @todo may be move to view helper !!!
         $view = $view->name();
-        /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
+        
         $this->useDefaultBadViewReturnMessageWhenMessageIsEmpty(
             $message , $method , $expected , $view
         );
@@ -265,6 +265,7 @@ class ControllerTestCase extends TestCase {
     /* @todo temp methods ||||| move to one method !!!! or segregate class or function -> before should use tdd !!!! , -> str service or helper !!!*/
 
     protected function strLenIs( string $value , int $length ):bool{
+        /* @todo can create service or helper class -> function , facade , ..... for zero str length -> god thanks for this idea */
         return strlen($value)==$length;
     }
 
