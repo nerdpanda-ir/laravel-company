@@ -312,13 +312,12 @@ class ControllerTestCase extends TestCase {
         bool $isStatic , string $method , array $methodArgs = [] ,
         array $controllerArgs = [] , string $message = '' ,
     ):void {
-        if ($isStatic)
-            $this->assertStaticMethodInControllerReturnJsonResourceInstance(
-                $method , $methodArgs , $message
-            );
-        else
-            $this->assertNoneStaticMethodInControllerReturnJsonResourceInstance(
-                $method , $methodArgs , $controllerArgs , $message
-            );
+        $this->conditionalCallableRunner(
+            $isStatic ,
+            [$this,'assertStaticMethodInControllerReturnJsonResourceInstance'] ,
+            [ $method , $methodArgs , $message ] ,
+            [$this,'assertNoneStaticMethodInControllerReturnJsonResourceInstance'] ,
+            [ $method , $methodArgs , $controllerArgs , $message ]
+        );
     }
 }
