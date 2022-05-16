@@ -289,5 +289,12 @@ class ControllerTestCase extends TestCase {
             JsonResource::class , $method , $methodArgs , $message
         );
     }
-    
+
+    protected function assertNoneStaticMethodInControllerReturnJsonResourceInstance(
+        string $method , array $methodArgs = [] , array $controllerArgs = [] , string $message = ''
+    ):void {
+        $this->assertNoneStaticMethodInControllerReturnInstanceOf(
+            JsonResource::class , $method , $methodArgs , $controllerArgs , $message ,
+        );
+    }
 }
