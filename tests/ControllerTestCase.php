@@ -170,9 +170,6 @@ class ControllerTestCase extends TestCase {
     protected function assertReturnedViewForStaticMethodInControllerShouldIs(
         string $expected , string $method ,  array $methodArgs = [] , string $message = '' ,
     ):void{
-        /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!!
-         create view service class  or view helper class -> but before create test for it
-         */
         $methodResult = $this->callStaticMethodFromController($method,$methodArgs);
         $this->doHandleReturnedValueInControllerMethodIsExpectedView(
             $methodResult , $expected , $method ,$message ,
@@ -187,7 +184,7 @@ class ControllerTestCase extends TestCase {
     ):void {
         // @todo may be move to view helper !!!
         $view = $view->name();
-        
+
         $this->useDefaultBadViewReturnMessageWhenMessageIsEmpty(
             $message , $method , $expected , $view
         );
@@ -240,6 +237,9 @@ class ControllerTestCase extends TestCase {
     protected function doHandleReturnedValueInControllerMethodIsExpectedView(
         $value , string $expected , string $method , string $message
     ):void {
+        /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!!
+        create view service class  or view helper class -> but before create test for it
+         */
         if ($value instanceof View)
             $this->doCheckReturnedViewInControllerMethodIsExpected(
                 $expected , $method , $value , $message
