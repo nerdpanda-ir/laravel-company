@@ -29,8 +29,10 @@ class ControllerTestCase extends TestCase {
         string $message = '' ,
     ):void {
         $methodIsExist = $this->controllerHasMethod($method);
-        if (!$methodIsExist and strlen($message)==0)
-            $message = $this->messageForMissingMethodInController($method);
+        if (!$methodIsExist)
+            $this->fillFromCallableWhenStrLengthIsZero(
+                $message , [$this,'messageForMissingMethodInController'],[$method]
+            );
         $this->assertTrue($methodIsExist , $message);
     }
 
