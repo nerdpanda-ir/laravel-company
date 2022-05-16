@@ -160,12 +160,13 @@ class ControllerTestCase extends TestCase {
         bool $isStatic ,  string $method ,  array $methodArgs = [] ,
         array $controllerArgs = [] , string $message = ''
     ):void {
-        if ($isStatic)
-            $this->assertStaticMethodInControllerReturnViewInstance( $method , $methodArgs , $message );
-        else
-            $this->assertNoneStaticMethodInControllerReturnViewInstance(
-                $method , $methodArgs ,$controllerArgs , $message
-            );
+        $this->conditionalCallableRunner(
+            $isStatic ,
+            [$this , 'assertStaticMethodInControllerReturnViewInstance'] ,
+            [ $method , $methodArgs , $message ] ,
+            [ $this , 'assertNoneStaticMethodInControllerReturnViewInstance'] ,
+            [$method , $methodArgs , $controllerArgs , $message]
+        );
     }
 
     protected function assertReturnedViewForStaticMethodInControllerShouldIs(
