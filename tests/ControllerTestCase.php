@@ -280,6 +280,16 @@ class ControllerTestCase extends TestCase {
         if ($this->strLenIsZero($value))
             $value = $fallback(...$fallbackArgs);
     }
+
+    protected function conditionalCallableRunner(
+        bool $condition , callable $firstCallable , callable $secondCallable ,
+        array $firstArgs = [] , array $secondArgs = [] ,
+    ){
+        if ($condition)
+            return $firstCallable(...$firstArgs);
+        else
+            return $secondCallable(...$secondArgs);
+    }
     /* @todo temp methods */
 
     protected function assertStaticMethodInControllerReturnJsonResourceInstance(
@@ -308,7 +318,7 @@ class ControllerTestCase extends TestCase {
             );
         else
             $this->assertNoneStaticMethodInControllerReturnJsonResourceInstance(
-                $method , $methodArgs , $controllerArgs , $message 
+                $method , $methodArgs , $controllerArgs , $message
             );
     }
 }
