@@ -12,7 +12,7 @@ class ControllerTestCase extends TestCase {
         $isExist = class_exists($this->namespace,true);
         $this->assertTrue(
             $isExist,
-            'we not have this class -> '.$this->namespace()
+            $this->messageForMissingController()
         );
     }
 
