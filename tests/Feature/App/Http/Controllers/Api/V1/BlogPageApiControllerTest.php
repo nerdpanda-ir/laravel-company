@@ -13,10 +13,8 @@ class BlogPageApiControllerTest extends TestCase
 {
     protected string $namespace = BlogPageApiController::class ;
     public function test_invoke_method_should_return_instance_of_JsonResource():void {
-        /** @todo create method in controller test cast -> check method returned jsonResource */
-        /** @todo create method in Single Action controller test cast -> check __invoke returned jsonResource */
         /** @todo use method to all */
-        $this->assertInvokeMethodReturnInstanceOf(JsonResource::class);
+        $this->assertInvokeMethodReturnJsonResourceInstance();
     }
 
     public function test_invoke_method_should_return_instance_of_BlogPageResource():void{
