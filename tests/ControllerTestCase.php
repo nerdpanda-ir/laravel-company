@@ -241,12 +241,13 @@ class ControllerTestCase extends TestCase {
         /** @todo create method for is _ instance of view -> solid -> create unit test for (method or class(facade)) => god i love you for this idea !!!!
         create view service class  or view helper class -> but before create test for it
          */
-        if ($value instanceof View)
-            $this->doCheckReturnedViewInControllerMethodIsExpected(
-                $expected , $method , $value , $message
-            );
-        else
-            $this->doActionWhenMethodInControllerNoReturnView($method);
+        $valueIsView = $value instanceof View;
+        $this->conditionalCallableRunner(
+            $valueIsView,
+            [$this, 'doCheckReturnedViewInControllerMethodIsExpected'],
+            [$expected, $method, $value, $message],
+            [$this, 'doActionWhenMethodInControllerNoReturnView'] [$method],
+        );
     }
 
     protected function assertReturnedViewForMethodInControllerShouldIs(
