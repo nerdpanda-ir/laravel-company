@@ -266,5 +266,11 @@ class ControllerTestCase extends TestCase {
         return $this->strLenIs($value,0);
     }
 
+    protected function fillFromCallableWhenStrLengthIsZero(
+        string &$value , callable $fallback , array $fallbackArgs = []
+    ):void {
+        if ($this->strLenIsZero($value))
+            $value = $fallback(...$fallbackArgs);
+    }
     /* @todo temp methods */
 }
