@@ -253,14 +253,13 @@ class ControllerTestCase extends TestCase {
         bool $isStatic , string $expected , string $method ,
         array $methodArgs = [] , array $controllerArgs = [] , string $message = ''
     ):void{
-        if ($isStatic)
-            $this->assertReturnedViewForStaticMethodInControllerShouldIs(
-                $expected , $method , $methodArgs , $message
-            );
-        else
-            $this->assertReturnedViewForNoneStaticMethodInControllerShouldIs(
-                $expected , $method , $methodArgs ,$controllerArgs , $message
-            );
+        $this->conditionalCallableRunner(
+            $isStatic ,
+            [$this , 'assertReturnedViewForStaticMethodInControllerShouldIs'] ,
+            [ $expected , $method , $methodArgs , $message ] ,
+            [$this , 'assertReturnedViewForNoneStaticMethodInControllerShouldIs'] ,
+            [$expected , $method , $methodArgs , $controllerArgs , $message ]
+        );
     }
 
     /* @todo temp methods ||||| move to one method !!!! or segregate class or function -> before should use tdd !!!! , -> str service or helper !!!*/
