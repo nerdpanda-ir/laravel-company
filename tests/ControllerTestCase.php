@@ -82,14 +82,13 @@ class ControllerTestCase extends TestCase {
         array $controllerArgs = [] ,
         string $message = ''
     ):void {
-        if ($isStatic)
-            $this->assertStaticMethodInControllerReturnInstanceOf(
-                $expected,$method,$methodArgs,$message
-            );
-        else
-            $this->assertNoneStaticMethodInControllerReturnInstanceOf(
-                $expected , $method , $methodArgs , $controllerArgs , $message
-            );
+        $this->conditionalCallableRunner(
+            $isStatic ,
+            [$this , 'assertStaticMethodInControllerReturnInstanceOf'] ,
+            [$expected , $method , $methodArgs , $message ] ,
+            [$this,'assertNoneStaticMethodInControllerReturnInstanceOf'] ,
+            [$expected , $method , $methodArgs , $controllerArgs , $message]
+        );
     }
 
     /**
