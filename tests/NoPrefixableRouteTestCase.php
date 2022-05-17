@@ -27,4 +27,11 @@ class NoPrefixableRouteTestCase extends RouteTestCase {
         $testResponse = $this->getRequestToPageRouteByRouteName($routeParameter,$headers);
         $this->assertHeaderValueInResponseEqualTo($testResponse,$header,$value);
     }
+
+    protected function assertValueForContentTypeHeaderInReceivedResponseFromGetRequestToPageRouteByRouteNameEqualTo(
+        string $expected , array $routeParameters = [] , array $headers = []
+    ):void {
+        $testResponse = $this->getRequestToPageRouteByRouteName($routeParameters,$headers);
+        $this->assertValueForContentTypeHeaderEqualTo( $testResponse , $expected );
+    }
 }
