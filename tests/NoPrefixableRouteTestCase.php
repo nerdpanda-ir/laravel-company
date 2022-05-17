@@ -4,12 +4,7 @@
 use Illuminate\Testing\TestResponse;
 
 class NoPrefixableRouteTestCase extends RouteTestCase {
-    protected string $pageRoute;
-
-    protected function pageRoute():string {
-        return $this->pageRoute;
-    }
-
+    
     protected function getRequestToPageRouteByRouteName(
         array $routeParameters = [] ,
         array $headers = []
