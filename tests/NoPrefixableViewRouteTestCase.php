@@ -2,7 +2,7 @@
 <?php
 class NoPrefixableViewRouteTestCase extends NoPrefixableRouteTestCase {
     use ViewableRoute;
-    
+
     protected function assertViewInReceivedGetResponseFromRequestToPageRouteByRouteNameIs(
         string $view , array $routeParameters = [] , array $headers = [] ,
     ):void {
@@ -14,6 +14,6 @@ class NoPrefixableViewRouteTestCase extends NoPrefixableRouteTestCase {
          * create assert for application/json
          */
         $testResponse = $this->getRequestToPageRouteByRouteName($routeParameters , $headers) ;
-        $testResponse->assertViewIs($view);
+        $this->assertViewInResponseEqualTo($testResponse,$view);
     }
 }
