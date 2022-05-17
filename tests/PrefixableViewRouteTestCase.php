@@ -1,6 +1,8 @@
 <?php namespace Tests ; ?>
 <?php
 class PrefixableViewRouteTestCase extends PrefixableRouteTestCase {
+    use ViewableRoute;
+
     protected function assertViewInReceivedGetResponseFromRequestToFullPageRouteByRouteNameIs(
         string $view , array $routeParameters = [] , array $headers = [] ,
     ):void {
