@@ -16,4 +16,9 @@ class RouteTestCase extends TestCase {
         $response->assertHeader($header,$value);
     }
 
+    protected function assertValueForContentTypeHeaderEqualTo(
+        TestResponse $response, string $value
+    ):void {
+        $this->assertHeaderValueInResponseEqualTo($response,'content-type',$value);
+    }
 }
