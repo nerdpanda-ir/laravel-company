@@ -16,4 +16,11 @@ class NoPrefixableViewRouteTestCase extends NoPrefixableRouteTestCase {
         $testResponse = $this->getRequestToPageRouteByRouteName($routeParameters , $headers) ;
         $this->assertViewInResponseEqualTo($testResponse,$view);
     }
+
+    protected function assertValueForContentTypeHeaderInReceivedResponseFromGetRequestToPageRouteByRouteNameEqualToTextHtml(
+        array $routeParameters = [] , array $headers = []
+    ):void {
+        $testResponse = $this->getRequestToPageRouteByRouteName($routeParameters,$headers);
+        $this->assertValueForContentTypeHeaderInResponseEqualToTextHtml($testResponse);
+    }
 }
