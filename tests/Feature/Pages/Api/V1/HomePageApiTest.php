@@ -19,11 +19,7 @@ class HomePageApiTest extends TestCase
     }
 
     public function test_home_api_page_json_response_body():void{
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
-        $testResponse->assertJson([
-            'data'=> [
-                'message'=> 'welcome to home'
-            ]
-        ]);
+        $expected = ['data'=> ['message'=> 'welcome to home']];
+        $this->assertReceivedJsonResponseFromGetRequestToFullPageRouteByRouteNameEqualTo($expected);
     }
 }
