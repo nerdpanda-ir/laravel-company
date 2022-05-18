@@ -10,7 +10,7 @@ class PrefixableViewRouteTestCase extends PrefixableRouteTestCase {
         $this->assertViewInResponseEqualTo($testResponse,$view);
     }
 
-    protected function assertValueForContentTypeHeaderInReceivedResponseFromGetRequestToFullPageRouteByRouteNameEqualToTextHtml(
+    protected function assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualToTextHtml(
         array $routeParameters = [] , array $headers = [] ,
     ):void {
         $testResponse = $this->getRequestToFullPageRouteByRouteName($routeParameters , $headers);
