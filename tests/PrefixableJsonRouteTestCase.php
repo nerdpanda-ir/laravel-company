@@ -9,4 +9,12 @@ class PrefixableJsonRouteTestCase extends PrefixableRouteTestCase {
         $testResponse = $this->getRequestToFullPageRouteByRouteName($routeParameters , $headers );
         $this->assertValueForContentTypeHeaderInResponseEqualToApplicationJson($testResponse);
     }
+
+    protected function assertReceivedJsonResponseFromGetRequestToFullPageRouteByRouteNameEqualTo(
+        array | callable $expected , bool $strict = false ,
+        array $routeParameters = [] , array $headers = []
+    ):void {
+        $testResponse = $this->getRequestToFullPageRouteByRouteName( $routeParameters , $headers );
+        $this->assertJsonInResponseEqualTo($testResponse,$expected,$strict);
+    }
 }
