@@ -9,4 +9,12 @@ class NoPrefixableJsonRouteTestCase extends NoPrefixableRouteTestCase {
         $testResponse = $this->getRequestToPageRouteByRouteName($routeParameters , $headers );
         $this->assertValueForContentTypeHeaderInResponseEqualToApplicationJson($testResponse);
     }
+
+    protected function assertReceivedJsonResponseFromGetRequestToPageRouteByRouteNameEqualTo(
+        array | callable $expected , bool $strict = false ,
+        array $routeParameters = [] , array $headers = [] ,
+    ):void {
+        $testResponse = $this->getRequestToPageRouteByRouteName( $routeParameters , $headers );
+        $this->assertJsonInResponseEqualTo( $testResponse , $expected , $strict );
+    }
 }
