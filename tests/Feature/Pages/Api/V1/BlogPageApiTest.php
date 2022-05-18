@@ -20,13 +20,8 @@ $this->assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPage
     }
 
     public function test_blog_api_page_response_content_test():void {
-        /** @todo can merge this methods to one */
         /** @todo after merge -> refactor home page api test class  */
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
-        $testResponse->assertJson([
-            'data'=> [
-                'message'=>'welcome to blog page !!!'
-            ]
-        ]);
+        $expected = ['data'=> ['message'=>'welcome to blog page !!!']];
+        $this->assertReceivedJsonResponseFromGetRequestToFullPageRouteByRouteNameEqualTo($expected);
     }
 }
