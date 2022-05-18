@@ -48,7 +48,7 @@ class PrefixableRouteTestCase extends RouteTestCase {
     }
 
     protected function
-     assertValueForContentTypeHeaderInReceivedResponseFromGetRequestToFullPageRouteByRouteNameEqualTo(
+     assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualTo(
         string $expected , array $routeParameters = [] , array $headers = [] ,
     ):void {
         $testResponse = $this->getRequestToFullPageRouteByRouteName( $routeParameters , $headers);
