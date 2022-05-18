@@ -15,10 +15,8 @@ class BlogPageApiTest extends TestCase
     }
 
     public function test_content_type_header_in_blog_page_api_response_should_is_application_json():void {
-        /** @todo can merge this methods to one */
         /** @todo after merge => should refactor home page api test */
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
-        $testResponse->assertHeader('content-type','application/json');
+$this->assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualToApplicationJson();
     }
 
     public function test_blog_api_page_response_content_test():void {
