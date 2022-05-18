@@ -15,8 +15,7 @@ class HomePageApiTest extends TestCase
     }
 
     public function test_content_type_header_in_home_api_page_response_should_is_application_json():void {
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
-        $testResponse->assertHeader('content-type','application/json');
+        $this->assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualToApplicationJson();
     }
 
     public function test_home_api_page_json_response_body():void{
