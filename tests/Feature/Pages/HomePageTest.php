@@ -15,7 +15,6 @@ class HomePageTest extends TestCase
     }
 
     public function test_home_page_should_rendered_index_view() :void {
-        $testResponse = $this->getRequestToPageRouteByRouteName();
-        $testResponse->assertViewIs('index');
+        $this->assertViewInReceivedGetResponseFromRequestToPageRouteByRouteNameIs('index');
     }
 }
