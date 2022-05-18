@@ -15,12 +15,10 @@ class BlogPageApiTest extends TestCase
     }
 
     public function test_content_type_header_in_blog_page_api_response_should_is_application_json():void {
-        /** @todo after merge => should refactor home page api test */
 $this->assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualToApplicationJson();
     }
 
     public function test_blog_api_page_response_content_test():void {
-        /** @todo after merge -> refactor home page api test class  */
         $expected = ['data'=> ['message'=>'welcome to blog page !!!']];
         $this->assertReceivedJsonResponseFromGetRequestToFullPageRouteByRouteNameEqualTo($expected);
     }
