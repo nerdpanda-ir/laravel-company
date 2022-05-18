@@ -11,8 +11,7 @@ class HomePageApiTest extends TestCase
     protected string $pageRoute = 'home';
 
     public function test_home_api_page_should_have_200_status_code():void {
-        $testResponse = $this->getRequestToFullPageRouteByRouteName();
-        $testResponse->assertStatus(200);
+        $this->assertOkFullPageRouteGetResponseThatReceivedByRouteName();
     }
 
     public function test_content_type_header_in_home_api_page_response_should_is_application_json():void {
