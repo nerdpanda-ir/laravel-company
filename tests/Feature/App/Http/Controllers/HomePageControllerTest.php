@@ -14,4 +14,8 @@ class HomePageControllerTest extends TestCase
     public function test_invoke_method_should_return_view():void {
         $this->assertInvokeMethodReturnViewInstance();
     }
+
+    public function test_invoke_method_should_return_index_view():void {
+        $this->assertReturnedViewForInvokeMethodShouldIs('index');
+    }
 }
