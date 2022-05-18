@@ -9,4 +9,10 @@ trait JsonableRoute{
     ) :void {
         $this->assertValueForContentTypeHeaderEqualTo($response,'application/json');
     }
+
+    protected function assertJsonInResponseEqualTo(
+        TestResponse $response , array | callable $expected , bool $strict = false
+    ):void {
+        $response->assertJson( $expected , $strict );
+    }
 }
