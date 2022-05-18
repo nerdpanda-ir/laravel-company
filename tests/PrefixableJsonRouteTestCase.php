@@ -3,7 +3,7 @@
 class PrefixableJsonRouteTestCase extends PrefixableRouteTestCase {
     use JsonableRoute;
 
-    protected function assertValueForContentTypeHeaderInReceivedResponseFromGetRequestToFullPageRouteByRouteNameEqualToApplicationJson(
+    protected function assertValueForContentTypeHeaderInReceivedGetResponseFromRequestToFullPageRouteByRouteNameEqualToApplicationJson(
         array $routeParameters = [] , array $headers = [] ,
     ):void {
         $testResponse = $this->getRequestToFullPageRouteByRouteName($routeParameters , $headers );
