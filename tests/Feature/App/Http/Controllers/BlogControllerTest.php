@@ -15,7 +15,6 @@ class BlogControllerTest extends TestCase {
     }
 
     public function test_invoke_method_should_return_blog_view():void {
-        /** @todo should create this method for home controller !!! */
         $this->assertReturnedViewForInvokeMethodShouldIs('blog');
     }
 }
