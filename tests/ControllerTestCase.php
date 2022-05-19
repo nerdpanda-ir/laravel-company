@@ -357,6 +357,11 @@ class ControllerTestCase extends TestCase {
         );
     }
 
+    /**
+     * @param $method
+     * @param $parameter
+     * @return string
+     */
     protected function messageForMissingParameterInControllerMethod(...$parameters):string {
         return "method $parameters[0]() from class $this->namespace should have $parameters[1] parameter";
     }
