@@ -365,4 +365,16 @@ class ControllerTestCase extends TestCase {
     protected function messageForMissingParameterInControllerMethod(...$parameters):string {
         return "method $parameters[0]() from class $this->namespace should have $parameters[1] parameter";
     }
+
+    protected function reflectionMethodTypeHintedParameters(string $method):array {
+        $parameters = [] ;
+        $this->walkToReflectionMethodParameters(
+            $method,
+            function (\ReflectionParameter $parameter) use (&$parameters){
+                if ($parameter->hasType())
+                    $parameters[$parameter->getName()] = $parameter;
+            }
+        );
+        return $parameters;
+    }
 }
