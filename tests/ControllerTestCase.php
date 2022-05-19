@@ -326,4 +326,10 @@ class ControllerTestCase extends TestCase {
         /** @todo may be (create method controller test class ) !! controller test just test controller no test method in controller !!! */
         return new \ReflectionMethod($this->namespace,$method);
     }
+
+    protected function reflectionMethodParameters(string $method):array {
+        $methodReflection = $this->reflectionMethod($method);
+        return $methodReflection->getParameters();
+    }
+    
 }
