@@ -332,7 +332,7 @@ class ControllerTestCase extends TestCase {
         return $methodReflection->getParameters();
     }
 
-    protected function walkToReflectionMethodParameters(string $method , callable $action){
+    protected function walkToReflectionMethodParameters(string $method , callable $action):void{
         $methodReflectionParameters = $this->reflectionMethodParameters($method);
         array_walk($methodReflectionParameters , $action);
     }
@@ -377,4 +377,6 @@ class ControllerTestCase extends TestCase {
         );
         return $parameters;
     }
+
+    
 }
