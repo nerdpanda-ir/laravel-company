@@ -336,4 +336,15 @@ class ControllerTestCase extends TestCase {
         $methodReflectionParameters = $this->reflectionMethodParameters($method);
         array_walk($methodReflectionParameters , $action);
     }
+
+    protected function reflectionMethodParametersNames(string $method):array {
+        $names = [] ;
+        $this->walkToReflectionMethodParameters(
+            $method,
+            function (\ReflectionParameter $parameter) use (&$names) {
+                $names[] = $parameter->getName();
+            }
+        );
+        return $names;
+    }
 }
