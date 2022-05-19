@@ -351,7 +351,10 @@ class ControllerTestCase extends TestCase {
     protected function assertDefinedParameterInControllerMethod(string $method , string $parameter):void{
         $parameters = $this->reflectionMethodParametersNames($method);
         $hasParameter = in_array($parameter,$parameters);
-        $this->assertTrue($hasParameter,"method $method() from class $this->namespace should have $parameter parameter");
+        $this->assertTrue(
+            $hasParameter,
+            $this->messageForMissingParameterInControllerMethod($method,$parameter)
+        );
     }
 
     protected function messageForMissingParameterInControllerMethod(...$parameters):string {
