@@ -347,4 +347,10 @@ class ControllerTestCase extends TestCase {
         );
         return $names;
     }
+
+    protected function assertDefinedParameterInControllerMethod(string $method , string $parameter):void{
+        $parameters = $this->reflectionMethodParametersNames($method);
+        $hasParameter = in_array($parameter,$parameters);
+        $this->assertTrue($hasParameter,"method $method() from class $this->namespace should have $parameter parameter");
+    }
 }
