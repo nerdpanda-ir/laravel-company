@@ -378,5 +378,8 @@ class ControllerTestCase extends TestCase {
         return $parameters;
     }
 
-    
+    protected function walkToReflectionMethodTypeHintedParameters(string $method,callable $action):void{
+        $parameters = $this->reflectionMethodTypeHintedParameters($method);
+        array_walk($parameters,$action);
+    }
 }
