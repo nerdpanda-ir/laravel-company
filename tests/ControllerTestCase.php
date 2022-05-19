@@ -3,7 +3,7 @@
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Resources\Json\JsonResource;
-
+// todo check solid for methods and class
 class ControllerTestCase extends TestCase {
     protected string $namespace;
     protected function namespace() :string {
@@ -321,7 +321,7 @@ class ControllerTestCase extends TestCase {
             [ $method , $methodArgs , $message ] , [ $method , $methodArgs , $controllerArgs , $message ]
         );
     }
-
+    //@todo create these methods for single action controller
     protected function reflectionMethod(string $method):\ReflectionMethod {
         /** @todo may be (create method controller test class ) !! controller test just test controller no test method in controller !!! ======= solid check */
         return new \ReflectionMethod($this->namespace,$method);
