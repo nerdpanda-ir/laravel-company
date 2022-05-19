@@ -9,5 +9,5 @@ use App\Http\Controllers\ShowArticleController;
 
 class ShowArticleControllerTest extends TestCase
 {
-    
+    protected string $namespace = ShowArticleController::class ;
 }
