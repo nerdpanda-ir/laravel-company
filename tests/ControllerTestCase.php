@@ -382,4 +382,19 @@ class ControllerTestCase extends TestCase {
         $parameters = $this->reflectionMethodTypeHintedParameters($method);
         array_walk($parameters,$action);
     }
+
+    protected function reflectionMethodParametersNamesWithTypeHint(string $method):array {
+        $parameters = [] ;
+
+        $this->walkToReflectionMethodTypeHintedParameters(
+            $method ,
+            function (\ReflectionParameter $parameter) use (&$parameters){
+                if ($parameter->getType() instanceof \ReflectionNamedType)
+                    $parameters[$parameter->name] = (string)$parameter->getType();
+                else
+                    $parameters[$parameter->name] = implode('|',$parameter->getType()->getTypes());
+            }
+        );
+        return $parameters;
+    }
 }
