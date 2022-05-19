@@ -321,4 +321,9 @@ class ControllerTestCase extends TestCase {
             [ $method , $methodArgs , $message ] , [ $method , $methodArgs , $controllerArgs , $message ]
         );
     }
+
+    protected function reflectionMethod(string $method):\ReflectionMethod {
+        /** @todo may be (create method controller test class ) !! controller test just test controller no test method in controller !!! */
+        return new \ReflectionMethod($this->namespace,$method);
+    }
 }
