@@ -7,5 +7,6 @@ use App\Contracts\HasNamespaceSetterInterface ;
 
 class HasNamespaceSetterInterfaceTest extends TestCase
 {
+    protected string $namespace = HasNamespaceSetterInterface::class ;
     
 }
