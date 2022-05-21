@@ -146,7 +146,7 @@ class ControllerTestCase extends TestCase {
             View::class , $method , $methodArgs , $message
         );
     }
-    
+
     protected function assertNoneStaticMethodInControllerReturnViewInstance(
         string $method , array $methodArgs = [] ,
         array $controllerArgs = [] , string $message = '' ,
@@ -230,7 +230,7 @@ class ControllerTestCase extends TestCase {
         string $expected , string $method, array $methodArgs = [] ,
         array $controllerArgs = [] , string $message = ''
     ):void{
-        $methodResult = $this->callNoneStaticMethodFromController($method,$controllerArgs);
+        $methodResult = $this->callNoneStaticMethodFromController($method,$methodArgs,$controllerArgs);
         $this->doHandleReturnedValueInControllerMethodIsExpectedView(
             $methodResult,$expected,$method,$message
         );
