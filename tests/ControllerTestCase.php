@@ -16,7 +16,7 @@ class ControllerTestCase extends TestCase {
             $this->messageForMissingController()
         );
     }
-
+    //todo create message repository class , methods in message repository use laravel lang
     protected function messageForMissingController(...$parameters):string {
         return "we not have {$this->namespace} class !!!";
     }
@@ -24,11 +24,11 @@ class ControllerTestCase extends TestCase {
     protected function controllerInstance(array $controllerArgs = []) :object {
         return $this->app->make($this->namespace,$controllerArgs);
     }
-
+    //@todo create controller method test case | class method test case
     protected function controllerHasMethod(string $method) :bool {
         return method_exists($this->namespace , $method) ;
     }
-
+    //@todo move to controller method test case | class method test case
     protected function assertControllerHasMethod(
         string $method ,
         string $message = '' ,
@@ -146,8 +146,7 @@ class ControllerTestCase extends TestCase {
             View::class , $method , $methodArgs , $message
         );
     }
-
-
+    
     protected function assertNoneStaticMethodInControllerReturnViewInstance(
         string $method , array $methodArgs = [] ,
         array $controllerArgs = [] , string $message = '' ,
