@@ -13,6 +13,7 @@ class NamespaceMethodTest extends TestCase
         $this->assertTrue($isExist, " should interface => $this->namespace has namespace() method");
     }
     public function test_return_type_is_string():void {
+        // @todo have bug here when method return union !!!
         $methodReflection = new \ReflectionMethod($this->namespace,'namespace');
         $returnType = (string)$methodReflection->getReturnType();
         $expected = 'string';
