@@ -7,5 +7,5 @@ use Tests\EntityTestCase;
 
 class EntityTestCaseNamespacePropertyTest extends TestCase
 {
-
+    protected string $namespace = EntityTestCase::class ;
 }
