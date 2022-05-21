@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 
-class EntityTestCaseTest extends TestCase
+class EntityTestCaseClassTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
 
