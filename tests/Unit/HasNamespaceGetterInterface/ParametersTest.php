@@ -7,5 +7,5 @@ use App\Contracts\HasNamespaceGetterInterface;
 
 class ParametersTest extends TestCase
 {
-
+    protected string $namespace = HasNamespaceGetterInterface::class ;
 }
