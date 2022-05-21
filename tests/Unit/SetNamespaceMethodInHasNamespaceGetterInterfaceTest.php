@@ -16,7 +16,8 @@ class SetNamespaceMethodInHasNamespaceGetterInterfaceTest extends TestCase
             "interface => $this->namespace should have $this->method() method !!! "
         );
     }
-
+    //@todo return type should be check
+    //@todo create method parameter test class
     public function test_method_should_have_namespace_parameter():void {
         $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
         $requiredParameter = 'namespace';
