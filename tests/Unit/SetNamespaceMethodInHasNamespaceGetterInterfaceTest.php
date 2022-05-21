@@ -8,4 +8,5 @@ use App\Contracts\HasNamespaceSetterInterface;
 class SetNamespaceMethodInHasNamespaceGetterInterfaceTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterInterface::class ;
+    protected string $method = 'setNamespace';
 }
