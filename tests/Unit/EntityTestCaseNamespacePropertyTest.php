@@ -8,7 +8,7 @@ use Tests\EntityTestCase;
 class EntityTestCaseNamespacePropertyTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
-    public function test_should_exist_namespace_property_class ():void {
+    public function test_should_exist ():void {
         $isExist = property_exists($this->namespace,'namespace');
         $this->assertTrue($isExist,"no exist \$namespace property in $this->namespace ");
     }
