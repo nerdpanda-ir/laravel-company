@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 
-class EntityTestCaseNamespacePropertyTest extends TestCase
+class NamespacePropertyTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
     public function test_should_exist ():void {
