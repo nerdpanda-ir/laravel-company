@@ -1,5 +1,5 @@
 <?php namespace App\Contracts; ?>
 <?php
 interface HasNamespaceSetterInterface {
-    public function setNamespace();
+    public function setNamespace($namespace);
 }
