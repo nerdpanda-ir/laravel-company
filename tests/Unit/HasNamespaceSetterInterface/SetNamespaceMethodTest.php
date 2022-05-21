@@ -17,7 +17,7 @@ class SetNamespaceMethodTest extends TestCase
         );
     }
     //@todo return type should be check
-    //@todo create method parameter test class
+    //@todo create method parameter test class , parametr position check , parameter count
     public function test_method_should_have_namespace_parameter():void {
         $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
         $requiredParameter = 'namespace';
