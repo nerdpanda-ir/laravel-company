@@ -16,4 +16,14 @@ class SetNamespaceMethodInHasNamespaceGetterInterfaceTest extends TestCase
             "interface => $this->namespace should have $this->method() method !!! "
         );
     }
+
+    public function test_method_should_have_namespace_parameter():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $requiredParameter = 'namespace';
+        $parameters = [] ;
+        foreach ($methodReflection->getParameters() as  $parameter)
+            $parameters[] = $parameter->name;
+        $exist = in_array($requiredParameter , $parameters );
+        $this->assertTrue($exist,"method => $this->method () from interface => $this->namespace should have \$$requiredParameter");
+    }
 }
