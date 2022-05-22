@@ -4,7 +4,9 @@ namespace Tests\Unit\EntityTestCaseClass\Properties;
 
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
-
+//@todo create method for static properties count check
+//@todo create method for none static properties count check
+//@todo create method for const | final  properties count check
 class PropertiesTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
