@@ -10,6 +10,8 @@ class NamespacePropertyTest extends TestCase
     protected string $namespace = EntityTestCase::class ;
     protected string $property = 'namespace';
     //@todo can create propertiable interface , for class test , trait test, ...
+    //@todo these method can move tod trait -> for use user : dont repeat in any property test case !!!
+
     public function test_should_exist ():void {
         $isExist = property_exists($this->namespace,$this->property);
         $this->assertTrue($isExist,"no exist \$namespace property in $this->namespace ");
@@ -42,5 +44,5 @@ class NamespacePropertyTest extends TestCase
         $expected = 'string';
         $this->assertEquals($expected ,$realType,"data type for \$namespace property should is string !!! ");
     }
-    //@todo check default value
+
 }
