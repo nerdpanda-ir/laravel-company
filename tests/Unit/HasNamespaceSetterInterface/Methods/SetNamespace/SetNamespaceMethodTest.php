@@ -4,7 +4,8 @@ namespace Tests\Unit\HasNamespaceSetterInterface\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
-
+//@todo create method for is static or none static
+//@todo create method for abstract or final
 class SetNamespaceMethodTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterInterface::class ;
