@@ -30,6 +30,7 @@ class NamespacePropertyTest extends TestCase
         $this->assertTrue($isProtected,"should access modifier for \$namespace property in class => $this->namespace is protected !!! ");
     }
     public function test_is_none_static():void {
+        //@todo isStatic() , isNoneStatic()
         $propertyReflection = new \ReflectionProperty($this->namespace , $this->property);
         $isNoneStatic = !$propertyReflection->isStatic();
         $this->assertTrue(
@@ -52,5 +53,12 @@ class NamespacePropertyTest extends TestCase
             "property \$$this->property in $this->namespace class should no have default value "
         );
     }
-    //@todo create method in property test class  for check  default value
+    public function test_should_have_null_default_value():void {
+        $propertyReflection = new \ReflectionProperty($this->namespace,$this->property);
+        $defaultValue = $propertyReflection->getDefaultValue();
+        $this->assertEquals(
+            null, $defaultValue ,
+            "property $$this->property should have null default value !!!"
+        );
+    }
 }
