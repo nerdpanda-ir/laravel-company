@@ -1,7 +1,7 @@
 <?php
 
 namespace Tests\Unit\HasNamespaceSetterInterface\Methods\SetNamespace\Parameters\Namespace;
-
+//@todo create method for test parameter position
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
 class NamespaceParameterTest extends TestCase
