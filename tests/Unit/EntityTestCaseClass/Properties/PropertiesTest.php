@@ -25,4 +25,18 @@ class PropertiesTest extends TestCase
             "class : $this->namespace just should have single property !!! "
         );
     }
+    public function test_no_have_static_property():void{
+        $classReflection = new \ReflectionClass($this->namespace);
+        $properties = $classReflection->getProperties();
+        $staticProperties = [] ;
+        foreach ($properties as $property)
+            if ($property->class==$this->namespace and $property->isStatic())
+                $staticProperties[] = $property->name;
+        $staticPropertiesCount = count($staticProperties);
+        $this->assertEquals(
+            0 ,
+            $staticPropertiesCount ,
+            "class $this->namespace should have 0 static property !!!! "
+        );
+    }
 }
