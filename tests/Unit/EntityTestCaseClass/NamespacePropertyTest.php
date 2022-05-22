@@ -9,9 +9,9 @@ class NamespacePropertyTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
     protected string $property = 'namespace';
-        
+
     public function test_should_exist ():void {
-        $isExist = property_exists($this->namespace,'namespace');
+        $isExist = property_exists($this->namespace,$this->property);
         $this->assertTrue($isExist,"no exist \$namespace property in $this->namespace ");
     }
     public function test_should_is_Protected():void {
