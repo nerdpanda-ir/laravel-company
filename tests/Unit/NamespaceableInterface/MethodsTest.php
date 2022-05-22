@@ -21,4 +21,18 @@ class MethodsTest extends TestCase
             "$this->namespace should no declare method !!! "
         );
     }
+
+    public function test_should_have_two_method_from_parents():void {
+        $parents = class_implements($this->namespace);
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods() ;
+        $counter = 0 ;
+        foreach ($methods as $method)
+            if (in_array($method->class,$parents))
+                $counter++;
+        $this->assertEquals(
+            2,$counter ,
+            "$this->namespace should have two method from parent "
+        );
+    }
 }
