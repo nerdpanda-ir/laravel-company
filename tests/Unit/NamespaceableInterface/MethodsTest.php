@@ -7,5 +7,5 @@ use App\Contracts\NamespaceableInterface ;
 
 class MethodsTest extends TestCase
 {
-
+    protected string $namespace = NamespaceableInterface::class ;
 }
