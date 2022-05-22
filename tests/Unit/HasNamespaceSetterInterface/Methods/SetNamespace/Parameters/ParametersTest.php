@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\HasNamespaceSetterInterface;
+namespace Tests\Unit\HasNamespaceSetterInterface\Methods\SetNamespace\Parameters;
 
-use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
+use PHPUnit\Framework\TestCase;
 
 class SetNamespaceMethodParametersTest extends TestCase
 {
