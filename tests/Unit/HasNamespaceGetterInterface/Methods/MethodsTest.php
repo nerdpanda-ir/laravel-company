@@ -17,4 +17,5 @@ class MethodsTest extends TestCase
             "interface $this->namespace should only have one method !!!"
         );
     }
+    //@todo create test methods for static , none staticm method
 }
