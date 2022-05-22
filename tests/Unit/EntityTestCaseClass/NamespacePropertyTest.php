@@ -8,6 +8,8 @@ use Tests\EntityTestCase;
 class NamespacePropertyTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
+    protected string $property = 'namespace';
+        
     public function test_should_exist ():void {
         $isExist = property_exists($this->namespace,'namespace');
         $this->assertTrue($isExist,"no exist \$namespace property in $this->namespace ");
@@ -23,4 +25,8 @@ class NamespacePropertyTest extends TestCase
         $expected = 'string';
         $this->assertEquals($expected ,$realType,"data type for \$namespace property should is string !!! ");
     }
+    //@todo check default value
+    //@todo check not static
+    //@todo check defined class -> should defined in child  !!!!
+
 }
