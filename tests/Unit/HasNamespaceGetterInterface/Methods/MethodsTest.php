@@ -31,5 +31,18 @@ class MethodsTest extends TestCase
             "interface $this->namespace no have any static method !!! "
         );
     }
+    public function test_should_have_one_abstract_method():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods();
+        $abstractMethods = [] ;
+        foreach ($methods as $method)
+            if ($method->isAbstract())
+                $abstractMethods[] = $method->name ;
+        $abstractMethodsCount = count($abstractMethods);
+        $this->assertEquals(
+            1 , $abstractMethodsCount ,
+            "interface $this->namespace should just have one abstract method !!! "
+        );
+    }
     //@todo create test methods for static , none staticm method , abstaract check , none abstarct , final , ..
 }
