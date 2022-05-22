@@ -33,4 +33,13 @@ class NamespaceableInterfaceTest extends TestCase
             "interface $this->namespace should implement ".HasNamespaceSetterInterface::class . ' interface !!! '
         );
     }
+    public function test_should_implement_two_interface():void {
+        $implements = class_implements($this->namespace);
+        $implementCount = count($implements);
+        $expect = 2 ;
+        $this->assertEquals(
+            $expect , $implementCount ,
+            "$this->namespace interface should implement two interface !!! "
+        );
+    }
 }
