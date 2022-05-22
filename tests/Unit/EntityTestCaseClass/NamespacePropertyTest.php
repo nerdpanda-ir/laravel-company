@@ -35,7 +35,6 @@ class NamespacePropertyTest extends TestCase
         $this->assertEquals($expected ,$realType,"data type for \$namespace property should is string !!! ");
     }
     //@todo check default value
-    //@todo check not static
     //@todo check defined class -> should defined in child  !!!!
 
 }
