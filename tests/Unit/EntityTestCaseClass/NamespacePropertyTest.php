@@ -14,6 +14,14 @@ class NamespacePropertyTest extends TestCase
         $isExist = property_exists($this->namespace,$this->property);
         $this->assertTrue($isExist,"no exist \$namespace property in $this->namespace ");
     }
+    public function test_no_define_in_parent_class():void {
+        $propertyReflection = new \ReflectionProperty($this->namespace,$this->property);
+        $this->assertEquals(
+            $this->namespace,
+            $propertyReflection->class ,
+            "property \$$this->property should define in class $this->namespace"
+        );
+    }
     public function test_should_is_Protected():void {
         $namespaceInfo = new \ReflectionProperty($this->namespace , 'namespace');
         $isProtected = $namespaceInfo->isProtected();
@@ -35,6 +43,4 @@ class NamespacePropertyTest extends TestCase
         $this->assertEquals($expected ,$realType,"data type for \$namespace property should is string !!! ");
     }
     //@todo check default value
-    //@todo check defined class -> should defined in child  !!!!
-
 }
