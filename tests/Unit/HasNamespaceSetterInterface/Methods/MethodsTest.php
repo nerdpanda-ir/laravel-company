@@ -4,7 +4,9 @@ namespace Tests\Unit\HasNamespaceSetterInterface\Methods;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
-
+//@todo create method for get abstract count
+//@todo create method for get final count
+//@todo create method for get static method || none static methods   count
 class MethodsTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterInterface::class ;
