@@ -19,7 +19,14 @@ class NamespacePropertyTest extends TestCase
         $isProtected = $namespaceInfo->isProtected();
         $this->assertTrue($isProtected,"should access modifier for \$namespace property in class => $this->namespace is protected !!! ");
     }
-    
+    public function test_is_none_static():void {
+        $propertyReflection = new \ReflectionProperty($this->namespace , $this->property);
+        $isNoneStatic = !$propertyReflection->isStatic();
+        $this->assertTrue(
+            $isNoneStatic ,
+            "property $$this->property in class $this->namespace should define in the form of none static !!! "
+        );
+    }
     public function test_should_is_string():void{
         //@todo check with union type -> may be have bug
         $namespaceReflection = new \ReflectionProperty($this->namespace , 'namespace');
