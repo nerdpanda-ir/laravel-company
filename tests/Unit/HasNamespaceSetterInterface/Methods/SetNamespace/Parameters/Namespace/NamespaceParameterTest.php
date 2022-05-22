@@ -38,6 +38,7 @@ class NamespaceParameterTest extends TestCase
             if (is_array($parameterDataTypes)) {
                 sort($parameterDataTypes,SORT_STRING);
                 $this->assertEquals(
+                    //@every body -> god help me to implement this !!!
                     implode('|',$expect) ,
                     implode('|',$parameterDataTypes) ,
                 );
