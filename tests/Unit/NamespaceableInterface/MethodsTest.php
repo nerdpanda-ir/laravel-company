@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\NamespaceableInterface;
 
+use App\Contracts\HasNamespaceGetterInterface;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\NamespaceableInterface ;
 
@@ -33,6 +34,18 @@ class MethodsTest extends TestCase
         $this->assertEquals(
             2,$counter ,
             "$this->namespace should have two method from parent "
+        );
+    }
+    public function test_should_have_one_method_from_HasNamespaceGetterInterface():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods();
+        $counter = 0 ;
+        foreach ($methods as $method)
+            if ($method->class==HasNamespaceGetterInterface::class)
+                $counter++;
+        $this->assertEquals(
+            2,$counter,
+            "interface $this->namespace should only have one method from ".HasNamespaceGetterInterface::class.' interface'
         );
     }
 }
