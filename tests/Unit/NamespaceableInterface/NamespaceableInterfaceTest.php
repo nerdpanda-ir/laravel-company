@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\NamespaceableInterface;
 
+use App\Contracts\HasNamespaceSetterInterface;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\NamespaceableInterface;
 use App\Contracts\HasNamespaceGetterInterface;
@@ -22,6 +23,14 @@ class NamespaceableInterfaceTest extends TestCase
         $this->assertTrue(
             $isImplement ,
             "interface $this->namespace should implement ".HasNamespaceGetterInterface::class.' interface !!!'
+        );
+    }
+    public function test_should_implement_HasNamespaceSetterInterface():void {
+        $implements = class_implements($this->namespace);
+        $isImplement = in_array(HasNamespaceSetterInterface::class , $implements);
+        $this->assertTrue(
+            $isImplement ,
+            "interface $this->namespace should implement ".HasNamespaceSetterInterface::class . ' interface !!! '
         );
     }
 }
