@@ -44,5 +44,12 @@ class NamespacePropertyTest extends TestCase
         $expected = 'string';
         $this->assertEquals($expected ,$realType,"data type for \$namespace property should is string !!! ");
     }
-
+    public function test_no_has_default_value():void {
+        $propertyReflection = new \ReflectionProperty($this->namespace,$this->property);
+        $isNoDefaultValue = !$propertyReflection->hasDefaultValue();
+        $this->assertTrue(
+            $isNoDefaultValue ,
+            "property \$$this->property in $this->namespace class should no have default value "
+        );
+    }
 }
