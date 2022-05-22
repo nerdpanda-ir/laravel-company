@@ -52,4 +52,5 @@ class NamespacePropertyTest extends TestCase
             "property \$$this->property in $this->namespace class should no have default value "
         );
     }
+    //@todo create method in property test class  for check  default value
 }
