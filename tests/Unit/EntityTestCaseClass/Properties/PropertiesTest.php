@@ -39,4 +39,17 @@ class PropertiesTest extends TestCase
             "class $this->namespace should have 0 static property !!!! "
         );
     }
+    public function test_should_have_one_none_static_property():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $properties = $classReflection->getProperties();
+        $noneStaticProperties = [];
+        foreach ($properties as $property)
+            if ($property->class==$this->namespace and !$property->isStatic())
+                $noneStaticProperties[] = $property->name;
+        $noneStaticPropertiesCount = count($noneStaticProperties);
+        $this->assertEquals(
+            1 , $noneStaticPropertiesCount ,
+            "class $this->namespace should has just one none static property !!! "
+        );
+    }
 }
