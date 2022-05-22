@@ -4,7 +4,7 @@ namespace Tests\Unit\HasNamespaceSetterInterface\Methods\SetNamespace\Parameters
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
-class SetNamespaceMethodNamespaceParameterTest extends TestCase
+class NamespaceParameterTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterInterface::class ;
     protected string $method = 'setNamespace';
