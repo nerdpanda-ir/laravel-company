@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\HasNamespaceGetterInterface;
+namespace Tests\Unit\HasNamespaceGetterInterface\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceGetterInterface;
