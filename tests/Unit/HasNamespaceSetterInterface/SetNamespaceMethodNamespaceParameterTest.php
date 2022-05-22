@@ -8,5 +8,5 @@ class SetNamespaceMethodNamespaceParameterTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterInterface::class ;
     protected string $method = 'setNamespace';
-   
+    protected string $parameter = 'namespace';
 }
