@@ -2,6 +2,7 @@
 <?php
 use App\Contracts\HasNamespaceGetterInterface;
 
-interface NamespaceableInterface {
+interface NamespaceableInterface extends
+HasNamespaceGetterInterface {
 
 }
