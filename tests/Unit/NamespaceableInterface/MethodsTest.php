@@ -182,5 +182,4 @@ class MethodsTest extends TestCase
         }
         $this->assertEquals(0,$noneAbstractMethodsCount,$message);
     }
-    //@todo is not static , is not final , is abstract
 }
