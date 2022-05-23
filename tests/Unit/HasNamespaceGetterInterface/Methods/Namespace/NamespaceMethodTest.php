@@ -19,7 +19,11 @@ class NamespaceMethodTest extends TestCase
         $isNotStatic = !$methodReflection->isStatic() ;
         $this->assertTrue($isNotStatic, "method $this->method() from $this->namespace dont be static !!! ");
     }
-    
+    public function test_is_not_final():void {
+        $methodReflection = new \ReflectionMethod($this->namespace, $this->method) ;
+        $isNotFinal = !$methodReflection->isFinal();
+        $this->assertTrue($isNotFinal,"method $this->method() in $this->namespace interface dont be final !!! ");
+    }
     public function test_return_type_is_string():void {
         // @todo have bug here when method return union !!!
         $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
