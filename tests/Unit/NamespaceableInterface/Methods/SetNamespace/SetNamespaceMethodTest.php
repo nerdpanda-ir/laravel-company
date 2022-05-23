@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\HasNamespaceSetterInterface\Methods\SetNamespace;
+namespace Tests\Unit\NamespaceableInterface\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\HasNamespaceSetterInterface;
