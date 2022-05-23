@@ -169,8 +169,6 @@ class MethodsTest extends TestCase
         $noneAbstractMethods = array_filter($methods,function (\ReflectionMethod $method ){
             return !$method->isAbstract();
         });
-        $noneAbstractMethods[] = 'abol ';
-
         $noneAbstractMethodsCount = sizeof($noneAbstractMethods);
         $message = '';
         if (!empty($noneAbstractMethods)) {
