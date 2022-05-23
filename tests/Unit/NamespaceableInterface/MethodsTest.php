@@ -44,7 +44,7 @@ class MethodsTest extends TestCase
             if ($method->class==HasNamespaceGetterInterface::class)
                 $counter++;
         $this->assertEquals(
-            2,$counter,
+            1,$counter,
             "interface $this->namespace should only have one method from ".HasNamespaceGetterInterface::class.' interface'
         );
     }
