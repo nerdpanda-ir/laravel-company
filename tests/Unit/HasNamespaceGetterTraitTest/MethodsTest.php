@@ -21,8 +21,6 @@ class MethodsTest extends TestCase
         $staticMethods = array_filter($methods,function (\ReflectionMethod $method){
             return $method->isStatic();
         });
-        $staticMethods[] = 'ez';
-        $staticMethods[] = 'gg';
         $staticMethodsCount = sizeof($staticMethods);
         $message = '';
         if (!empty($staticMethods)) {
