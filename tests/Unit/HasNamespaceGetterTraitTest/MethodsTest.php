@@ -8,7 +8,7 @@ use App\Traits\HasNamespaceGetterTrait;
 class MethodsTest extends TestCase
 {
     protected string $namespace = HasNamespaceGetterTrait::class;
-    public function test_should_have_one_method():void {
+    public function test_should_only_have_one_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
         $methodsCount = sizeof($methods);
