@@ -27,6 +27,11 @@ class SetNamespaceMethodTest extends TestCase
         $isNotFinal = !$methodReflection->isFinal() ;
         $this->assertTrue(!$isNotFinal,"method $this->method()  in class $this->namespace dont be final !!!");
     }
+    public function test_is_abstract():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method) ;
+        $isAbstract = $methodReflection->isAbstract();
+        $this->assertTrue(!$isAbstract,"method $this->method() in $this->namespace interface should is abstract !!!! ");
+    }
     public function test_should_method_is_void(): void {
         $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
         $returnType = (string)$methodReflection->getReturnType();
