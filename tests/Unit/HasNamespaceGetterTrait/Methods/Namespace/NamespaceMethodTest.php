@@ -18,4 +18,9 @@ class NamespaceMethodTest extends TestCase
         $isPublic = $methodReflection->isPublic();
         $this->assertTrue($isPublic," $this->method() method in $this->namespace trait should is public !!! ");
     }
+    public function test_never_static():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $isNotStatic = !$methodReflection->isStatic();
+        $this->assert($isNotStatic,"method $this->method() in $this->namespace trait should is none static !!!");
+    }
 }
