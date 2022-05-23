@@ -16,9 +16,9 @@ class NamespaceMethodTest extends TestCase
     }
     public function test_return_type_is_string():void {
         // @todo have bug here when method return union !!!
-        $methodReflection = new \ReflectionMethod($this->namespace,'namespace');
+        $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
         $returnType = (string)$methodReflection->getReturnType();
         $expected = 'string';
-        $this->assertEquals($expected,$returnType," return type for method namespace() from {$this->namespace} should is `string`");
+        $this->assertEquals($expected,$returnType," return type for method $this->method() from {$this->namespace} should is `string`");
     }
 }
