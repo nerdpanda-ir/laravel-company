@@ -3,12 +3,12 @@
 namespace Tests\Unit\NamespaceableInterface\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\HasNamespaceSetterInterface;
+use App\Contracts\NamespaceableInterface;
 //@todo create method for is static or none static
 //@todo create method for abstract or final
 class SetNamespaceMethodTest extends TestCase
 {
-    protected string $namespace = HasNamespaceSetterInterface::class ;
+    protected string $namespace = NamespaceableInterface::class ;
     protected string $method = 'setNamespace';
     public function test_method_exist():void {
         $exist = method_exists($this->namespace , $this->method);

@@ -3,11 +3,11 @@
 namespace Tests\Unit\NamespaceableInterface\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\HasNamespaceGetterInterface;
+use App\Contracts\NamespaceableInterface;
 
 class NamespaceMethodTest extends TestCase
 {
-    protected string $namespace = HasNamespaceGetterInterface::class ;
+    protected string $namespace = NamespaceableInterface::class ;
     protected string $method = 'namespace';
 
     public function test_is_exist():void {

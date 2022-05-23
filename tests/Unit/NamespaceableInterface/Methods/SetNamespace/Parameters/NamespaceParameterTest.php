@@ -2,12 +2,13 @@
 
 namespace Tests\Unit\NamespaceableInterface\Methods\SetNamespace\Parameters;
 //@todo create method for test parameter position
-use App\Contracts\HasNamespaceSetterInterface;
+
+use App\Contracts\NamespaceableInterface;
 use PHPUnit\Framework\TestCase;
 
 class NamespaceParameterTest extends TestCase
 {
-    protected string $namespace = HasNamespaceSetterInterface::class ;
+    protected string $namespace = NamespaceableInterface::class ;
     protected string $method = 'setNamespace';
     protected string $parameter = 'namespace';
     //@todo create method parameter test class , parametr position check , parameter count , parameter type check

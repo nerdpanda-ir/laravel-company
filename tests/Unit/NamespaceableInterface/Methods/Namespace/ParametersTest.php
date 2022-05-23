@@ -3,11 +3,11 @@
 namespace Tests\Unit\NamespaceableInterface\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\HasNamespaceGetterInterface;
+use App\Contracts\NamespaceableInterface;
 
 class ParametersTest extends TestCase
 {
-    protected string $namespace = HasNamespaceGetterInterface::class ;
+    protected string $namespace = NamespaceableInterface::class ;
     protected string $method = 'namespace';
     public function test_never_exist_parameter():void {
         $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
