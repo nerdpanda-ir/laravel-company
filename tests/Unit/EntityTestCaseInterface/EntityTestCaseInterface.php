@@ -7,5 +7,6 @@ use App\Contracts\Tests\EntityTestCaseInterface;
 
 class EntityTestCaseInterface extends TestCase
 {
-
+    protected string $namespace = EntityTestCaseInterface::class;
+    
 }
