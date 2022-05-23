@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\NamespaceableInterface;
+namespace Tests\Unit\NamespaceableInterface\Methods;
 
 use App\Contracts\HasNamespaceGetterInterface;
 use App\Contracts\HasNamespaceSetterInterface;
 use PHPUnit\Framework\TestCase;
-use App\Contracts\NamespaceableInterface ;
+use App\Contracts\NamespaceableInterface;
 
 class MethodsTest extends TestCase
 {
