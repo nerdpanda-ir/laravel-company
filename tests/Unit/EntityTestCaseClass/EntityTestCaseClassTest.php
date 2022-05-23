@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\EntityTestCaseClass;
 
+use App\Contracts\Tests\EntityTestCaseInterface;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\TestCase as LaravelTestCase;
@@ -29,4 +30,11 @@ class EntityTestCaseClassTest extends TestCase
             "$this->namespace class dont be final "
         );
     }
+    public function test_should_implement_EntityTestCaseInterface():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
+        $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
+    }
+    
+    // @todo create abstract check
 }
