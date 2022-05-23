@@ -17,7 +17,11 @@ class SetNamespaceMethodTest extends TestCase
             "interface => $this->namespace should have $this->method() method !!! "
         );
     }
-
+    public function test_is_not_static():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $isNotStatic = !$methodReflection->isStatic();
+        $this->assertTrue($isNotStatic,"method $this->method() from interface $this->namespace dont be static !!! ");
+    }
     public function test_should_method_is_void(): void {
         $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
         $returnType = (string)$methodReflection->getReturnType();
