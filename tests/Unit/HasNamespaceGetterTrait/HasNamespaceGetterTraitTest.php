@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\HasNamespaceGetterTraitTest;
+namespace Tests\Unit\HasNamespaceGetterTrait;
 
 use PHPUnit\Framework\TestCase;
 use App\Traits\HasNamespaceGetterTrait;
