@@ -23,4 +23,9 @@ class NamespaceMethodTest extends TestCase
         $isNotStatic = !$methodReflection->isStatic();
         $this->assert($isNotStatic,"method $this->method() in $this->namespace trait should is none static !!!");
     }
+    public function test_never_final():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $isNotFinal = !$methodReflection->isFinal();
+        $this->assertTrue($isNotFinal,"method $this->method() in $this->namespace trait dont be final !!! ");
+    }
 }
