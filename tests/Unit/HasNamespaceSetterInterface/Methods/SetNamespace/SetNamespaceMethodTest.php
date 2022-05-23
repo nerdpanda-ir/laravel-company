@@ -22,6 +22,11 @@ class SetNamespaceMethodTest extends TestCase
         $isNotStatic = !$methodReflection->isStatic();
         $this->assertTrue($isNotStatic,"method $this->method() from interface $this->namespace dont be static !!! ");
     }
+    public function test_is_not_final():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $isNotFinal = !$methodReflection->isFinal() ;
+        $this->assertTrue(!$isNotFinal,"method $this->method()  in class $this->namespace dont be final !!!");
+    }
     public function test_should_method_is_void(): void {
         $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
         $returnType = (string)$methodReflection->getReturnType();
