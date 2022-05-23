@@ -127,5 +127,24 @@ class MethodsTest extends TestCase
         $message.='should remove !!! in '.HasNamespaceSetterInterface::class.'interface !!!';
         $this->assertEquals(1,$parentMethodsCount,$message);
     }
+
+    public function test_methods_in_HasNamespaceSetterInterface_should_is_none_static():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods();
+        $staticMethods = [];
+        foreach ($methods as $method)
+            if ($method->class==HasNamespaceSetterInterface::class and $method->isStatic())
+                $staticMethods[] = $method->name ;
+        $staticMethodsCount = count($staticMethods);
+        $message = '';
+        if (!empty($staticMethods)){
+            if ($staticMethodsCount==1)
+                $message = "method ".$staticMethods[0].' () ';
+            else
+                $message = "methods ".implode('() , ',$staticMethods).' () ';
+            $message .= 'in '.HasNamespaceSetterInterface::class . 'should dont be static';
+        }
+        $this->assertEmpty($staticMethods,$message);
+    }
     //@todo is not static , is not final , is abstract
 }
