@@ -11,8 +11,8 @@ class NamespaceMethodTest extends TestCase
     protected string $method = 'namespace';
 
     public function test_is_exist():void {
-        $isExist = method_exists($this->namespace,'namespace');
-        $this->assertTrue($isExist, " should interface => $this->namespace has namespace() method");
+        $isExist = method_exists($this->namespace,$this->method);
+        $this->assertTrue($isExist, " should interface => $this->namespace has $this->method() method");
     }
     public function test_return_type_is_string():void {
         // @todo have bug here when method return union !!!
