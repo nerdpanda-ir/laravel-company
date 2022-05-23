@@ -146,5 +146,22 @@ class MethodsTest extends TestCase
         }
         $this->assertEmpty($staticMethods,$message);
     }
+    public function test_methods_in_HasNamespaceSetterInterface_is_not_final():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods() ;
+        $finalMethods = array_filter($methods , function (\ReflectionMethod $method){
+            return $method->isFinal() ;
+        });
+        $finalMethodsCount = sizeof($finalMethods);
+        $message = '';
+        if (!empty($finalMethods)){
+            if ($finalMethodsCount==1)
+                $message = 'method '.$finalMethods[0].'() ';
+            else
+                $message = 'methods '.implode(' () , ',$finalMethods).'() ';
+            $message.= ' should is not final !!!';
+        }
+        $this->assertEmpty($finalMethods,$message);
+    }
     //@todo is not static , is not final , is abstract
 }
