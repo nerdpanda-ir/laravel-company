@@ -163,5 +163,24 @@ class MethodsTest extends TestCase
         }
         $this->assertEmpty($finalMethods,$message);
     }
+    public function test_methods_in_HasNamespaceSetterInterface_should_is_abstract():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods();
+        $noneAbstractMethods = array_filter($methods,function (\ReflectionMethod $method ){
+            return !$method->isAbstract();
+        });
+        $noneAbstractMethods[] = 'abol ';
+
+        $noneAbstractMethodsCount = sizeof($noneAbstractMethods);
+        $message = '';
+        if (!empty($noneAbstractMethods)) {
+            if ($noneAbstractMethodsCount==1)
+                $message = 'method '.$noneAbstractMethods[0].'() ';
+            else
+                $message = 'methods '.implode('() , ',$noneAbstractMethods).'() ';
+            $message .= 'should is abstract  in interface '.HasNamespaceSetterInterface::class;
+        }
+        $this->assertEquals(0,$noneAbstractMethodsCount,$message);
+    }
     //@todo is not static , is not final , is abstract
 }
