@@ -28,4 +28,9 @@ class NamespaceMethodTest extends TestCase
         $isNotFinal = !$methodReflection->isFinal();
         $this->assertTrue($isNotFinal,"method $this->method() in $this->namespace trait dont be final !!! ");
     }
+    public function test_never_abstract():void {
+        $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
+        $isNotAbstract = !$methodReflection->isAbstract();
+        $this->assertTrue($isNotAbstract,"method $this->method() in $this->namespace trait dont be abstract !!!");
+    }
 }
