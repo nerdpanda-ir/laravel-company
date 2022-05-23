@@ -5,8 +5,8 @@ namespace Tests\Unit\EntityTestCaseInterface;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\Tests\EntityTestCaseInterface;
 
-class EntityTestCaseInterface extends TestCase
+class EntityTestCaseInterfaceTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class;
-    
+    protected string $namespace = EntityTestCaseInterface::class ;
+
 }
