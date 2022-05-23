@@ -3,6 +3,7 @@
 namespace Tests\Unit\NamespaceableInterface;
 
 use App\Contracts\HasNamespaceGetterInterface;
+use App\Contracts\HasNamespaceSetterInterface;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\NamespaceableInterface ;
 
@@ -105,6 +106,26 @@ class MethodsTest extends TestCase
             $message .= ' in interface '.HasNamespaceGetterInterface::class .'should is abstract !!! ';
         }
         $this->assertEquals(0,$noneAbstractMethodsCount,$message);
+    }
+
+    public function test_should_have_one_method_from_HasNamespaceSetterInterface():void {
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods() ;
+        $parentMethods = [];
+        foreach ($methods as $method)
+            if ($method->class==HasNamespaceSetterInterface::class)
+                $parentMethods [] = $method->name;
+        $parentMethodsCount = count($parentMethods);
+        $message = '';
+        if ($parentMethodsCount==2)
+            $message = "method $parentMethods[1]() ";
+        else if ($parentMethodsCount>2)
+        {
+            array_shift($parentMethods);
+            $message = "methods ".implode(' () , ',$parentMethods).'() ';
+        }
+        $message.='should remove !!! in '.HasNamespaceSetterInterface::class.'interface !!!';
+        $this->assertEquals(1,$parentMethodsCount,$message);
     }
     //@todo is not static , is not final , is abstract
 }
