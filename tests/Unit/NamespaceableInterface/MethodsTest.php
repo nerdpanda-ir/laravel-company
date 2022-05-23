@@ -48,4 +48,26 @@ class MethodsTest extends TestCase
             "interface $this->namespace should only have one method from ".HasNamespaceGetterInterface::class.' interface'
         );
     }
+    public function test_methods_in_HasNamespaceGetterInterface_should_is_not_static():void
+    {
+        //@todo fail if one method in interface is static !!!! add expect when happen this
+        $expect = [];
+        $interfaceReflection = new \ReflectionClass($this->namespace);
+        $methods = $interfaceReflection->getMethods();
+        $staticMethods = [];
+        foreach ($methods as $method)
+            if ($method->class==HasNamespaceGetterInterface::class and $method->isStatic() and !in_array($method->name,$expect))
+                $staticMethods[] = $method->name;
+        $staticMethodsCount = count($staticMethods);
+        $message = '';
+        if (!empty($staticMethods)){
+            if ($staticMethodsCount==1)
+                $message = 'method '.$staticMethods[0].'() ';
+            else
+                $message = 'methods '.implode('() , ',$staticMethods).' () ';
+            $message.=" from interface ".HasNamespaceGetterInterface::class.' dont be static !!!';
+        }
+        $this->assertEmpty($staticMethods,$message);
+    }
+    //@todo is not static , is not final , is abstract
 }
