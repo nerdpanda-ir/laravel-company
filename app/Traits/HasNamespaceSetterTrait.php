@@ -1,5 +1,5 @@
 <?php namespace App\Traits ;?>
 <?php
-trait HasNamespaceSetterTrait{
+trait HasNamespaceSetterTrait {
     
 }
