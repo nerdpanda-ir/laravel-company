@@ -71,6 +71,33 @@ class MethodsTest extends TestCase
             $this->assertEmpty($nonePublicTraitMethods,$message);
         }
         else
-            $this->fail("no found any methods in use trait ".HasNamespaceGetterTrait::class."in class $this->namespace");
+            $this->fail("no found any methods in use trait ".HasNamespaceGetterTrait::class." in class $this->namespace");
+    }
+    public function test_methods_from_HasNamespaceGetter_should_is_no_static():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $methods = $classReflection->getMethods();
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
+            return $method->class == HasNamespaceGetterTrait::class;
+        });
+        if (!empty($traitMethods)){
+            $staticMethods = array_filter($traitMethods , function (\ReflectionMethod $method){
+                return $method->isStatic();
+            });
+            $staticMethods = array_map(function (\ReflectionMethod $method){
+                return $method->name.'() ';
+            },$staticMethods);
+            $staticCount = count($staticMethods);
+            $message = '';
+            if ($staticCount>0){
+                if ($staticCount==1)
+                    $message ="method $staticMethods[0]";
+                else
+                    $message ="methods ".implode(', ',$staticMethods);
+                $message.="in used trait ".HasNamespaceGetterTrait::class." in $this->namespace class dont be static ";
+            }
+            $this->assertEmpty($staticMethods,$message);
+        }
+        else
+            $this->fail("no found any methods in use trait ".HasNamespaceGetterTrait::class . " in class $this->namespace ");
     }
 }
