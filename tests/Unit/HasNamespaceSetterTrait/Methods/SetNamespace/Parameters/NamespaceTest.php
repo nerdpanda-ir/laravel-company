@@ -38,4 +38,9 @@ class NamespaceTest extends TestCase
         $isNoHaveDefaultValue = !$parameterReflection->isDefaultValueAvailable();
         $this->assertTrue($isNoHaveDefaultValue,"parameter $$this->parameter from method $this->method() in $this->namespace trait should no have any value !!!");
     }
+    public function test_cant_Be_nullalbe():void {
+        $reflectionParameter = new \ReflectionParameter([$this->namespace,$this->method],$this->parameter);
+        $cantNull = !$reflectionParameter->allowsNull();
+        $this->assertTrue($cantNull,"parameter $$this->parameter in method $this->method() from $this->namespace trait cant nullable !!!");
+    }
 }
