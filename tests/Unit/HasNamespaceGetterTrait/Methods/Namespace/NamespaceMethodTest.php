@@ -33,6 +33,11 @@ class NamespaceMethodTest extends TestCase
         $isNotAbstract = !$methodReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"method $this->method() in $this->namespace trait dont be abstract !!!");
     }
+    public function test_should_have_return_type():void {
+        $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
+        $hasReturnType = $methodReflection->hasReturnType() ;
+        $this->assertTrue($hasReturnType,"no detect return value for  $this->method() in $this->namespace trait ");
+    }
     public function test_should_just_have_string_return_type():void{
         $expect = ['string'];
         sort($expect,SORT_STRING);
