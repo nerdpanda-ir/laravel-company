@@ -70,19 +70,23 @@ class MethodsTest extends TestCase
     public function test_no_have_final_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
-        $finalMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->isFinal();
-        });
-        $finalMethodsCount = count($finalMethods);
-        $message = '';
-        if ($finalMethodsCount>0) {
-            if ($finalMethodsCount==1)
-                $message = "method $finalMethods[0]() ";
-            else
-                $message = 'method'.implode('() , ',$finalMethods).'() ';
-            $message.=" in $this->namespace trait should dont be final !!! ";
+        if (!empty($methods)){
+            $finalMethods = array_filter($methods,function (\ReflectionMethod $method){
+                return $method->isFinal();
+            });
+            $finalMethodsCount = count($finalMethods);
+            $message = '';
+            if ($finalMethodsCount>0) {
+                if ($finalMethodsCount==1)
+                    $message = "method $finalMethods[0]() ";
+                else
+                    $message = 'method'.implode('() , ',$finalMethods).'() ';
+                $message.=" in $this->namespace trait should dont be final !!! ";
+            }
+            $this->assertEmpty($finalMethods,$message);
         }
-        $this->assertEmpty($finalMethods,$message);
+        else
+            $this->fail("no found any method in $this->namespace trait !!!");
     }
     public function test_no_have_abstract_method():void {
         $reflectionTrait = new \ReflectionClass($this->namespace);
