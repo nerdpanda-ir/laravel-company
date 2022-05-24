@@ -7,5 +7,6 @@ use App\Traits\HasNamespaceSetterTrait;
 
 class SetNamespaceTest extends TestCase
 {
+    protected string $namespace = HasNamespaceSetterTrait::class ;
     
 }
