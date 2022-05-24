@@ -12,7 +12,7 @@ class MethodsTest extends TestCase
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
         $methodsCount = count($methods);
-        $this->assertEquals(0,$methodsCount);
+        $this->assertEquals(1,$methodsCount);
     }
     //@todo
     public function test_just_have_public_method():void {
