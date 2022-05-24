@@ -90,18 +90,22 @@ class MethodsTest extends TestCase
     public function test_should_no_have_abstract_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
-        $abstractMethods = array_filter($methods , function (\ReflectionMethod $method){
-            return $method->isAbstract();
-        });
-        $abstractMethodsCount = count($abstractMethods);
-        $message = '';
-        if (!empty($abstractMethods)){
-            if ($abstractMethodsCount==1)
-                $message = "method $abstractMethods[0]()";
-            else
-                $message = "methods ".implode("() , ",$abstractMethods).'()';
-            $message .= " in $this->namespace trait should dont be abstract !!!";
+        if (!empty($methods)){
+            $abstractMethods = array_filter($methods , function (\ReflectionMethod $method){
+                return $method->isAbstract();
+            });
+            $abstractMethodsCount = count($abstractMethods);
+            $message = '';
+            if (!empty($abstractMethods)){
+                if ($abstractMethodsCount==1)
+                    $message = "method $abstractMethods[0]()";
+                else
+                    $message = "methods ".implode("() , ",$abstractMethods).'()';
+                $message .= " in $this->namespace trait should dont be abstract !!!";
+            }
+            $this->assertEmpty($abstractMethods,$message);
         }
-        $this->assertEmpty($abstractMethods,$message);
+        else
+            $this->fail("no found any method in $this->namespace trait !!!");
     }
 }
