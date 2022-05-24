@@ -21,7 +21,7 @@ class NamespaceMethodTest extends TestCase
     public function test_never_static():void {
         $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
         $isNotStatic = !$methodReflection->isStatic();
-        $this->assert($isNotStatic,"method $this->method() in $this->namespace trait should is none static !!!");
+        $this->assertTrue($isNotStatic,"method $this->method() in $this->namespace trait should is none static !!!");
     }
     public function test_never_final():void {
         $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
