@@ -15,6 +15,31 @@ class MethodsTest extends TestCase
         $expect = 1 ;
         $this->assertEquals($expect,$methodsCount,"$this->namespace trait should have just one method ");
     }
+    public function test_should_have_public_methods():void{
+        $traitReflection = new \ReflectionClass($this->namespace);
+        $methods = $traitReflection->getMethods();
+        $nonePublicMethods = array_filter($methods , function (\ReflectionMethod $method) {
+            return !$method->isPublic();
+        });
+        $nonePublicMethods = array_map(function (\ReflectionMethod $method){
+            $modifier = '';
+            if ($method->isPrivate())
+                $modifier = 'private';
+            else
+                $modifier = 'protected';
+            return $method->name.'() is '.$modifier;
+        },$nonePublicMethods);
+        $nonePublicMethodsCount = count($nonePublicMethods);
+        $message = '';
+        if ($nonePublicMethodsCount>0){
+            if ($nonePublicMethodsCount==1)
+                $message = "method $nonePublicMethods[0]";
+            else
+                $message = "methods ".implode(' , ',$nonePublicMethods).' ';
+            $message.= "in $this->namespace should be public !!! ";
+        }
+        $this->assertEquals(0,$nonePublicMethodsCount,$message);
+    }
     public function test_should_no_have_static_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
