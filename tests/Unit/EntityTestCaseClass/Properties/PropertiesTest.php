@@ -25,6 +25,24 @@ class PropertiesTest extends TestCase
             "class : $this->namespace just should have single property !!! "
         );
     }
+    public function test_should_have_protected_property():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $properties = $classReflection->getProperties();
+        $noneProtectedProperties = array_filter($properties , function (\ReflectionProperty $property){
+            return !$property->isProtected() and $property->class==$this->namespace;
+        });
+        $noneProtectedProperties = array_map(function (\ReflectionProperty $property){return '$'.$property->name;},$noneProtectedProperties);
+        $noneProtectedPropertiesCount = count($noneProtectedProperties);
+        $message = '';
+        if (!empty($noneProtectedProperties)){
+            if ($noneProtectedPropertiesCount==1)
+                $message = "property $noneProtectedProperties[0] ";
+            else
+                $message = 'properties '.implode(' , ',$noneProtectedProperties);
+            $message .= " in $this->namespace should is protected ";
+        }
+        $this->assertEmpty($noneProtectedProperties,$message);
+    }
     public function test_no_have_static_property():void{
         $classReflection = new \ReflectionClass($this->namespace);
         $properties = $classReflection->getProperties();
