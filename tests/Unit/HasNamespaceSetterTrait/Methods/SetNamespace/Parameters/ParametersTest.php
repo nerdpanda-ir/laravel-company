@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\HasNamespaceSetterTrait\Methods\SetNamespace;
+namespace Tests\Unit\HasNamespaceSetterTrait\Methods\SetNamespace\Parameters;
 
 use PHPUnit\Framework\TestCase;
 use App\Traits\HasNamespaceSetterTrait;
