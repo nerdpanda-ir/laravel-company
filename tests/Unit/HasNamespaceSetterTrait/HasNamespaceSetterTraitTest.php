@@ -14,7 +14,11 @@ class HasNamespaceSetterTraitTest extends TestCase
         $this->assertTrue($isExist,"trait $this->namespace should is exist !!!");
     }
     public function test_never_use_other_traits():void {
-        $uses = class_uses($this->namespace);
-        $this->assertEmpty($uses,"$this->namespace trait should no use other traits ");
+        if (trait_exists($this->namespace)){
+            $uses = class_uses($this->namespace);
+            $this->assertEmpty($uses,"$this->namespace trait should no use other traits ");
+        }
+        else
+            $this->fail("trait $this->namespace is no exist !!!");
     }
 }
