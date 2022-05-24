@@ -9,13 +9,5 @@ class ParametersTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterTrait::class ;
     protected string $method = 'setNamespace';
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $this->assertTrue(true);
-    }
+    
 }
