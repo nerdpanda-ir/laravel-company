@@ -41,5 +41,5 @@ class EntityTestCaseClassTest extends TestCase
         $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
     }
 
-    // @todo create abstract check , test namespace method  !!!
+    // @todo test namespace method  !!!
 }
