@@ -30,6 +30,11 @@ class EntityTestCaseClassTest extends TestCase
             "$this->namespace class dont be final "
         );
     }
+    public function test_no_abstract():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $isNotAbstract = !$classReflection->isAbstract();
+        $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
+    }
     public function test_should_implement_EntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
