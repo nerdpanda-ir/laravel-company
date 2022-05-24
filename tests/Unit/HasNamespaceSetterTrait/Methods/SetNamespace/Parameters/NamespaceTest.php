@@ -6,6 +6,7 @@ use App\Traits\HasNamespaceSetterTrait;
 
 class NamespaceTest extends TestCase
 {
+    protected string $namespace = HasNamespaceSetterTrait::class ;
     /**
      * A basic unit test example.
      *
