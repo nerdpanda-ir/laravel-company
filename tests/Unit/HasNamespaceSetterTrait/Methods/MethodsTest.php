@@ -66,8 +66,6 @@ class MethodsTest extends TestCase
         $finalMethods = array_filter($methods,function (\ReflectionMethod $method){
             return $method->isFinal();
         });
-        $finalMethods[] = 'ez';
-        $finalMethods[] = 'gg';
         $finalMethodsCount = count($finalMethods);
         $message = '';
         if ($finalMethodsCount>0) {
