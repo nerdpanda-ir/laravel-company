@@ -13,4 +13,9 @@ class SetNamespaceTest extends TestCase
         $isExist = method_exists($this->namespace , $this->method);
         $this->assertTrue($isExist,"method $this->method() in $this->namespace is missing ");
     }
+    public function test_is_public():void {
+        $reflection = new \ReflectionMethod($this->namespace,$this->method);
+        $isPublic = $reflection->isPublic();
+        $this->assertTrue($isPublic,"method $this->method() in $this->namespace trait should be public !!! ");
+    }
 }
