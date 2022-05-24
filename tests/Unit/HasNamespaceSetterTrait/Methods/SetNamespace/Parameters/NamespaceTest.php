@@ -33,5 +33,9 @@ class NamespaceTest extends TestCase
         else
             $this->fail("parameter $$this->parameter in method $this->method() from $this->namespace trait should have any type !!! currently no type hinted ");
     }
-
+    public function test_no_have_default_value():void {
+        $parameterReflection = new \ReflectionParameter([$this->namespace,$this->method],$this->parameter);
+        $isNoHaveDefaultValue = !$parameterReflection->isDefaultValueAvailable();
+        $this->assertTrue($isNoHaveDefaultValue,"parameter $$this->parameter from method $this->method() in $this->namespace trait should no have any value !!!");
+    }
 }
