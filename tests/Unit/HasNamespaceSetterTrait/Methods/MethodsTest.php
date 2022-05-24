@@ -43,7 +43,7 @@ class MethodsTest extends TestCase
             $this->assertEquals(0,$nonePublicMethodsCount,$message);
         }
         else
-            $this->fail("no found any method in $this->namespace ");
+            $this->fail("no found any method in $this->namespace trait ");
     }
     public function test_no_have_static_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
