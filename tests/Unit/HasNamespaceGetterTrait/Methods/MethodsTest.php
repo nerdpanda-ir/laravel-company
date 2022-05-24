@@ -47,17 +47,20 @@ class MethodsTest extends TestCase
     public function test_should_no_have_static_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
-        $staticMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->isStatic();
-        });
-        $staticMethodsCount = sizeof($staticMethods);
-        $message = '';
-        if (!empty($staticMethods)) {
-            if ($staticMethodsCount==1)
-                $message = "method $staticMethods[0]() ";
-            else
-                $message = 'methods '.implode('() , ',$staticMethods).'() , ';
-            $message .= "dont be static !!! in $this->namespace trait ";
+        if (!empty($methods)){
+            $staticMethods = array_filter($methods,function (\ReflectionMethod $method){
+                return $method->isStatic();
+            });
+            $staticMethodsCount = sizeof($staticMethods);
+            $message = '';
+            if (!empty($staticMethods)) {
+                if ($staticMethodsCount==1)
+                    $message = "method $staticMethods[0]() ";
+                else
+                    $message = 'methods '.implode('() , ',$staticMethods).'() , ';
+                $message .= "dont be static !!! in $this->namespace trait ";
+            }
+            $this->assertEquals(0,$staticMethodsCount,$message);
         }
         else
             $this->fail("no found any method in $this->namespace trait !!!");
