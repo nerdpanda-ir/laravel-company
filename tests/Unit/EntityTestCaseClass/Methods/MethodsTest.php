@@ -127,4 +127,29 @@ class MethodsTest extends TestCase
         else
             $this->fail("no found any method in use trait ".HasNamespaceGetterTrait::class . " in class $this->namespace ");
     }
+    public function test_methods_in_HasNamespaceGetterTrait_should_no_abstract():void {
+        $reflectionClass = new \ReflectionClass($this->namespace);
+        $methods = $reflectionClass->getMethods();
+        $traitMethods = array_filter($methods , function (\ReflectionMethod $method){
+            return $method->class==HasNamespaceGetterTrait::class ;
+        });
+        if (!empty($traitMethods)){
+            $abstractMethods = [] ;
+            foreach ($traitMethods as $traitMethod)
+                if ($traitMethod->isAbstract())
+                    $abstractMethods[] = $traitMethod->name.'()';
+            $message = '';
+            if (!empty($abstractMethods)){
+                $abstractMethodsCount = count($abstractMethods);
+                if ($abstractMethodsCount==1)
+                    $message = "method $abstractMethods[0] " ;
+                else
+                    $message = "methods ".implode(' , ',$abstractMethods) ;
+                $message .= "in used trait".HasNamespaceGetterTrait::class . " in $this->namespace class dont be abstract !!!";
+            }
+            $this->assertEmpty($abstractMethods,$message);
+        }
+        else
+            $this->fail(" no found any method in used trait ".HasNamespaceGetterTrait::class ." in $this->namespace class !!!");
+    }
 }
