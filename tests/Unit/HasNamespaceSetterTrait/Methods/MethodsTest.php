@@ -33,4 +33,30 @@ class MethodsTest extends TestCase
         }
         $this->assertEmpty($staticMethods,$message);
     }
+    public function test_just_have_public_method():void {
+        $traitReflection = new \ReflectionClass($this->namespace);
+        $methods = $traitReflection->getMethods();
+        $publicMethods = array_filter($methods,function (\ReflectionMethod $method){
+           return $method->isPublic();
+        });
+        $nonePublicMethods = array_map(function (\ReflectionMethod $method){
+            $accessModifier = '';
+            if ($method->isProtected())
+                $accessModifier = 'protected';
+            else if ($method->isPrivate())
+                $accessModifier = 'private';
+            return $method->name."() is $accessModifier";
+        },array_diff($methods,$publicMethods)
+        );
+        $nonePublicMethodsCount = count($nonePublicMethods);
+        $message = '';
+        if ($nonePublicMethodsCount>0)  {
+            if ($nonePublicMethodsCount==1)
+                $message = " method $nonePublicMethods[0] ";
+            else
+                $message = " methods ".implode(' , ',$nonePublicMethods);
+            $message .=" in $this->namespace trait -> should be public !!!";
+        }
+        $this->assertEquals(0,$nonePublicMethodsCount,$message);
+    }
 }
