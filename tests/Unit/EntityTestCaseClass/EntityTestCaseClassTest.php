@@ -3,6 +3,7 @@
 namespace Tests\Unit\EntityTestCaseClass;
 
 use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Traits\HasNamespaceGetterTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\TestCase as LaravelTestCase;
@@ -34,6 +35,12 @@ class EntityTestCaseClassTest extends TestCase
         $classReflection = new \ReflectionClass($this->namespace);
         $isNotAbstract = !$classReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
+    }
+    public function test_should_use_HasNamespaceGetterTrait():void {
+        $uses = class_uses($this->namespace);
+        $traitNamespace = HasNamespaceGetterTrait::class ;
+        $isUse = in_array($traitNamespace,$uses);
+        $this->assertTrue($isUse , "$this->namespace class should use ".HasNamespaceGetterTrait::class.' trait !!!! ');
     }
     public function test_should_implement_EntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
