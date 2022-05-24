@@ -33,4 +33,10 @@ class SetNamespaceTest extends TestCase
         $isNoFinal = !$reflection->isFinal();
         $this->assertTrue($isNoFinal,"method $this->method() in $this->namespace trait dont be final !!! ");
     }
+    public function test_should_have_return_type():void {
+        $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
+        $hasReturnType = $methodReflection->hasReturnType();
+        $this->assertTrue($hasReturnType,"method $this->method() from $this->namespace trait should have return type !!!");
+    }
+    
 }
