@@ -23,4 +23,9 @@ class SetNamespaceTest extends TestCase
         $isNotStatic = !$reflection->isStatic() ;
         $this->assertTrue($isNotStatic,"method $this->method() in $this->namespace dont be static !!!");
     }
+    public function test_is_no_abstract():void {
+        $reflection = new \ReflectionMethod($this->namespace, $this->method);
+        $isNoAbstract = !$reflection->isAbstract();
+        $this->assertTrue($isNoAbstract," method $this->method() in $this->namespace trait should is no abstract !!! ");
+    }
 }
