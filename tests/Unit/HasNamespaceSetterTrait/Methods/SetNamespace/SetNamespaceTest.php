@@ -38,5 +38,20 @@ class SetNamespaceTest extends TestCase
         $hasReturnType = $methodReflection->hasReturnType();
         $this->assertTrue($hasReturnType,"method $this->method() from $this->namespace trait should have return type !!!");
     }
-    
+
+    public function test_is_void_Return_type():void {
+        $methodReflection = new \ReflectionMethod($this->namespace,$this->method);
+        if ($methodReflection->hasReturnType()){
+            $expects = ["void"];
+            sort($expects,SORT_STRING);
+            $expects = implode('|',$expects);
+            $returnTypes = (string) $methodReflection->getReturnType();
+            $returnTypes = explode("|",$returnTypes);
+            sort($returnTypes,SORT_STRING);
+            $returnTypes = implode('|',$returnTypes);
+            $this->assertEquals($expects , $returnTypes , "return type for method $this->method() from $this->namespace trait should is $expects but is $returnTypes");
+        }
+        else
+            $this->fail("no detected any return type for method $this->method() in $this->namespace trait !!!");
+    }
 }
