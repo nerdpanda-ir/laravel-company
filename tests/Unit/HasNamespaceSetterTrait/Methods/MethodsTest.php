@@ -47,8 +47,6 @@ class MethodsTest extends TestCase
         $staticMethods = array_filter($methods,function (\ReflectionMethod $method){
             return $method->isStatic();
         });
-        $staticMethods[] = 'abol';
-        $staticMethods[] = 'abdol';
         $staticMethodsCount = count($staticMethods);
         $message = '';
         if ($staticMethodsCount>0){
