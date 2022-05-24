@@ -68,19 +68,23 @@ class MethodsTest extends TestCase
     public function test_should_no_have_final_method():void {
         $traitReflection = new \ReflectionClass($this->namespace);
         $methods = $traitReflection->getMethods();
-        $finalMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->isFinal();
-        });
-        $finalMethodsCount = count($finalMethods);
-        $message = '' ;
-        if ($finalMethodsCount>0){
-            if ($finalMethodsCount==1)
-                $message = "method $finalMethods[0]() ";
-            else
-                $message = "methods ".implode('() , ',$finalMethods).'() ,';
-            $message .= " in trait $this->namespace dont be final !!! ";
+        if (!empty($methods)){
+            $finalMethods = array_filter($methods,function (\ReflectionMethod $method){
+                return $method->isFinal();
+            });
+            $finalMethodsCount = count($finalMethods);
+            $message = '' ;
+            if ($finalMethodsCount>0){
+                if ($finalMethodsCount==1)
+                    $message = "method $finalMethods[0]() ";
+                else
+                    $message = "methods ".implode('() , ',$finalMethods).'() ,';
+                $message .= " in trait $this->namespace dont be final !!! ";
+            }
+            $this->assertEmpty($finalMethods,$message);
         }
-        $this->assertEmpty($finalMethods,$message);
+        else
+            $this->fail("no found any method in $this->namespace trait !!!");
     }
 
     public function test_should_no_have_abstract_method():void {
