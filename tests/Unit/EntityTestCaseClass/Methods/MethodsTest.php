@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\EntityTestCaseClass\Methods;
 
+use App\Traits\HasNamespaceGetterTrait;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\VarDumper\Caster\ReflectionCaster;
 use Tests\EntityTestCase;
 
 class MethodsTest extends TestCase
@@ -26,5 +26,14 @@ class MethodsTest extends TestCase
             $message .= " should remove from $this->namespace . " ;
         }
         $this->assertEmpty($selfMethods,$message);
+    }
+    public function test_should_have_one_method_from_HasNamespaceGetterTrait():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $methods = $classReflection->getMethods();
+        $counter = 0 ;
+        foreach ($methods as $method)
+            if ($method->class==HasNamespaceGetterTrait::class)
+                $counter++;
+        $this->assertEquals(1,$counter,"$this->namespace class should just have one method from trait ".HasNamespaceGetterTrait::class);
     }
 }
