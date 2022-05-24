@@ -28,4 +28,9 @@ class SetNamespaceTest extends TestCase
         $isNoAbstract = !$reflection->isAbstract();
         $this->assertTrue($isNoAbstract," method $this->method() in $this->namespace trait should is no abstract !!! ");
     }
+    public function test_is_no_final():void {
+        $reflection = new \ReflectionMethod($this->namespace , $this->method) ;
+        $isNoFinal = !$reflection->isFinal();
+        $this->assertTrue($isNoFinal,"method $this->method() in $this->namespace trait dont be final !!! ");
+    }
 }
