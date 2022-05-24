@@ -100,4 +100,31 @@ class MethodsTest extends TestCase
         else
             $this->fail("no found any methods in use trait ".HasNamespaceGetterTrait::class . " in class $this->namespace ");
     }
+    public function test_methods_in_HasNamespaceGetterTrait_should_no_final():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $methods = $classReflection->getMethods();
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
+            return $method->class==HasNamespaceGetterTrait::class;
+        });
+        if (!empty($traitMethods)){
+            $finalMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
+                return $method->isFinal();
+            });
+            $message = '';
+            if (!empty($finalMethods)){
+                $finalMethods = array_map(function (\ReflectionMethod $method){
+                    return $method->name.'()';
+                },$finalMethods);
+                $finalMethodsCount = count($finalMethods);
+                if ($finalMethodsCount==1)
+                    $message = "method $finalMethods[0]";
+                else
+                    $message = "methods ".implode(' , ',$finalMethods).' ';
+                $message .="in used trait".HasNamespaceGetterTrait::class . " in $this->namespace class dont be final !!!";
+            }
+            $this->assertEmpty($finalMethods,$message);
+        }
+        else
+            $this->fail("no found any method in use trait ".HasNamespaceGetterTrait::class . " in class $this->namespace ");
+    }
 }
