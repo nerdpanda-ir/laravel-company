@@ -46,4 +46,31 @@ class MethodsTest extends TestCase
                 $counter++;
         $this->assertEquals(1,$counter,"$this->namespace class should just have one method from trait ".HasNamespaceGetterTrait::class);
     }
+    public function test_methods_from_HasNamespaceGetterTrait_should_is_public(){
+        $reflectionClass = new \ReflectionClass($this->namespace);
+        $methods = $reflectionClass->getMethods();
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
+            return $method->class==HasNamespaceGetterTrait::class;
+        });
+        if (!empty($traitMethods)){
+            $nonePublicTraitMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
+                return !$method->isPublic();
+            });
+            $nonePublicTraitMethods = array_map(function (\ReflectionMethod $method) {
+                return $method->name.'()';
+            },$nonePublicTraitMethods);
+            $nonePublicTraitMethodsCount = count($nonePublicTraitMethods);
+            $message = '';
+            if (!empty($nonePublicTraitMethods)){
+                if ($nonePublicTraitMethodsCount==1)
+                    $message = " method $nonePublicTraitMethods[0] ";
+                else
+                    $message = 'methods '.implode(', ',$nonePublicTraitMethods);
+                $message .= ' in trait '.HasNamespaceGetterTrait::class .'should is public !!!';
+            }
+            $this->assertEmpty($nonePublicTraitMethods,$message);
+        }
+        else
+            $this->fail("no found any methods in use trait ".HasNamespaceGetterTrait::class."in class $this->namespace");
+    }
 }
