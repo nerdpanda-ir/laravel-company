@@ -79,4 +79,21 @@ class MethodsTest extends TestCase
         }
         $this->assertEmpty($finalMethods,$message);
     }
+    public function test_no_have_abstract_method():void {
+        $reflectionTrait = new \ReflectionClass($this->namespace);
+        $methods = $reflectionTrait->getMethods();
+        $abstractMethods = array_filter($methods,function (\ReflectionMethod $method){
+            return $method->isAbstract();
+        });
+        $abstractMethodsCount = count($abstractMethods);
+        $message = '';
+        if (!empty($abstractMethods)) {
+            if ($abstractMethodsCount==1)
+                $message = "method $abstractMethods[0]() ";
+            else
+                $message = "method ".implode('() , ',$abstractMethods)."() ";
+            $message.=" in $this->namespace trait should be none abstract !!! ";
+        }
+        $this->assertEmpty($abstractMethods , $message);
+    }
 }
