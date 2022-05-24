@@ -27,6 +27,16 @@ class MethodsTest extends TestCase
         }
         $this->assertEmpty($selfMethods,$message);
     }
+    public function test_should_have_double_method_from_use_traits():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $methods = $classReflection->getMethods();
+        $uses = class_uses($this->namespace);
+        $counter = 0 ;
+        foreach ($methods as $method)
+            if (in_array($method->class,$uses))
+                $counter++;
+        $this->assertEquals(2,$counter,"$this->namespace class should have two method from used traits !!! ");
+    }
     public function test_should_have_one_method_from_HasNamespaceGetterTrait():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $methods = $classReflection->getMethods();
