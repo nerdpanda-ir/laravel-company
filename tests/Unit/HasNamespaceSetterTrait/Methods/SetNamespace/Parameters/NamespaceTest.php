@@ -8,6 +8,7 @@ class NamespaceTest extends TestCase
 {
     protected string $namespace = HasNamespaceSetterTrait::class ;
     protected string $method = 'setNamespace';
+    protected string $parameter = 'namespace';
     /**
      * A basic unit test example.
      *
