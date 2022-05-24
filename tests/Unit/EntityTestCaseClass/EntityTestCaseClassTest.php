@@ -36,6 +36,10 @@ class EntityTestCaseClassTest extends TestCase
         $isNotAbstract = !$classReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
     }
+    public function test_should_use_from_two_trait():void {
+        $uses = class_uses($this->namespace);
+        $this->assertEquals(2,count($uses)," $this->namespace class should use two trait ");
+    }
     public function test_should_use_HasNamespaceGetterTrait():void {
         $uses = class_uses($this->namespace);
         $traitNamespace = HasNamespaceGetterTrait::class ;
