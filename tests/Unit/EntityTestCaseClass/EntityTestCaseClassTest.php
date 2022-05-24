@@ -4,6 +4,7 @@ namespace Tests\Unit\EntityTestCaseClass;
 
 use App\Contracts\Tests\EntityTestCaseInterface;
 use App\Traits\HasNamespaceGetterTrait;
+use App\Traits\HasNamespaceSetterTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\TestCase as LaravelTestCase;
@@ -46,11 +47,16 @@ class EntityTestCaseClassTest extends TestCase
         $isUse = in_array($traitNamespace,$uses);
         $this->assertTrue($isUse , "$this->namespace class should use ".HasNamespaceGetterTrait::class.' trait !!!! ');
     }
+    public function test_should_use_HasNamespaceSetterTrait():void {
+        $uses = class_uses($this->namespace);
+        $isUsed = in_array(HasNamespaceSetterTrait::class , $uses);
+        self::assertTrue($isUsed,"$this->namespace class should use from".HasNamespaceSetterTrait::class ." trait !!!");
+    }
     public function test_should_implement_EntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
         $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
     }
 
-    // @todo test namespace method  !!!
+    // @todo test namespace method  , set namespace method !!!
 }
