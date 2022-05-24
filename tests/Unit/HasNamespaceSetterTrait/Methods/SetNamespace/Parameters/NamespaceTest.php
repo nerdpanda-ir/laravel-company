@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\HasNamespaceSetterTrait\Methods\SetNamespace\Parameters;
 use PHPUnit\Framework\TestCase;
-
+use App\Traits\HasNamespaceSetterTrait;
 
 class NamespaceTest extends TestCase
 {
