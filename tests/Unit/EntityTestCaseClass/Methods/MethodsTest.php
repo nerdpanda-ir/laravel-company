@@ -175,10 +175,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_from_HasNamespaceSetterTrait_should_is_public(){
         $reflectionClass = new \ReflectionClass($this->namespace);
-        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
+        $traitFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $reflectionClass->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($tratiFileName){
-            return $method->getFileName()==$tratiFileName;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($traitFileName){
+            return $method->getFileName()==$traitFileName;
         });
         if (!empty($traitMethods)){
             $nonePublicTraitMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
@@ -203,10 +203,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_from_HasNamespaceSetter_should_is_no_static():void {
         $classReflection = new \ReflectionClass($this->namespace);
-        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
+        $traitFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $classReflection->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($tratiFileName){
-            return $method->getFileName() == $tratiFileName ;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($traitFileName){
+            return $method->getFileName() == $traitFileName ;
         });
         if (!empty($traitMethods)){
             $staticMethods = array_filter($traitMethods , function (\ReflectionMethod $method){
@@ -231,10 +231,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_in_HasNamespaceSetterTrait_should_no_final():void {
         $classReflection = new \ReflectionClass($this->namespace);
-        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
+        $traitFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $classReflection->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($tratiFileName){
-            return $method->getFileName()==$tratiFileName;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($traitFileName){
+            return $method->getFileName()==$traitFileName;
         });
         if (!empty($traitMethods)){
             $finalMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
@@ -259,10 +259,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_in_HasNamespaceSetterTrait_should_no_abstract():void {
         $reflectionClass = new \ReflectionClass($this->namespace);
-        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
+        $traitFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $reflectionClass->getMethods();
-        $traitMethods = array_filter($methods , function (\ReflectionMethod $method)use($tratiFileName){
-            return $method->getFileName()==$tratiFileName ;
+        $traitMethods = array_filter($methods , function (\ReflectionMethod $method)use($traitFileName){
+            return $method->getFileName()==$traitFileName ;
         });
         if (!empty($traitMethods)){
             $abstractMethods = [] ;
