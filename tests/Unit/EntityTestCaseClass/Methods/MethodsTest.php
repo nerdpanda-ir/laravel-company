@@ -15,7 +15,7 @@ class MethodsTest extends TestCase
         $methods = $classReflection->getMethods();
         $selfMethods = [] ;
         foreach ($methods as $method)
-            if ($method->class==$this->namespace)
+            if ($method->getFileName()==$classReflection->getFileName())
                 $selfMethods[] = $method->name.'()';
         $selfMethodsCount = count($selfMethods);
         $message = '';
