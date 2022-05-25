@@ -175,9 +175,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_from_HasNamespaceSetterTrait_should_is_public(){
         $reflectionClass = new \ReflectionClass($this->namespace);
+        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $reflectionClass->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->class==HasNamespaceSetterTrait::class;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($tratiFileName){
+            return $method->getFileName()==$tratiFileName;
         });
         if (!empty($traitMethods)){
             $nonePublicTraitMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
