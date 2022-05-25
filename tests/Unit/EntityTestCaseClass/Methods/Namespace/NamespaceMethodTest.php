@@ -64,4 +64,5 @@ class NamespaceMethodTest extends TestCase
         $result = $object->namespace();
         $this->assertIsString($result,"method $this->method() in $this->namespace class should return string !!!");
     }
+    //@todo  to be continue !!!
 }
