@@ -5,6 +5,7 @@ namespace Tests\Unit\EntityTestCaseClass;
 use App\Contracts\Tests\EntityTestCaseInterface;
 use App\Traits\HasNamespaceGetterTrait;
 use App\Traits\HasNamespaceSetterTrait;
+use App\Traits\NamespaceableTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\TestCase as LaravelTestCase;
@@ -41,6 +42,12 @@ class EntityTestCaseClassTest extends TestCase
         $uses = class_uses($this->namespace);
         $expect = 1 ;
         $this->assertEquals(1,count($uses)," $this->namespace class should use one trait ");
+    }
+    public function test_should_use_NamespaceableTrait():void {
+        $uses = class_uses($this->namespace);
+        $namespace = NamespaceableTrait::class ;
+        $isUse = in_array($namespace,$uses);
+        $this->assertTrue($isUse,"$this->namespace class should use $namespace trait !!");
     }
     public function test_should_use_HasNamespaceGetterTrait():void {
         $uses = class_uses($this->namespace);
