@@ -3,6 +3,7 @@
 namespace Tests\Unit\EntityTestCaseClass\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionProperty;
 use Tests\EntityTestCase;
 
 class NamespaceMethodTest extends TestCase
@@ -64,6 +65,13 @@ class NamespaceMethodTest extends TestCase
         $result = app()->call([$object,$this->method],[]);
         $this->assertIsString($result,"method $this->method() in $this->namespace class should return string !!!");
     }
-    //@todo  to be continue !!!
+    public function test_should_get_panda_from_namespace_property():void {
+        $object = app()->make($this->namespace);
+        $property = new ReflectionProperty($object,'namespace');
+        $expect = 'panda';
+        $property->setValue($object,$expect);
+        $actual = app()->call([$object,$this->method]);
+        $this->assertEquals($expect,$actual,"should method $this->method() from $this->namespace class return $expect but $actual returned ");
+    }
     //@todo can extend from trait test !!! ?
 }
