@@ -54,4 +54,9 @@ class NamespaceMethodTest extends TestCase
             $this->fail("no return type detect for method $this->method() in $this->namespace class !!! should return type is $expect");
 
     }
+    public function test_no_return_null():void {
+        $object=  app()->make($this->namespace) ;
+        $result = $object->namespace();
+        $this->assertNotNull($result,"method $this->method() in $this->namespace class cant return null !!");
+    }
 }
