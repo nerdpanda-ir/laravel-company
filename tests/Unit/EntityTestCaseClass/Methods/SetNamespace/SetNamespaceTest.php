@@ -3,6 +3,7 @@
 namespace Tests\Unit\EntityTestCaseClass\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionProperty;
 use Tests\EntityTestCase;
 
 class SetNamespaceTest extends TestCase
@@ -58,5 +59,15 @@ class SetNamespaceTest extends TestCase
         $object = app()->make($this->namespace);
         $result = app()->call([$object , $this->method],['namespace'=>"welcome"]);
         $this->assertNull($result , "should nothing return method $this->method()() in $this->namespace class !!!");
+    }
+
+    public function test_should_set_nerdpanda_to_namespace_property():void {
+        $object = app()->make($this->namespace);
+        $propertyReflection = new ReflectionProperty($object,'namespace');
+        $expect = 'nerdpanda';
+        $set = app()->call([$object,$this->method],['namespace'=>$expect]);
+        $actual = $propertyReflection->getValue($object);
+        $this->assertEquals($expect , $actual , "method $this->method() in $this->namespace should set $expect to namespace property but set $actual ");
+        
     }
 }
