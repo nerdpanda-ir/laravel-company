@@ -57,6 +57,8 @@ class NamespaceMethodTest extends TestCase
     }
     public function test_no_return_null():void {
         $object=  app()->make($this->namespace) ;
+        $namespacePropertyReflection = new ReflectionProperty($object,'namespace');
+        $namespacePropertyReflection->setValue($object,"nerdy");
         $result = $object->namespace();
         $this->assertNotNull($result,"method $this->method() in $this->namespace class cant return null !!");
     }
