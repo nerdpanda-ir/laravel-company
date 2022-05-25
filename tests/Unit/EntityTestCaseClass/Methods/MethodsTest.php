@@ -135,9 +135,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_in_HasNamespaceGetterTrait_should_no_abstract():void {
         $reflectionClass = new \ReflectionClass($this->namespace);
+        $traitFileName = (new ReflectionClass(HasNamespaceGetterTrait::class))->getFileName();
         $methods = $reflectionClass->getMethods();
-        $traitMethods = array_filter($methods , function (\ReflectionMethod $method){
-            return $method->class==HasNamespaceGetterTrait::class ;
+        $traitMethods = array_filter($methods , function (\ReflectionMethod $method)use($traitFileName){
+            return $method->getFileName()==$traitFileName ;
         });
         if (!empty($traitMethods)){
             $abstractMethods = [] ;
