@@ -51,9 +51,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_from_HasNamespaceGetterTrait_should_is_public(){
         $reflectionClass = new \ReflectionClass($this->namespace);
+        $reflectionTrait = new ReflectionClass(HasNamespaceGetterTrait::class);
         $methods = $reflectionClass->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->class==HasNamespaceGetterTrait::class;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($reflectionTrait){
+            return $method->getFileName()==$reflectionTrait->getFileName();
         });
         if (!empty($traitMethods)){
             $nonePublicTraitMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
