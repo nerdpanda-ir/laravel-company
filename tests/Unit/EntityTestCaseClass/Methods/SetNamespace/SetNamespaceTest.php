@@ -3,7 +3,6 @@
 namespace Tests\Unit\EntityTestCaseClass\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
-use App\Traits\HasNamespaceSetterTrait;
 use Tests\EntityTestCase;
 
 class SetNamespaceTest extends TestCase
@@ -54,5 +53,10 @@ class SetNamespaceTest extends TestCase
         }
         else
             $this->fail("no detected any return type for method $this->method() in $this->namespace class !!!");
+    }
+    public function test_when_call_should_nothing_return():void {
+        $object = app()->make($this->namespace);
+        $result = app()->call([$object , $this->method],['namespace'=>"welcome"]);
+        $this->assertNull($result , "should nothing return method $this->method()() in $this->namespace class !!!");
     }
 }
