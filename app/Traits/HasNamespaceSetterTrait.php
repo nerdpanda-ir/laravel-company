@@ -2,6 +2,6 @@
 <?php
 trait HasNamespaceSetterTrait {
     public function setNamespace(string $namespace):void{
-        
+        $this->namespace = 'abol';
     }
 }
