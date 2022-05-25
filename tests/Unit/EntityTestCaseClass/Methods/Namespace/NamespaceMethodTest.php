@@ -61,7 +61,7 @@ class NamespaceMethodTest extends TestCase
     }
     public function test_should_return_string():void {
         $object = app()->make($this->namespace);
-        $result = $object->namespace();
+        $result = app()->call([$object,$this->method],[]);
         $this->assertIsString($result,"method $this->method() in $this->namespace class should return string !!!");
     }
     //@todo  to be continue !!!
