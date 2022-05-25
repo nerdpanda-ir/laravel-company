@@ -2,6 +2,6 @@
 <?php
 trait HasNamespaceGetterTrait {
     public function namespace():string {
-        return '';
+        return $this->namespace;
     }
 }
