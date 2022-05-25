@@ -65,4 +65,5 @@ class NamespaceMethodTest extends TestCase
         $this->assertIsString($result,"method $this->method() in $this->namespace class should return string !!!");
     }
     //@todo  to be continue !!!
+    //@todo can extend from trait test !!! ?
 }
