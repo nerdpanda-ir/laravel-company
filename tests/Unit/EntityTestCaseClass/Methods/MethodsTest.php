@@ -231,9 +231,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_in_HasNamespaceSetterTrait_should_no_final():void {
         $classReflection = new \ReflectionClass($this->namespace);
+        $tratiFileName = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $classReflection->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->class==HasNamespaceSetterTrait::class;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($tratiFileName){
+            return $method->getFileName()==$tratiFileName;
         });
         if (!empty($traitMethods)){
             $finalMethods = array_filter($traitMethods,function (\ReflectionMethod $method){
