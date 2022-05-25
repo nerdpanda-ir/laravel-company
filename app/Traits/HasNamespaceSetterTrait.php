@@ -1,7 +1,7 @@
 <?php namespace App\Traits ;?>
 <?php
 trait HasNamespaceSetterTrait {
-    public function setNamespace($namespace):void{
+    public function setNamespace(string $namespace):void{
         
     }
 }
