@@ -13,5 +13,10 @@ class NamespaceableTraitTest extends TestCase
         $isExist = trait_exists($this->namespace);
         $this->assertTrue($isExist,"should is exist $this->namespace trait ");
     }
-
+    public function test_should_use_from_two_trait():void {
+        $uses = class_uses($this->namespace);
+        $expect = 2 ;
+        $actual = count($uses);
+        $this->assertEquals($expect,$actual,"$this->namespace trait should use from two trait !!!");
+    }
 }
