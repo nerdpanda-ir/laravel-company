@@ -1,5 +1,5 @@
 <?php namespace App\Traits; ?>
 <?php
 trait HasNamespaceGetterTrait {
-    public function namespace(){}
+    public function namespace():int{}
 }
