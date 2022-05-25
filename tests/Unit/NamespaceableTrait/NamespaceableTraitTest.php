@@ -3,7 +3,7 @@
 namespace Tests\Unit\NamespaceableTrait;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\NamespaceableTrait;
+use App\Traits\NamespaceableTrait;
 
 class NamespaceableTraitTest extends TestCase
 {
@@ -13,4 +13,5 @@ class NamespaceableTraitTest extends TestCase
         $isExist = trait_exists($this->namespace);
         $this->assertTrue($isExist,"should is exist $this->namespace trait ");
     }
+
 }
