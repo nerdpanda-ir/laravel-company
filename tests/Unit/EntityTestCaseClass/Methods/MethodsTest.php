@@ -33,9 +33,13 @@ class MethodsTest extends TestCase
         $classReflection = new \ReflectionClass($this->namespace);
         $methods = $classReflection->getMethods();
         $uses = class_uses($this->namespace);
+        $uses = array_map(function(string $trait){
+            $traitReflection = new ReflectionClass($trait);
+            return $traitReflection->getFileName();
+        },$uses);
         $counter = 0 ;
         foreach ($methods as $method)
-            if (in_array($method->class,$uses))
+            if (in_array($method->getFileName(),$uses))
                 $counter++;
         $this->assertEquals(2,$counter,"$this->namespace class should have two method from used traits !!! ");
     }
