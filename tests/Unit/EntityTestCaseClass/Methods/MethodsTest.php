@@ -165,10 +165,11 @@ class MethodsTest extends TestCase
     }
     public function test_should_have_one_method_from_HasNamespaceSetterTrait():void {
         $classReflection = new \ReflectionClass($this->namespace);
+        $traitFile = (new ReflectionClass(HasNamespaceSetterTrait::class))->getFileName();
         $methods = $classReflection->getMethods();
         $counter = 0 ;
         foreach ($methods as $method)
-            if ($method->class==HasNamespaceSetterTrait::class)
+            if ($method->getFileName()==$traitFile)
                 $counter++;
         $this->assertEquals(1,$counter,"$this->namespace class should just have one method from trait ".HasNamespaceSetterTrait::class);
     }
