@@ -79,9 +79,10 @@ class MethodsTest extends TestCase
     }
     public function test_methods_from_HasNamespaceGetter_should_is_no_static():void {
         $classReflection = new \ReflectionClass($this->namespace);
+        $traitReflection = new ReflectionClass(HasNamespaceGetterTrait::class);
         $methods = $classReflection->getMethods();
-        $traitMethods = array_filter($methods,function (\ReflectionMethod $method){
-            return $method->class == HasNamespaceGetterTrait::class;
+        $traitMethods = array_filter($methods,function (\ReflectionMethod $method)use($traitReflection){
+            return $method->getFileName() ==$traitReflection->getFileName();
         });
         if (!empty($traitMethods)){
             $staticMethods = array_filter($traitMethods , function (\ReflectionMethod $method){
