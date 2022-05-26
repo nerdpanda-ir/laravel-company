@@ -23,6 +23,12 @@ class EntityTestCaseClassTest extends TestCase
         $isAbstract = $reflectionClass->isAbstract();
         $this->assertTrue($isAbstract,"class $this->namespace should is Abstract !!! ");
     }
+    public function test_should_extend_from_TestCase():void{
+        $extends = class_parents($this->namespace);
+        $namespace = TestCase::class ;
+        $isExtend = in_array($namespace,$extends);
+        $this->assertTrue($isExtend,"class $this->namespace should extend from $namespace ");
+    }
     public function test_no_implement():void {
         $implements = class_implements($this->namespace);
         $this->assertEmpty($implements," $this->namespace never implement any interface !!! ");
