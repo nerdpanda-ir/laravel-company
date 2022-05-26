@@ -23,4 +23,9 @@ class EntityTestCaseClassTest extends TestCase
         $isAbstract = $reflectionClass->isAbstract();
         $this->assertTrue($isAbstract,"class $this->namespace should is Abstract !!! ");
     }
+    public function test_no_implement():void {
+        $implements = class_implements($this->namespace);
+        $this->assertEmpty($implements," $this->namespace never implement any interface !!! ");
+    }
+    
 }
