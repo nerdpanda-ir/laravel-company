@@ -18,4 +18,9 @@ class EntityTestCaseClassTest extends TestCase
         $isNotFinal = !$reflection->isFinal();
         $this->assertTrue($isNotFinal,"$this->namespace dont be final !!");
     }
+    public function test_should_is_abstract():void {
+        $reflectionClass = new \ReflectionClass($this->namespace);
+        $isAbstract = $reflectionClass->isAbstract();
+        $this->assertTrue($isAbstract,"class $this->namespace should is Abstract !!! ");
+    }
 }
