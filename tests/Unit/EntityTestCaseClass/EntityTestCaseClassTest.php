@@ -41,7 +41,7 @@ class EntityTestCaseClassTest extends TestCase
     public function test_should_use_from_one_trait():void {
         $uses = class_uses($this->namespace);
         $expect = 1 ;
-        $this->assertEquals(1,count($uses)," $this->namespace class should use one trait ");
+        $this->assertEquals($expect,count($uses)," $this->namespace class should use one trait ");
     }
     public function test_should_use_NamespaceableTrait():void {
         $uses = class_uses($this->namespace);
