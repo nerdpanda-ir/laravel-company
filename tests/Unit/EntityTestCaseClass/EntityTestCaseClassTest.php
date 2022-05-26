@@ -13,4 +13,9 @@ class EntityTestCaseClassTest extends TestCase
         $this->assertTrue($isExist," missing class $this->namespace
          ");
     }
+    public function test_dont_Be_final():void {
+        $reflection = new \ReflectionClass($this->namespace);
+        $isNotFinal = !$reflection->isFinal();
+        $this->assertTrue($isNotFinal,"$this->namespace dont be final !!");
+    }
 }
