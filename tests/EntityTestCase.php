@@ -1,5 +1,5 @@
 <?php namespace Tests ; ?>
 <?php
-class EntityTestCase {
-    
+abstract class EntityTestCase {
+
 }
