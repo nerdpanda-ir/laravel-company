@@ -27,5 +27,8 @@ class EntityTestCaseClassTest extends TestCase
         $implements = class_implements($this->namespace);
         $this->assertEmpty($implements," $this->namespace never implement any interface !!! ");
     }
-    
+    public function test_no_use():void {
+        $uses = class_uses($this->namespace);
+        $this->assertEmpty($uses,"$this->namespace class no use any trait !!! ");
+    }
 }
