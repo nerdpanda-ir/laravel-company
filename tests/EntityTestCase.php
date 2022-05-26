@@ -3,10 +3,11 @@
 use App\Contracts\Tests\EntityTestCaseInterface;
 use App\Traits\HasNamespaceGetterTrait;
 use App\Traits\HasNamespaceSetterTrait;
+use App\Traits\NamespaceableTrait;
 
- ?>
+?>
 <?php
 class EntityTestCase extends TestCase implements EntityTestCaseInterface {
-    use HasNamespaceGetterTrait,HasNamespaceSetterTrait;
+    use NamespaceableTrait;
     protected string $namespace;
 }
