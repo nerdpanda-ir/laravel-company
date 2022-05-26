@@ -1,5 +1,7 @@
 <?php namespace Tests ; ?>
 <?php
-abstract class EntityTestCase {
+use PHPUnit\Framework\TestCase;
+
+abstract class EntityTestCase extends TestCase {
 
 }
