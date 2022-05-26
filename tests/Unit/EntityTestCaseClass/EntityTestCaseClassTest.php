@@ -49,17 +49,6 @@ class EntityTestCaseClassTest extends TestCase
         $isUse = in_array($namespace,$uses);
         $this->assertTrue($isUse,"$this->namespace class should use $namespace trait !!");
     }
-    public function test_should_use_HasNamespaceGetterTrait():void {
-        $uses = class_uses($this->namespace);
-        $traitNamespace = HasNamespaceGetterTrait::class ;
-        $isUse = in_array($traitNamespace,$uses);
-        $this->assertTrue($isUse , "$this->namespace class should use ".HasNamespaceGetterTrait::class.' trait !!!! ');
-    }
-    public function test_should_use_HasNamespaceSetterTrait():void {
-        $uses = class_uses($this->namespace);
-        $isUsed = in_array(HasNamespaceSetterTrait::class , $uses);
-        self::assertTrue($isUsed,"$this->namespace class should use from".HasNamespaceSetterTrait::class ." trait !!!");
-    }
     public function test_should_implement_EntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
