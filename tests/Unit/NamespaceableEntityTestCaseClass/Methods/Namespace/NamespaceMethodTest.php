@@ -8,7 +8,7 @@ use Tests\NamespaceableEntityTestCase;
 
 class NamespaceMethodTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     protected string $method = 'namespace';
     public function test_is_exist():void {
         $isExist = method_exists($this->namespace , $this->method);
