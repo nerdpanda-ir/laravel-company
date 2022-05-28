@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods\SetNamespace\Parameters;
 
-use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 use PHPUnit\Framework\TestCase;
 /*
  * @todo create method for check no type hinted parameter count or
