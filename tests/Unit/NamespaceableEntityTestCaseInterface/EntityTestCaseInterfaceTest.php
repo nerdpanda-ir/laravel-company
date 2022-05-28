@@ -8,7 +8,7 @@ use App\Contracts\NamespaceableInterface;
 
 class EntityTestCaseInterfaceTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class ;
+    protected string $namespace = NamespaceableEntityTestCaseInterface::class ;
     public function test_is_exist():void {
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"interface $this->namespace doesnt exsit !!!");
