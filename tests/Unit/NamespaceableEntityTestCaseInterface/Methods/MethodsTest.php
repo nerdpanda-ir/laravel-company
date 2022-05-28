@@ -4,7 +4,7 @@ namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods;
 
 use App\Contracts\HasNamespaceGetterInterface;
 use App\Contracts\HasNamespaceSetterInterface;
-use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 use PHPUnit\Framework\TestCase;
 
 class MethodsTest extends TestCase
