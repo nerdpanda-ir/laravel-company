@@ -3,7 +3,6 @@
 namespace Tests\Unit\NamespaceableEntityTestCaseClass\Properties;
 
 use PHPUnit\Framework\TestCase;
-use Tests\EntityTestCase;
 use Tests\NamespaceableEntityTestCase;
 
 //@todo create method for static properties count check
