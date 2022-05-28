@@ -6,7 +6,6 @@ use App\Traits\HasNamespaceGetterTrait;
 use App\Traits\HasNamespaceSetterTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use Tests\EntityTestCase;
 use Tests\NamespaceableEntityTestCase;
 
 class MethodsTest extends TestCase
