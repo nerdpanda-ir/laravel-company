@@ -7,5 +7,6 @@ use App\Traits\HasNamespaceGetterTrait;
 
 class PropertiesTest extends TestCase
 {
-
+    protected string $namespace = HasNamespaceGetterTrait::class ;
+    
 }
