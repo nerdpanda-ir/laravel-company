@@ -4,10 +4,11 @@ namespace Tests\Unit\NamespaceableEntityTestCaseClass\Properties;
 
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 class NamespacePropertyTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class ;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     protected string $property = 'namespace';
     //@todo can create propertiable interface , for class test , trait test, ...
     //@todo these method can move tod trait -> for use user : dont repeat in any property test case !!!
