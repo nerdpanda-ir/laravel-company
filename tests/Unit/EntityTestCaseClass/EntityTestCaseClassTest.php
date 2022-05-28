@@ -3,8 +3,6 @@
 namespace Tests\Unit\EntityTestCaseClass;
 
 use App\Contracts\Tests\EntityTestCaseInterface;
-use App\Traits\HasNamespaceGetterTrait;
-use App\Traits\HasNamespaceSetterTrait;
 use App\Traits\NamespaceableTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
