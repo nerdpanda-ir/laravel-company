@@ -21,11 +21,6 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
             " no exist $this->namespace class !!! "
         );
     }
-    public function test_should_extend_from_EntityTestCase():void {
-        $isExtend = get_parent_class($this->namespace) ;
-        $expect = EntityTestCase::class;
-        $this->assertEquals( $expect ,$isExtend," class {$this->namespace} should extend ".$expect .' class !!!');
-    }
     public function test_no_final():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isNoFinal = !$classReflection->isFinal();
@@ -38,6 +33,11 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $classReflection = new \ReflectionClass($this->namespace);
         $isNotAbstract = !$classReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
+    }
+    public function test_should_extend_from_EntityTestCase():void {
+        $isExtend = get_parent_class($this->namespace) ;
+        $expect = EntityTestCase::class;
+        $this->assertEquals( $expect ,$isExtend," class {$this->namespace} should extend ".$expect .' class !!!');
     }
     public function test_should_implement_one_interface():void {
         $parent = get_parent_class($this->namespace);
