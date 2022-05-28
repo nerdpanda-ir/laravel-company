@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\TestCase as LaravelTestCase;
 //@todo -> class test || service test -> create method for check isabstract || final -> isfinal() , isabstarct() ,,,,, trait using , interface using , extend parent ,....
-class EntityTestCaseClassTest extends TestCase
+class NamespaceableTestCaseClassTest extends TestCase
 {
     protected string $namespace = EntityTestCase::class ;
 
