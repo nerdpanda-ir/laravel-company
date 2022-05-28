@@ -39,12 +39,12 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $expect = EntityTestCase::class;
         $this->assertEquals( $expect ,$isExtend," class {$this->namespace} should extend ".$expect .' class !!!');
     }
-    public function test_should_implement_one_interface():void {
+    public function test_should_implement_4_interface():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
         $diff = array_diff($selfImplements,$parentImplements);
-        $expect = 1 ;
+        $expect = 4 ;
         $this->assertCount($expect,$diff," should $this->namespace class implement just $expect interface !!!");
     }
     public function test_should_implement_NamespaceableEntityTestCaseInterface():void {
