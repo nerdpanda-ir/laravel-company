@@ -59,7 +59,7 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
     }
     public function test_should_use_NamespaceableEntityTestCaseTrait():void {
         $uses = class_uses($this->namespace);
-        $namespace = NamespaceableTrait::class ;
+        $namespace = NamespaceableEntityTestCaseTrait::class ;
         $isUse = in_array($namespace,$uses);
         $this->assertTrue($isUse,"$this->namespace class should use $namespace trait !!");
     }
