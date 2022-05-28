@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\EntityTestCaseClass;
+namespace Tests\Unit\NamespaceableTestCaseClass;
 
 use App\Contracts\Tests\EntityTestCaseInterface;
 use App\Traits\NamespaceableTrait;

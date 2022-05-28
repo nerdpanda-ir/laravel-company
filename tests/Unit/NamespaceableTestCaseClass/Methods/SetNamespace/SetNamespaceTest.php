@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\EntityTestCaseClass\Methods\SetNamespace;
+namespace Tests\Unit\NamespaceableTestCaseClass\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
@@ -68,6 +68,6 @@ class SetNamespaceTest extends TestCase
         $set = app()->call([$object,$this->method],['namespace'=>$expect]);
         $actual = $propertyReflection->getValue($object);
         $this->assertEquals($expect , $actual , "method $this->method() in $this->namespace should set $expect to namespace property but set $actual ");
-        
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\EntityTestCaseClass\Methods;
+namespace Tests\Unit\NamespaceableTestCaseClass\Methods;
 
 use App\Traits\HasNamespaceGetterTrait;
 use App\Traits\HasNamespaceSetterTrait;
@@ -36,7 +36,7 @@ class MethodsTest extends TestCase
             $traitReflection = new ReflectionClass($trait);
             $counter+= count($traitReflection->getMethods());
         });
-        
+
         $this->assertEquals(2,$counter,"$this->namespace class should have two method from used traits !!! ");
     }
     public function test_should_have_one_method_from_HasNamespaceGetterTrait():void {
