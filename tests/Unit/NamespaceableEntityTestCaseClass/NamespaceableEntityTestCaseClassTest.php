@@ -3,7 +3,7 @@
 namespace Tests\Unit\NamespaceableEntityTestCaseClass;
 
 use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
-use App\Traits\NamespaceableTrait;
+use App\Traits\NamespaceableEntityTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
 use Tests\Unit\NamespaceableEntityTestCase;
@@ -57,7 +57,7 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $expect = 1 ;
         $this->assertEquals($expect,count($uses)," $this->namespace class should use one trait ");
     }
-    public function test_should_use_NamespaceableTrait():void {
+    public function test_should_use_NamespaceableEntityTestCaseTrait():void {
         $uses = class_uses($this->namespace);
         $namespace = NamespaceableTrait::class ;
         $isUse = in_array($namespace,$uses);
