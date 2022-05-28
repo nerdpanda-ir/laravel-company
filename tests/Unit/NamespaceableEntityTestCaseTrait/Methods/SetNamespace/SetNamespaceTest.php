@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\NamespaceableTrait\Methods\SetNamespace;
+namespace Tests\Unit\NamespaceableEntityTestCaseTrait\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
 use App\Traits\Tests\NamespaceableEntityTestCaseTrait;
