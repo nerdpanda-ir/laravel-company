@@ -6,4 +6,5 @@ use App\Traits\Tests\NamespaceableEntityTestCaseTrait;
 
 class NamespaceableEntityTestCase extends EntityTestCase implements NamespaceableEntityTestCaseInterface {
     use NamespaceableEntityTestCaseTrait;
+    protected string $namespace;
 }
