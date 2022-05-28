@@ -3,6 +3,6 @@
 
 use App\Contracts\NamespaceableInterface;
 
-interface EntityTestCaseInterface extends NamespaceableInterface {
+interface NamespaceableEntityTestCaseInterface extends NamespaceableInterface {
 
 }
