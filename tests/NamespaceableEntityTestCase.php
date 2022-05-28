@@ -1,5 +1,5 @@
 <?php namespace Tests ; ?>
 <?php
-class NamespaceableEntityTestCase{
+class NamespaceableEntityTestCase extends EntityTestCase {
 
 }
