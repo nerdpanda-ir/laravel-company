@@ -7,7 +7,7 @@ use Tests\NamespaceableEntityTestCase;
 
 class ParametersTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class ;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     protected string $method = 'namespace';
     public function test_no_have_any_parameter():void {
         $methodReflection = new \ReflectionMethod($this->namespace , $this->method);
