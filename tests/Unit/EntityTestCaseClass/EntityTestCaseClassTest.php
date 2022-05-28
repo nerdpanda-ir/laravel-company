@@ -30,11 +30,17 @@ class EntityTestCaseClassTest extends TestCase
         $this->assertTrue($isExtend,"class $this->namespace should extend from $namespace ");
     }
     public function test_no_implement():void {
-        $implements = class_implements($this->namespace);
+        $message = " $this->namespace never implement any interface !!! "  ;
         $parent = get_parent_class($this->namespace);
-        $parentImplements = class_implements($parent);
-        $diff = array_diff($implements , $parentImplements );
-        $this->assertEmpty($diff," $this->namespace never implement any interface !!! ");
+        $result = [] ;
+        if (strlen($parent)==0)
+            $result = class_implements($this->namespace);
+        else {
+            $parentImplements = class_implements($parent);
+            $selfImplements = class_implements($this->namespace);
+            $result = array_diff($selfImplements,$parentImplements);
+        }
+        $this->assertEmpty($result,$message);
     }
     public function test_no_use():void {
         $uses = class_uses($this->namespace);
