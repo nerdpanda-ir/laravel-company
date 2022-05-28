@@ -17,7 +17,8 @@ class EntityTestCaseInterfaceTest extends TestCase
     public function test_should_extend_three_interface():void {
         $implements = class_implements($this->namespace);
         $implementsCount = sizeof($implements);
-        $this->assertEquals(3,$implementsCount,"$this->namespace interface should just extend from one interface !!!");
+        $expect = 3 ;
+        $this->assertEquals($expect ,$implementsCount,"$this->namespace interface should just extend from $expect interface !!!");
     }
     public function test_should_extend_from_NamespaceableInterface():void {
         $implements = class_implements($this-> namespace);
