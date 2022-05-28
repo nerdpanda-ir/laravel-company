@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  * */
 class ParametersTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class ;
+    protected string $namespace = NamespaceableEntityTestCaseInterface::class ;
     protected string $method = 'setNamespace';
     public function test_should_just_have_single_parameter():void {
         $methodReflection = new \ReflectionMethod($this->namespace, $this->method);
