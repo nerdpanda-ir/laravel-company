@@ -6,7 +6,7 @@ use Tests\NamespaceableEntityTestCase;
 
 class NamespaceTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class ;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     protected string $method = 'setNamespace';
     protected string $parameter = 'namespace';
     public function test_is_exist():void {
