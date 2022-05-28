@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class ;
+    protected string $namespace = NamespaceableEntityTestCaseInterface::class ;
     public function test_should_no_have_method():void {
         $interfaceReflection = new \ReflectionClass($this->namespace);
         $methods = $interfaceReflection->getMethods();
