@@ -38,6 +38,11 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $isNotAbstract = !$classReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
     }
+    public function test_should_implement_EntityTestCaseInterface():void {
+        $classReflection = new \ReflectionClass($this->namespace);
+        $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
+        $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
+    }
     public function test_should_use_from_one_trait():void {
         $uses = class_uses($this->namespace);
         $expect = 1 ;
@@ -48,10 +53,5 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $namespace = NamespaceableTrait::class ;
         $isUse = in_array($namespace,$uses);
         $this->assertTrue($isUse,"$this->namespace class should use $namespace trait !!");
-    }
-    public function test_should_implement_EntityTestCaseInterface():void {
-        $classReflection = new \ReflectionClass($this->namespace);
-        $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
-        $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
     }
 }
