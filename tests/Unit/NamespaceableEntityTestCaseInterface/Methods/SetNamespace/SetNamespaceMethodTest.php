@@ -7,7 +7,7 @@ use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 //@todo create method for abstract or final
 class SetNamespaceMethodTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class ;
+    protected string $namespace = NamespaceableEntityTestCaseInterface::class ;
     protected string $method = 'setNamespace';
     public function test_method_exist():void {
         $exist = method_exists($this->namespace , $this->method);
