@@ -1,5 +1,8 @@
 <?php namespace Tests ; ?>
 <?php
-class NamespaceableEntityTestCase extends EntityTestCase {
+
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
+
+class NamespaceableEntityTestCase extends EntityTestCase implements NamespaceableEntityTestCaseInterface {
 
 }
