@@ -46,7 +46,7 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $expect = 1 ;
         $this->assertCount($expect,$diff," should $this->namespace class implement just $expect interface !!!");
     }
-    public function test_should_implement_EntityTestCaseInterface():void {
+    public function test_should_implement_NamespaceableEntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
         $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
