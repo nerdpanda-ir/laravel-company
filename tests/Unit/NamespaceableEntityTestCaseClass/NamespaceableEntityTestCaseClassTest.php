@@ -23,7 +23,7 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
     public function test_should_extend_from_EntityTestCase():void {
         $isExtend = get_parent_class($this->namespace) ;
         $expect = EntityTestCase::class;
-        $this->assertEquals( $expect ,$isExtend," class {$this->namespace} should extend ".LaravelTestCase::class .' class !!!');
+        $this->assertEquals( $expect ,$isExtend," class {$this->namespace} should extend ".$expect .' class !!!');
     }
     public function test_no_final():void {
         $classReflection = new \ReflectionClass($this->namespace);
