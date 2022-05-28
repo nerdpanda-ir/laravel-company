@@ -3,7 +3,7 @@
 namespace Tests\Unit\EntityTestCaseClass\Properties;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\EntityTestCase;
+use Tests\EntityTestCase;
 
 class PropertiesTest extends TestCase
 {
