@@ -13,7 +13,7 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
 {
     protected string $namespace = NamespaceableEntityTestCase::class ;
 
-    public function test_EntityTestCase_class_should_is_exist():void {
+    public function test_is_exist():void {
         $isExist = class_exists($this->namespace);
         $this->assertTrue(
             $isExist ,
