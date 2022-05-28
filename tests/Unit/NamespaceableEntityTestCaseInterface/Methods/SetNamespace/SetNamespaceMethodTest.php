@@ -2,7 +2,7 @@
 namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 //@todo create method for is static or none static
 //@todo create method for abstract or final
 class SetNamespaceMethodTest extends TestCase
