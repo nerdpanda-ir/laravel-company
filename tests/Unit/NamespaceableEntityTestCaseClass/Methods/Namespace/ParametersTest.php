@@ -3,7 +3,7 @@
 namespace Tests\Unit\NamespaceableEntityTestCaseClass\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
-use Tests\EntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 class ParametersTest extends TestCase
 {
