@@ -7,10 +7,11 @@ use App\Traits\HasNamespaceSetterTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Tests\EntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class ;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     public function test_no_have_method_in_self():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $methods = $classReflection->getMethods();
