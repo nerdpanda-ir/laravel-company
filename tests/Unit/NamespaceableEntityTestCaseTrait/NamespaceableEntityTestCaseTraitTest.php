@@ -12,4 +12,9 @@ class NamespaceableEntityTestCaseTraitTest extends TestCase
         $isExist = trait_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace trait !!!");
     }
+    public function test_should_use_one_Trait():void {
+        $uses = class_uses($this->namespace);
+        $expect = 1 ;
+        $this->assertCount($expect, $uses,"$this->namespace trait should use one trait !!!");
+    }
 }
