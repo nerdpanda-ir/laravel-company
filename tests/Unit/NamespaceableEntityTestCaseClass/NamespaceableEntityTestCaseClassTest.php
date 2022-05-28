@@ -11,7 +11,7 @@ use Tests\TestCase as LaravelTestCase;
 //@todo -> class test || service test -> create method for check isabstract || final -> isfinal() , isabstarct() ,,,,, trait using , interface using , extend parent ,....
 class NamespaceableEntityTestCaseClassTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class ;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
 
     public function test_EntityTestCase_class_should_is_exist():void {
         $isExist = class_exists($this->namespace);
