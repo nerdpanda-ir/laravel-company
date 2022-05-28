@@ -52,6 +52,4 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
         $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
     }
-
-    // @todo test namespace method  , set namespace method !!!
 }
