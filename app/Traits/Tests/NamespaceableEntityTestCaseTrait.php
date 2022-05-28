@@ -1,5 +1,8 @@
 <?php namespace App\Traits\Tests ; ?>
 <?php
-trait NamespaceableEntityTestCaseTrait {
 
+use App\Traits\NamespaceableTrait;
+
+trait NamespaceableEntityTestCaseTrait {
+    use NamespaceableTrait;
 }
