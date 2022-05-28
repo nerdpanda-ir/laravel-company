@@ -4,7 +4,7 @@ namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods\SetNamespace\P
 //@todo create method for test parameter position
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 
 class NamespaceParameterTest extends TestCase
 {
