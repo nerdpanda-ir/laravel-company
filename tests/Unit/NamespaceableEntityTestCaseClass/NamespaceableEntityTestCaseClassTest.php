@@ -6,7 +6,7 @@ use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 use App\Traits\NamespaceableEntityTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
-use Tests\Unit\NamespaceableEntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 //@todo -> class test || service test -> create method for check isabstract || final -> isfinal() , isabstarct() ,,,,, trait using , interface using , extend parent ,....
 
