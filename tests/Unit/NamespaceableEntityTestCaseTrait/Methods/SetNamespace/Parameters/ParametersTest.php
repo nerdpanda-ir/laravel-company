@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\NamespaceableEntityTestCaseTrait\Methods\SetNamespace\Parameters;
 
-use App\Traits\NamespaceableTrait;
+
 use App\Traits\Tests\NamespaceableEntityTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 
