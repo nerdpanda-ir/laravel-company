@@ -3,7 +3,7 @@
 namespace Tests\Unit\EntityTestCaseClass\Methods;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\EntityTestCase;
+use Tests\EntityTestCase;
 
 class MethodsTest extends TestCase
 {
