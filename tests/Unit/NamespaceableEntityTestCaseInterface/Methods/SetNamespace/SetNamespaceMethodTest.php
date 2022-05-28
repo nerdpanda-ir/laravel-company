@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Unit\EntityTestCaseInterface\Methods\SetNamespace;
+namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods\SetNamespace;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\Tests\EntityTestCaseInterface;

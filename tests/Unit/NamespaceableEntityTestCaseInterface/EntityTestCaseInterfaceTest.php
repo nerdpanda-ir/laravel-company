@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\EntityTestCaseInterface;
+namespace Tests\Unit\NamespaceableEntityTestCaseInterface;
 
 use PHPUnit\Framework\TestCase;
 use App\Contracts\Tests\EntityTestCaseInterface;

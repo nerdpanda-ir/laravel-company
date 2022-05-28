@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\EntityTestCaseInterface\Methods\SetNamespace\Parameters;
+namespace Tests\Unit\NamespaceableEntityTestCaseInterface\Methods\SetNamespace\Parameters;
 //@todo create method for test parameter position
 
 use PHPUnit\Framework\TestCase;
