@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\NamespaceableEntityTestCaseClass;
 
-use App\Contracts\Tests\EntityTestCaseInterface;
+use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 use App\Traits\NamespaceableTrait;
 use PHPUnit\Framework\TestCase;
 use Tests\EntityTestCase;
@@ -48,8 +48,9 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
     }
     public function test_should_implement_NamespaceableEntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
-        $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
-        $this->assertTrue($isImplement,"$this->namespace should implement ".EntityTestCaseInterface::class.' interface !!!' );
+        $expect = NamespaceableEntityTestCaseInterface::class ;
+        $isImplement = $classReflection->implementsInterface($expect);
+        $this->assertTrue($isImplement,"$this->namespace should implement ".$expect.' interface !!!' );
     }
     public function test_should_use_from_one_trait():void {
         $uses = class_uses($this->namespace);
