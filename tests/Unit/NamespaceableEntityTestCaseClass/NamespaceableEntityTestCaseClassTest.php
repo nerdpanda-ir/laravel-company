@@ -38,6 +38,14 @@ class NamespaceableEntityTestCaseClassTest extends TestCase
         $isNotAbstract = !$classReflection->isAbstract();
         $this->assertTrue($isNotAbstract,"$this->namespace class should is not abstract !!!");
     }
+    public function test_should_implement_one_interface():void {
+        $parent = get_parent_class($this->namespace);
+        $parentImplements = class_implements($parent);
+        $selfImplements = class_implements($this->namespace);
+        $diff = array_diff($selfImplements,$parentImplements);
+        $expect = 1 ;
+        $this->assertCount($expect,$diff," should $this->namespace class implement just $expect interface !!!");
+    }
     public function test_should_implement_EntityTestCaseInterface():void {
         $classReflection = new \ReflectionClass($this->namespace);
         $isImplement = $classReflection->implementsInterface(EntityTestCaseInterface::class);
