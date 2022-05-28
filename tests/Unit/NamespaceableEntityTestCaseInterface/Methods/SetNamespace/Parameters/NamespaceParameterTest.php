@@ -8,7 +8,7 @@ use App\Contracts\Tests\NamespaceableEntityTestCaseInterface;
 
 class NamespaceParameterTest extends TestCase
 {
-    protected string $namespace = EntityTestCaseInterface::class ;
+    protected string $namespace = NamespaceableEntityTestCaseInterface::class ;
     protected string $method = 'setNamespace';
     protected string $parameter = 'namespace';
     //@todo create method parameter test class , parametr position check , parameter count , parameter type check
