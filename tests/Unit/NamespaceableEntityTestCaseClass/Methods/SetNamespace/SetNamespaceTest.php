@@ -5,10 +5,11 @@ namespace Tests\Unit\NamespaceableEntityTestCaseClass\Methods\SetNamespace;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 use Tests\EntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 class SetNamespaceTest extends TestCase
 {
-    protected string $namespace = EntityTestCase::class;
+    protected string $namespace = NamespaceableEntityTestCase::class ;
     protected string $method = 'setNamespace';
     public function test_is_exist():void {
         $isExist = method_exists($this->namespace , $this->method);
