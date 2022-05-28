@@ -4,7 +4,7 @@ namespace Tests\Unit\NamespaceableEntityTestCaseClass\Methods\Namespace;
 
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
-use Tests\EntityTestCase;
+use Tests\NamespaceableEntityTestCase;
 
 class NamespaceMethodTest extends TestCase
 {
