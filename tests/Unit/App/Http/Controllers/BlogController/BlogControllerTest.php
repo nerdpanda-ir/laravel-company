@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\BlogController;
 
+use App\Contracts\BlogControllerInterface;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use PHPUnit\Framework\TestCase;
@@ -38,7 +39,16 @@ class BlogControllerTest extends TestCase
         $expect = 1 ;
         $this->assertEquals($expect,$diffCount,"controller $this->namespace should implement $expect interface but implement $diffCount interface !! ");
     }
-    
+    public function test_should_implement_BlogControllerInterface():void {
+        $parent = get_parent_class($this->namespace);
+        $parentImplements = class_implements($parent);
+        $selfImplements = class_implements($this->namespace);
+        $diff = array_diff($selfImplements,$parentImplements);
+        $interface = BlogControllerInterface::class ;
+        $isImplement = in_array($interface,$diff);
+        $message = "$this->namespace controller should implement $interface interface !!!";
+        $this->assertTrue($isImplement,$message);
+    }
     public function test_cant_use_trait():void {
         $uses = class_uses($this->namespace);
         $this->assertEmpty($uses," controller $this->namespace dont be use trait !!!");
