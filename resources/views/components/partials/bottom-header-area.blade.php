@@ -1,3 +1,4 @@
+@props(['title','describe'])
 <!-- Start Bottom Header -->
 <div class="header-bg page-area">
     <div class="home-overly"></div>
