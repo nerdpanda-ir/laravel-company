@@ -7,5 +7,6 @@ use App\Contracts\HomeControllerInterface;
 
 class HomeControllerInterfaceTest extends TestCase
 {
-
+    protected string $namespace = HomeControllerInterface::class ;
+    
 }
