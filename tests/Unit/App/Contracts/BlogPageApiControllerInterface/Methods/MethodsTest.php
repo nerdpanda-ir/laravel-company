@@ -7,7 +7,8 @@ use App\Contracts\BlogPageApiControllerInterface;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = BlogPageApiControllerInterface::class ;    public function test_no_have_method():void {
+    protected string $namespace = BlogPageApiControllerInterface::class ;
+    public function test_no_have_method():void {
         $reflection = new \ReflectionClass($this->namespace);
         $methods = $reflection->getMethods() ;
         $methods = array_filter(

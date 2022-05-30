@@ -7,7 +7,8 @@ use App\Contracts\BlogPageApiControllerInterface;
 
 class BlogPageApiControllerInterfaceTest extends TestCase
 {
-    protected string $namespace = BlogPageApiControllerInterface::class ;    public function test_is_exist():void {
+    protected string $namespace = BlogPageApiControllerInterface::class ;
+    public function test_is_exist():void {
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace interface !!");
     }
