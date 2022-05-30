@@ -1,6 +1,5 @@
 @props(['title','describe'])
 <x-partials.bottom-header-area />
-
 <div class="blog-page area-padding">
     <div class="container">
         <div class="row">
@@ -12,3 +11,4 @@
         </div>
     </div>
 </div>
+<x-clear-fix />
