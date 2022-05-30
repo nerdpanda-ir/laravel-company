@@ -9,6 +9,7 @@ use App\Contracts\ShowArticleControllerInterface;
 class ShowArticleController extends Controller implements ShowArticleControllerInterface
 {
     public function __invoke():View {
-        return \view('blog-details');
+        $data = ['language'=>'utffff','charset'=>'utf8'];
+        return \view('blog-details',$data);
     }
 }
