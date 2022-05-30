@@ -34,7 +34,9 @@ class HomeControllerTest extends TestCase
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
         $diff = array_diff($selfImplements,$parentImplements);
-        $this->assertEmpty($diff,"controller $this->namespace implement ".implode(" , ",$diff).' !!! cant be implement any interface !!!');
+        $diffCount = count($diff);
+        $expect = 1 ;
+        $this->assertEquals($expect,$diffCount,"controller $this->namespace should implement $expect interface but implement $diffCount interface !! ");
     }
     public function test_cant_use_trait():void {
         $uses = class_uses($this->namespace);
