@@ -3,4 +3,5 @@
 @section('main')
     <x-partials.header />
     <x-partials.pages.blog-details.main />
+    <x-partials.pages.blog-details.footer />
 @endsection
