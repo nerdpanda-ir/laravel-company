@@ -39,7 +39,7 @@ class HomePageApiControllerTest extends TestCase
         $expect = 1 ;
         $this->assertEquals($expect,$diffCount,"controller $this->namespace should implement $expect interface but implement $diffCount interface !! ");
     }
-    public function test_should_implement_HomeControllerInterface():void {
+    public function test_should_implement_HomePageApiControllerInterface():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
