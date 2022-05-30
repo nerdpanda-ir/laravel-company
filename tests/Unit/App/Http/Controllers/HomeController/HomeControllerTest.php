@@ -29,7 +29,7 @@ class HomeControllerTest extends TestCase
         $message = "controller $this->namespace should extend from $expect";
         $this->assertEquals($parent,$expect,$message);
     }
-    public function test_cant_implement_interface():void {
+    public function test_should_implement_interface():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
