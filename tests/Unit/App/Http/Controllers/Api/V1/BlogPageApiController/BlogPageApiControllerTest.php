@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\V1\BlogPageApiController;
 use PHPUnit\Framework\TestCase;
 use App\Http\Controllers\Controller;
 
-class HomePageApiControllerTest extends TestCase
+class BlogPageApiControllerTest extends TestCase
 {
     protected string $namespace = BlogPageApiController::class ;
     public function test_is_exist():void {
