@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\Api\V1\BlogPageApiController;
 
+use App\Contracts\BlogPageApiControllerInterface;
 use App\Http\Controllers\Api\V1\BlogPageApiController;
 use PHPUnit\Framework\TestCase;
 use App\Http\Controllers\Controller;
@@ -37,6 +38,16 @@ class HomePageApiControllerTest extends TestCase
         $diffCount = count($diff);
         $expect = 1 ;
         $this->assertEquals($expect,$diffCount,"controller $this->namespace should implement $expect interface but implement $diffCount interface !! ");
+    }
+    public function test_should_implement_BlogPageApiControllerInterface():void {
+        $parent = get_parent_class($this->namespace);
+        $parentImplements = class_implements($parent);
+        $selfImplements = class_implements($this->namespace);
+        $diff = array_diff($selfImplements,$parentImplements);
+        $interface = BlogPageApiControllerInterface::class ;
+        $isImplement = in_array($interface,$diff);
+        $message = "$this->namespace controller should implement $interface interface !!!";
+        $this->assertTrue($isImplement,$message);
     }
     public function test_cant_use_trait():void {
         $uses = class_uses($this->namespace);
