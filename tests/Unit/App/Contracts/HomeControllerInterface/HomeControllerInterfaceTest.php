@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\App\Contracts;
+namespace Tests\Unit\App\Contracts\HomeControllerInterface;
 
-use PHPUnit\Framework\TestCase;
 use App\Contracts\HomeControllerInterface;
+use PHPUnit\Framework\TestCase;
 
 class HomeControllerInterfaceTest extends TestCase
 {
