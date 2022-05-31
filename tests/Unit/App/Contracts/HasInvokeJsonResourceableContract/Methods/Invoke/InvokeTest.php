@@ -12,17 +12,17 @@ class InvokeTest extends TestCase
     protected string $method = '__invoke';
     public function test_is_exist():void {
         $isExist = method_exists($this->namespace,$this->method);
-        $this->assertTrue($isExist,"missing $this->method() in  $this->namespace controller");
+        $this->assertTrue($isExist,"missing $this->method() in  $this->namespace interface");
     }
     public function test_dont_be_static():void {
         $reflection = new \ReflectionMethod($this->namespace , $this->method);
         $isNotStatic = !$reflection->isStatic();
-        $this->assertTrue($isNotStatic,"$this->method() method in $this->namespace controller dont be static !!!");
+        $this->assertTrue($isNotStatic,"$this->method() method in $this->namespace interface dont be static !!!");
     }
     public function test_should_is_typeHinted():void {
         $reflection = new \ReflectionMethod($this->namespace , $this->method);
         $hasReturnType = $reflection->hasReturnType();
-        $this->assertTrue($hasReturnType,"method $this->method in $this->namespace controller should has return type !!!");
+        $this->assertTrue($hasReturnType,"method $this->method in $this->namespace interface should has return type !!!");
     }
     public function test_should_typeHint_is_JsonResource():void {
         $expects = [JsonResource::class];
@@ -36,7 +36,7 @@ class InvokeTest extends TestCase
         sort($returnTypes,SORT_STRING);
         $returnTypes = implode('|',$returnTypes);
 
-        $this->assertEquals($expects,$returnTypes,"typeHint for method $this->method() in controller $this->namespace should is $expects but is $returnTypes ");
+        $this->assertEquals($expects,$returnTypes,"typeHint for method $this->method() in interface $this->namespace should is $expects but is $returnTypes ");
     }
 
 }

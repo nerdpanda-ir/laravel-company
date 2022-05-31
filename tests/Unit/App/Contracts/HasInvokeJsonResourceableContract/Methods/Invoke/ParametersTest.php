@@ -13,6 +13,6 @@ class ParametersTest extends TestCase
         $reflection = new \ReflectionMethod($this->namespace , $this->method);
         $parametersCount = $reflection->getNumberOfParameters() ;
         $expect = 0 ;
-        $this->assertEquals($expect , $parametersCount , "method $this->method() in $this->namespace controller should no have any parameter !!!");
+        $this->assertEquals($expect , $parametersCount , "method $this->method() in $this->namespace interface should no have any parameter !!!");
     }
 }
