@@ -12,6 +12,8 @@ class BlogController extends Controller implements BlogControllerInterface
         $data = [
             'language'=> 'en' ,
             'charset' => 'blog charset just for fun !!! ',
+            'bottomHeaderTitle'=> 'all articles' ,
+            'bottomHeaderDescribe'=> 'list of the articles '
         ];
         return \view('blog', $data );
     }
