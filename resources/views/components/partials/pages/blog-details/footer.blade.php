@@ -1,2 +1,1 @@
-<x-partials.footer />
-<x-back-to-top />
+<x-partials.blog-footer />
