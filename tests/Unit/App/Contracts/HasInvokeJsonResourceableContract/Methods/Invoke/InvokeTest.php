@@ -24,7 +24,7 @@ class InvokeTest extends TestCase
         $hasReturnType = $reflection->hasReturnType();
         $this->assertTrue($hasReturnType,"method $this->method in $this->namespace controller should has return type !!!");
     }
-    public function test_should_typeHint_is_View():void {
+    public function test_should_typeHint_is_JsonResource():void {
         $expects = [JsonResource::class];
         sort($expects,SORT_STRING);
         $expects = implode('|',$expects);
