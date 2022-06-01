@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\HomePageApiController ;
 use App\Http\Controllers\Api\V1\BlogPageApiController ;
+use App\Http\Controllers\Api\V1\ShowArticlePageApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,7 @@ Route::name('page.')
 
         Route::get('blog',BlogPageApiController::class)
             ->name('blog');
+
+        Route::get('article',ShowArticlePageApiController::class)
+            ->name('article.show');
     });
