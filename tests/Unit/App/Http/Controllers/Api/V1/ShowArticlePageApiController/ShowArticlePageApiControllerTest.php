@@ -35,8 +35,9 @@ class ShowArticlePageApiControllerTest extends TestCase
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
         $diff = array_diff($selfImplements,$parentImplements);
+        //@todo may be like interface implement in showarticle contract interface
         $diffCount = count($diff);
-        $expect = 1 ;
+        $expect = 2 ;
         $this->assertEquals($expect,$diffCount,"controller $this->namespace should implement $expect interface but implement $diffCount interface !! ");
     }
     public function test_should_implement_ShowArticlePageApiControllerContract():void {
