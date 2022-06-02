@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\Api\V1\HomePageApiController;
 
-use App\Contracts\HomePageApiControllerInterface;
+use App\Contracts\HomePageApiControllerContract as ControllerContract;
 use App\Http\Controllers\Api\V1\HomePageApiController;
 use PHPUnit\Framework\TestCase;
 use App\Http\Controllers\Controller;
