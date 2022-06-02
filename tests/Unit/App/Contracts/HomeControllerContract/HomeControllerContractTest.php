@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\HomeControllerInterface;
+namespace Tests\Unit\App\Contracts\HomeControllerContract;
 
 use App\Contracts\HasInvokeViewableContract;
-use App\Contracts\HomeControllerInterface;
+use App\Contracts\HomeControllerContract as Entity;
 use PHPUnit\Framework\TestCase;
 
-class HomeControllerInterfaceTest extends TestCase
+class HomeControllerContractTest extends TestCase
 {
-    protected string $namespace = HomeControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_is_exist():void {
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace interface !!");

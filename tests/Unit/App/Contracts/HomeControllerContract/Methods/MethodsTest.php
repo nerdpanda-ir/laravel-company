@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\HomeControllerInterface\Methods;
+namespace Tests\Unit\App\Contracts\HomeControllerContract\Methods;
 
-use App\Contracts\HomeControllerInterface;
+use App\Contracts\HomeControllerContract as Entity;
 use PHPUnit\Framework\TestCase;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = HomeControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_method():void {
         $reflection = new \ReflectionClass($this->namespace);
         $methods = $reflection->getMethods() ;
