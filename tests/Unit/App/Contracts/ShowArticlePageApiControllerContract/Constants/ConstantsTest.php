@@ -3,11 +3,11 @@
 namespace Tests\Unit\App\Contracts\ShowArticlePageApiControllerContract\Constants;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\ShowArticlePageApiControllerContract;
+use App\Contracts\ShowArticlePageApiControllerContract as Entity;
 
 class ConstantsTest extends TestCase
 {
-    protected string $namespace = ShowArticlePageApiControllerContract::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_constants():void {
         $reflection = new \ReflectionClass($this->namespace);
         $constants = $reflection->getReflectionConstants();

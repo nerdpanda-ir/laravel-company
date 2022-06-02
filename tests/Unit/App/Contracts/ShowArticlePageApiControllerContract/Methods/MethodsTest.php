@@ -3,11 +3,11 @@
 namespace Tests\Unit\App\Contracts\ShowArticlePageApiControllerContract\Methods;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\ShowArticlePageApiControllerContract;
+use App\Contracts\ShowArticlePageApiControllerContract as Entity;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = ShowArticlePageApiControllerContract::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_method():void {
         $reflection = new \ReflectionClass($this->namespace);
         $methods = $reflection->getMethods() ;

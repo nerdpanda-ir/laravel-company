@@ -4,11 +4,11 @@ namespace Tests\Unit\App\Contracts\ShowArticlePageApiControllerContract;
 
 use App\Contracts\HasInvokeJsonResourceableContract;
 use PHPUnit\Framework\TestCase;
-use App\Contracts\ShowArticlePageApiControllerContract;
+use App\Contracts\ShowArticlePageApiControllerContract as Entity;
 
 class ShowArticlePageApiControllerContractTest extends TestCase
 {
-    protected string $namespace = ShowArticlePageApiControllerContract::class ;
+    protected string $namespace = Entity::class ;
 
     public function test_is_exist():void {
         $isExist = interface_exists($this->namespace);
