@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\ShowArticleControllerInterface\Constants;
+namespace Tests\Unit\App\Contracts\ShowArticleControllerContract\Constants;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\ShowArticleControllerInterface;
+use App\Contracts\ShowArticleControllerContract as Entity;
 
 class ConstantsTest extends TestCase
 {
-    protected string $namespace = ShowArticleControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_constants():void {
         $reflection = new \ReflectionClass($this->namespace);
         $constants = $reflection->getReflectionConstants();
