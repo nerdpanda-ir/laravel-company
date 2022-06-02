@@ -14,7 +14,7 @@ class ShowArticlePageApiControllerContractTest extends TestCase
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace interface !!");
     }
-    public function test_should_extend_from_1_interface():void {
+    public function test_should_extend_interface():void {
         $expect = 1 ;
         $classImplements = class_implements($this->namespace);
         $classImplementsCount = count($classImplements);
