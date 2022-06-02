@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\Api\V1\BlogPageApiController;
 
-use App\Contracts\BlogPageApiControllerInterface;
+use App\Contracts\BlogPageApiControllerContract as ControllerContract;
 use App\Http\Controllers\Api\V1\BlogPageApiController;
 use PHPUnit\Framework\TestCase;
 use App\Http\Controllers\Controller;
