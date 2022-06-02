@@ -51,7 +51,7 @@ class ShowArticleControllerTest extends TestCase
         }
         $this->assertEquals($expect,$diffCount,$message);
     }
-    public function test_should_implement_ShowArticleControllerInterface():void {
+    public function test_should_implement_ShowArticleControllerContract():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
