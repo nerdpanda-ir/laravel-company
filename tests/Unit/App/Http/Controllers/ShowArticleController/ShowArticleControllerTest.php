@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\ShowArticleController;
 
-use App\Contracts\ShowArticleControllerInterface;
+use App\Contracts\ShowArticleControllerContract as ControllerContract;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ShowArticleController;
 use PHPUnit\Framework\TestCase;
