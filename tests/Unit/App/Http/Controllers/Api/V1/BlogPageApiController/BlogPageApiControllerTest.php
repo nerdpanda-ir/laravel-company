@@ -51,7 +51,7 @@ class BlogPageApiControllerTest extends TestCase
         }
         $this->assertEquals($expect,$diffCount,$message);
     }
-    public function test_should_implement_BlogPageApiControllerInterface():void {
+    public function test_should_implement_BlogPageApiControllerContract():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
