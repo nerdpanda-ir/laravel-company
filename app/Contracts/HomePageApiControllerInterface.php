@@ -1,5 +1,5 @@
 <?php namespace App\Contracts; ?>
 <?php
-interface HomePageApiControllerInterface {
+interface HomePageApiControllerInterface extends HasInvokeJsonResourceableContract {
 
 }
