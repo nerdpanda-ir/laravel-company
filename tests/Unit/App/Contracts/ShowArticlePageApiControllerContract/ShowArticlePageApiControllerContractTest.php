@@ -15,14 +15,8 @@ class ShowArticlePageApiControllerContractTest extends TestCase
         $this->assertTrue($isExist,"missing $this->namespace interface !!");
     }
     public function test_should_extend_from_1_interface():void {
-        //@todo can move to seperate class !!!
         $expect = 1 ;
         $classImplements = class_implements($this->namespace);
-        foreach ($classImplements as $classImplement){
-            $interfaceImplements = class_implements($classImplement);
-            foreach ($interfaceImplements as $interfaceImplement)
-                unset($classImplements[$interfaceImplement]);
-        }
         $classImplementsCount = count($classImplements);
         $message = '';
         if ($classImplementsCount!=$expect){
@@ -39,13 +33,7 @@ class ShowArticlePageApiControllerContractTest extends TestCase
         $this->assertEquals($classImplementsCount,$expect,$message);
     }
     public function test_should_extend_HasInvokeJsonResourceableContract_interface():void {
-        //@todo duplicated codes !!!
         $classImplements = class_implements($this->namespace);
-        foreach ($classImplements as $classImplement){
-            $interfaceImplements = class_implements($classImplement);
-            foreach ($interfaceImplements as $interfaceImplement)
-                unset($classImplements[$interfaceImplement]);
-        }
         $interface = HasInvokeJsonResourceableContract::class ;
         $isImplement = in_array($interface, $classImplements);
         $this->assertTrue($isImplement,"$this->namespace interface should implement $interface !!!");
