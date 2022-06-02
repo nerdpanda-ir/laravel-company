@@ -6,7 +6,7 @@ use App\Contracts\HasInvokeJsonResourceableContract;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\BlogPageApiControllerContract as Entity;
 
-class BlogPageApiControllerInterfaceTest extends TestCase
+class BlogPageApiControllerContractTest extends TestCase
 {
     protected string $namespace = Entity::class ;
     public function test_is_exist():void {
