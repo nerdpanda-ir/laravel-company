@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\App\Contracts\HomeControllerInterface;
 
+use App\Contracts\HasInvokeViewableContract;
 use App\Contracts\HomeControllerInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -29,6 +30,12 @@ class HomeControllerInterfaceTest extends TestCase
             $message.=" than expect interfaces !!!\nshould implement $expect interface but implement $classImplementsCount interface $interfaceImplode";
         }
         $this->assertEquals($classImplementsCount,$expect,$message);
+    }
+    public function test_should_extend_HasInvokeViewableContract_interface():void {
+        $classImplements = class_implements($this->namespace);
+        $interface = HasInvokeViewableContract::class;
+        $isImplement = in_array($interface, $classImplements);
+        $this->assertTrue($isImplement,"$this->namespace interface should implement $interface !!!");
     }
 
 }
