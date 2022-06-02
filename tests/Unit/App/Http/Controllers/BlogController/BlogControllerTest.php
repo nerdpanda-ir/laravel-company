@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\BlogController;
 
-use App\Contracts\BlogControllerInterface;
+use App\Contracts\BlogControllerContract;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use PHPUnit\Framework\TestCase;
@@ -51,7 +51,7 @@ class BlogControllerTest extends TestCase
         }
         $this->assertEquals($expect,$diffCount,$message);
     }
-    public function test_should_implement_BlogControllerInterface():void {
+    public function test_should_implement_BlogControllerContract():void {
         $parent = get_parent_class($this->namespace);
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
