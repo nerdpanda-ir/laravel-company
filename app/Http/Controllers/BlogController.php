@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\BlogControllerInterface;
+use App\Contracts\BlogControllerContract ;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 
-class BlogController extends Controller implements BlogControllerInterface
+class BlogController extends Controller implements BlogControllerContract
 {
     public function __invoke():View {
         $data = [
