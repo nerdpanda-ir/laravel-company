@@ -1,5 +1,5 @@
 <?php namespace App\Contracts ; ?>
 <?php
-interface BlogControllerInterface {
+interface BlogControllerInterface extends HasInvokeViewableContract {
 
 }
