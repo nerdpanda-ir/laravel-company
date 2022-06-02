@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\HomeController;
 
-use App\Contracts\HomeControllerInterface;
+use App\Contracts\HomeControllerContract as ControllerContract;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use PHPUnit\Framework\TestCase;
