@@ -31,7 +31,7 @@ class BlogControllerInterfaceTest extends TestCase
         }
         $this->assertEquals($classImplementsCount,$expect,$message);
     }
-    public function test_should_extend_HasInvokeJsonResourceableContract_interface():void {
+    public function test_should_extend_HasInvokeViewableContract_interface():void {
         $classImplements = class_implements($this->namespace);
         $interface = HasInvokeViewableContract::class ;
         $isImplement = in_array($interface, $classImplements);
