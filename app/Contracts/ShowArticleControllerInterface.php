@@ -1,5 +1,5 @@
 <?php namespace App\Contracts ; ?>
 <?php
-interface ShowArticleControllerInterface {
+interface ShowArticleControllerInterface extends HasInvokeViewableContract {
 
 }
