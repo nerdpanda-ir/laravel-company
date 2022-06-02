@@ -12,8 +12,23 @@ class HomeControllerInterfaceTest extends TestCase
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace interface !!");
     }
-    public function test_no_extend_interface():void {
-        $extends = class_implements($this->namespace);
-        $this->assertEmpty($extends,"$this->namespace interface should is never extend any interface ");
+    public function test_should_extend_interface():void {
+        $expect = 1 ;
+        $classImplements = class_implements($this->namespace);
+        $classImplementsCount = count($classImplements);
+        $message = '';
+        if ($classImplementsCount!=$expect){
+            $message = "interface $this->namespace implement ";
+            $interfaceImplode = '';
+            if ($classImplementsCount>=1)
+                $interfaceImplode ='-> '.implode(' , ',$classImplements);
+            if ($classImplementsCount>$expect)
+                $message.='more';
+            else
+                $message.='less';
+            $message.=" than expect interfaces !!!\nshould implement $expect interface but implement $classImplementsCount interface $interfaceImplode";
+        }
+        $this->assertEquals($classImplementsCount,$expect,$message);
     }
+
 }
