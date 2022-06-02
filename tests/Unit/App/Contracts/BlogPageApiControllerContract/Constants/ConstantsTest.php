@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\BlogPageApiControllerInterface\Constants;
+namespace Tests\Unit\App\Contracts\BlogPageApiControllerContract\Constants;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\BlogPageApiControllerInterface;
+use App\Contracts\BlogPageApiControllerContract as Entity;
 
 class ConstantsTest extends TestCase
 {
-    protected string $namespace = BlogPageApiControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_constants():void {
         $reflection = new \ReflectionClass($this->namespace);
         $constants = $reflection->getReflectionConstants();

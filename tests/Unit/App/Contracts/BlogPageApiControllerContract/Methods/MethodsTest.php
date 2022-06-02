@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\BlogPageApiControllerInterface\Methods;
+namespace Tests\Unit\App\Contracts\BlogPageApiControllerContract\Methods;
 
 use PHPUnit\Framework\TestCase;
-use App\Contracts\BlogPageApiControllerInterface;
+use App\Contracts\BlogPageApiControllerContract as Entity;
 
 class MethodsTest extends TestCase
 {
-    protected string $namespace = BlogPageApiControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_no_have_method():void {
         $reflection = new \ReflectionClass($this->namespace);
         $methods = $reflection->getMethods() ;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Unit\App\Contracts\BlogPageApiControllerInterface;
+namespace Tests\Unit\App\Contracts\BlogPageApiControllerContract;
 
 use App\Contracts\HasInvokeJsonResourceableContract;
 use PHPUnit\Framework\TestCase;
-use App\Contracts\BlogPageApiControllerInterface;
+use App\Contracts\BlogPageApiControllerContract as Entity;
 
 class BlogPageApiControllerInterfaceTest extends TestCase
 {
-    protected string $namespace = BlogPageApiControllerInterface::class ;
+    protected string $namespace = Entity::class ;
     public function test_is_exist():void {
         $isExist = interface_exists($this->namespace);
         $this->assertTrue($isExist,"missing $this->namespace interface !!");
