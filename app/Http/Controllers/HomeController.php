@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\HomeControllerContract;
 use Illuminate\Http\Request;
-use App\Contracts\HomeControllerInterface;
 use Illuminate\Contracts\View\View;
 
-class HomeController extends Controller implements HomeControllerInterface
+class HomeController extends Controller implements HomeControllerContract
 {
     public function __invoke() :View {
         $data = [
