@@ -56,7 +56,7 @@ class BlogControllerTest extends TestCase
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
         $diff = array_diff($selfImplements,$parentImplements);
-        $interface = BlogControllerInterface::class ;
+        $interface = BlogControllerContract::class ;
         $isImplement = in_array($interface,$diff);
         $message = "$this->namespace controller should implement $interface interface !!!";
         $this->assertTrue($isImplement,$message);
