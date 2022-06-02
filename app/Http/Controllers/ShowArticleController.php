@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\ShowArticleControllerContract;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use App\Contracts\ShowArticleControllerInterface;
 
-class ShowArticleController extends Controller implements ShowArticleControllerInterface
+class ShowArticleController extends Controller implements ShowArticleControllerContract
 {
     public function __invoke():View {
         $data = [
