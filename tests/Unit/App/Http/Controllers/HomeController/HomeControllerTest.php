@@ -56,7 +56,7 @@ class HomeControllerTest extends TestCase
         $parentImplements = class_implements($parent);
         $selfImplements = class_implements($this->namespace);
         $diff = array_diff($selfImplements,$parentImplements);
-        $interface = HomeControllerInterface::class ;
+        $interface = ControllerContract::class ;
         $isImplement = in_array($interface,$diff);
         $message = "$this->namespace controller should implement $interface interface !!!";
         $this->assertTrue($isImplement,$message);
