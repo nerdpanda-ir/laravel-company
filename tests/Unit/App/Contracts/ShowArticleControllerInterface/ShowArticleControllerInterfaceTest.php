@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\App\Contracts\ShowArticleControllerInterface;
 
+use App\Contracts\HasInvokeViewableContract;
 use PHPUnit\Framework\TestCase;
 use App\Contracts\ShowArticleControllerInterface;
 
@@ -30,5 +31,10 @@ class ShowArticleControllerInterfaceTest extends TestCase
         }
         $this->assertEquals($classImplementsCount,$expect,$message);
     }
-
+    public function test_should_extend_HasInvokeViewableContract_interface():void {
+        $classImplements = class_implements($this->namespace);
+        $interface = HasInvokeViewableContract::class ;
+        $isImplement = in_array($interface, $classImplements);
+        $this->assertTrue($isImplement,"$this->namespace interface should implement $interface !!!");
+    }
 }
