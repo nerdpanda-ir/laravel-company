@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\App\Http\Controllers\BlogController;
 
-use App\Contracts\BlogControllerContract;
+use App\Contracts\BlogControllerContract as ControllerContract;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use PHPUnit\Framework\TestCase;
