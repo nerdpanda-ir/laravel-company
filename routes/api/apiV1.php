@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\HomePageApiController ;
 use App\Http\Controllers\Api\V1\BlogPageApiController ;
 use App\Http\Controllers\Api\V1\ShowArticlePageApiController;
-
+use App\Http\Controllers\Api\V1\ArticleApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,3 +29,6 @@ Route::name('page.')
         Route::get('article',ShowArticlePageApiController::class)
             ->name('article.show');
     });
+
+Route::apiResource('article',ArticleApiController::class)
+    ->only(['index']);
