@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Contracts\ArticleApiControllerContract;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ArticleResourceCollection;
-use App\Http\Resources\ShowArticleResource;
-use Illuminate\Http\Request;
+use App\Http\Resources\Api\V1\ArticleResourceCollection;
+use App\Http\Resources\Api\V1\ShowArticleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ArticleApiController extends Controller implements ArticleApiControllerContract
