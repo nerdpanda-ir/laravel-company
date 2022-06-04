@@ -65,6 +65,7 @@ class MethodsTest extends TestCase
             return $isInSelf && $isPublic;
         });
         $methodsCount = count($methods);
+        //@todo  has bug : when method is less than expect message is empty !!!
         $expect = 2 ;
         $message = '';
         if ($methodsCount>$expect){
