@@ -31,4 +31,4 @@ Route::name('page.')
     });
 
 Route::apiResource('article',ArticleApiController::class)
-    ->only(['index']);
+    ->only(['index','show'])->parameter('article','slug');
