@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\App\Http\Controllers\Api\V1\ShowArticlePageApiController\Methods\Invoke;
+namespace Tests\Unit\App\Http\Controllers\Api\V1\ArticleApiController\Methods\Index;
 
 use PHPUnit\Framework\TestCase;
 use App\Http\Controllers\Api\V1\ShowArticlePageApiController;
