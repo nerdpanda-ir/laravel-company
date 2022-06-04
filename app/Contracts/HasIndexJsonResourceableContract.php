@@ -2,7 +2,8 @@
 
 namespace App\Contracts;
 
-interface HasIndexJsonResourceableContract
-{
+use Illuminate\Http\Resources\Json\JsonResource;
 
+interface HasIndexJsonResourceableContract {
+    function index():JsonResource;
 }
