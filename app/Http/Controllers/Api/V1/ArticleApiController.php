@@ -11,7 +11,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class ArticleApiController extends Controller implements ArticleApiControllerContract
 {
     public function index(): JsonResource {
-        $data = ['message'=>'all articles'];
+        $data = [['message'=>'all articles']];
         return ArticleResourceCollection::make($data);
     }
     public function show(): JsonResource {

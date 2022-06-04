@@ -36,7 +36,7 @@ class ArticleIndexApiTest extends TestCase
     }
 
     public function test_json_response_body():void{
-        $expected = ['data'=> ['message'=> 'all articles']];
+        $expected = ['data'=> [['message'=> 'all articles']]];
         $response = $this->get(route($this->pageRoute));
         $response->assertJson($expected);
     }
