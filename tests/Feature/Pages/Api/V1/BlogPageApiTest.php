@@ -35,7 +35,7 @@ class BlogPageApiTest extends TestCase
         );
     }
 
-    public function test_blog_api_page_response_content_test():void {
+    public function test_json_response_body():void {
         $expected = ['data'=> ['message'=>'welcome to blog page !!!']];
         $response = $this->get(route($this->pageRoute));
         $response->assertJson($expected);

@@ -35,7 +35,7 @@ class ShowArticlePageApiTest extends TestCase
         );
     }
 
-    public function test_home_api_page_json_response_body():void{
+    public function test_json_response_body():void{
         $expected = ['data'=> ['message'=> 'article details']];
         $response = $this->get(route($this->pageRoute));
         $response->assertJson($expected);

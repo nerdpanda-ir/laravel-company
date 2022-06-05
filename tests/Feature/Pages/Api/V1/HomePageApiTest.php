@@ -35,7 +35,7 @@ class HomePageApiTest extends TestCase
         );
     }
 
-    public function test_home_api_page_json_response_body():void{
+    public function test_json_response_body():void{
         $expected = ['data'=> ['message'=> 'welcome to home']];
         $response = $this->get(route($this->pageRoute));
         $response->assertJson($expected);
