@@ -66,11 +66,20 @@ class MethodsTest extends TestCase
         $methodsCount = count($methods);
         $expect = 1 ;
         $message = '';
-        if ($methodsCount>1){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            $message = "methods ".implode('() , ',$methods)."() in controller $this->namespace is public !!!\n$this->namespace controller  should have just $expect public method ";
+        if ($methodsCount != $expect){
+            $message .= "$this->namespace controller ";
+            $implodeMethods = '';
+            if ($methodsCount>=1) {
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $implodeMethods .= '->'.implode('() , ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
+            else
+                $message.='less';
+            $message.=" than expect have method !!! $this->namespace controller should have $expect method but actually have $methodsCount $implodeMethods ".(($methodsCount<=1) ? 'method ' : 'methods');
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }
