@@ -21,7 +21,7 @@ class HomePageApiTest extends TestCase
         $isExist = $response->headers->has($header);
         $this->assertTrue($isExist,"get response for $url should have $header header !!!");
     }
-    public function test_content_type_header_in_home_api_page_response_should_is_application_json():void {
+    public function test_content_type_header_in_response_should_is_application_json():void {
         $url = route($this->pageRoute);
         $response = $this->get($url);
         $header = 'content-type';
