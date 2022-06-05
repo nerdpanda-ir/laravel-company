@@ -55,7 +55,6 @@ class MethodsTest extends TestCase
         }
         assertEquals($expect,$methodsCount,$message);
     }
-    //@todo should complete !!! 70 line
     public function test_should_have_2_public_method():void {
         $reflection = new \ReflectionClass($this->namespace);
         $methods = $reflection->getMethods();
@@ -65,14 +64,23 @@ class MethodsTest extends TestCase
             return $isInSelf && $isPublic;
         });
         $methodsCount = count($methods);
-        //@todo  has bug : when method is less than expect message is empty !!!
-        $expect = 2 ;
+        $expect =2;
         $message = '';
-        if ($methodsCount>$expect){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            $message = "methods ".implode('() , ',$methods)."() in controller $this->namespace is public !!!\n$this->namespace controller  should have just $expect public method ";
+        //@todo check in all test methods
+        if ($methodsCount != $expect){
+            $message .= "$this->namespace controller ";
+            $implodeMethods = '';
+            if ($methodsCount>=1) {
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $implodeMethods .= '->'.implode('() , ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
+            else
+                $message.='less';
+            $message.=" than expect have method !!! $this->namespace controller should have $expect method but actually have $methodsCount $implodeMethods ".(($methodsCount<=1) ? 'method ' : 'methods');
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }
