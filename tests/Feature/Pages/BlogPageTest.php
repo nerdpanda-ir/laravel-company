@@ -10,7 +10,7 @@ class BlogPageTest extends TestCase
 {
     protected string $pageRoute = 'blog';
 
-    public function test_blog_page_should_have_200_status_code():void {
+    public function test_should_have_200_status_code():void {
         $response = $this->get(route($this->pageRoute));
         $response->assertOk();
     }

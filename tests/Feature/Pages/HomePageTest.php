@@ -10,7 +10,7 @@ class HomePageTest extends TestCase
 {
     protected string $pageRoute = 'home' ;
 
-    public function test_home_page_should_have_200_status_code() :void {
+    public function test_should_have_200_status_code() :void {
         $response = $this->get(route($this->pageRoute));
         $response->assertOk();
     }

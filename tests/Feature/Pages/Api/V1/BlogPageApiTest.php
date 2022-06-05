@@ -10,7 +10,7 @@ class BlogPageApiTest extends TestCase
 {
     protected string $pageRoute = 'api.v1.page.blog';
 
-    public function test_should_blog_api_page_have_200_status_code():void {
+    public function test_should_have_200_status_code():void {
         $response = $this->get(route($this->pageRoute));
         $response->assertOk();
     }
