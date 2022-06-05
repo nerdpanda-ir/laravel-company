@@ -18,6 +18,7 @@ class MethodsTest extends TestCase
             }
         );
         $message = '';
+        //@todo no expective !!!
         if (!empty($methods)){
             $message .= "interface $this->namespace should no have any method ";
             $methods = array_map(
