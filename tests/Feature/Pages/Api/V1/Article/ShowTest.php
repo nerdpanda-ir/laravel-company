@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Feature\Pages\Api\V1;
+namespace Tests\Feature\Pages\Api\V1\Article;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ArticleShowApiTest extends TestCase
+class ShowTest extends TestCase
 {
     protected string $pageRoute = 'api.v1.article.show';
 
