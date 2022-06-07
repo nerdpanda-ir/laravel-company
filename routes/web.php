@@ -18,3 +18,4 @@ use App\Http\Controllers\ShowArticleController;
 Route::get('', HomeController::class )->name('home');
 Route::get('blog',BlogController::class)->name('blog');
 Route::get('article',ShowArticleController::class)->name('article.show');
+
