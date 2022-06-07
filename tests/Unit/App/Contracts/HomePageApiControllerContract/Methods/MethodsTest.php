@@ -17,17 +17,24 @@ class MethodsTest extends TestCase
                 return $method->getDeclaringClass()->name == $this->namespace;
             }
         );
+        $methodsCount = count($methods);
         $message = '';
-        //@todo no expective !!!
-        if (!empty($methods)){
-            $message .= "interface $this->namespace should no have any method ";
-            $methods = array_map(
-                function (\ReflectionMethod $method){
+        $expect = 0 ;
+        if ($methodsCount!=$expect){
+            $message = "$this->namespace interface ";
+            $implodeMethods = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
                     return $method->name;
-                } , $methods );
-            $message.="but have ".implode('() , ',$methods).'()';
+                },$methods);
+                $implodeMethods = ' -> '.implode('() , ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
+            else
+                $message .='less';
+            $message.=" than expect have method !!!\n$this->namespace interface should have $expect method but actually have $methodsCount method  $implodeMethods !!!";
         }
-        $this->assertEmpty($methods,$message);
-
+        $this->assertEquals($expect,$methodsCount,$message);
     }
 }
