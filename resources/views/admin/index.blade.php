@@ -2,6 +2,7 @@
 @section('title') AdminLTE 3 | Dashboard 2 @endsection
 @section('main')
     <x-admin.wrapper>
+        <x-partials.admin.header />
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
