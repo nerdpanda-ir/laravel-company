@@ -1,0 +1,1 @@
+<x-partials.admin.nav />
