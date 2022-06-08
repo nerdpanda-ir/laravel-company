@@ -19,16 +19,19 @@ class ConstantsTest extends TestCase
         $message = '';
         if ($constantsCount!=$expect){
             $message .= "constraints in $this->namespace Interface ";
-            if ($constantsCount>0)
+            $implodeConstants = '';
+            if ($constantsCount>0){
                 $constants = array_map(
                     function (\ReflectionClassConstant $constant){
                         return $constant->name;
                     }, $constants);
+                $implodeConstants .=' : '.implode(' , ',$constants);
+            }
             if ($constantsCount>$expect)
                 $message.="more than expected";
             else
                 $message.="less than expected";
-            $message.="\nexpect interface $this->namespace have $expect constants but have $constantsCount constants ".(($constantsCount>0) ? ' : ': '').implode(' , ',$constants)." !!!";
+            $message.="\nexpect interface $this->namespace have $expect constants but have $constantsCount constants $implodeConstants !!!";
         }
         $this->assertEquals($expect,$constantsCount,$message);
     }

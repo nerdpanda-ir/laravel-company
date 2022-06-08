@@ -20,15 +20,20 @@ class MethodsTest extends TestCase
         $methodsCount = count($methods);
         $expect = 0 ;
         $message = '' ;
-        if ($methodsCount>$expect){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            if ($methodsCount==1)
-                $message = "method $methods[0]() is private ";
+        if ($methodsCount!=$expect){
+            $message .= "$this->namespace controller ";
+            $implodeMethods = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $implodeMethods .= '-> '.implode('(),',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
             else
-                $message = "methods ".implode('(), ',$methods)."() is private ";
-            $message.=" !!! controller $this->namespace cant be have private method !!!";
+                $message.='less';
+            $message.=" than expected have private method !!!\n$this->namespace controller should have $expect private method but actually have $methodsCount private method $implodeMethods";
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }
@@ -43,15 +48,20 @@ class MethodsTest extends TestCase
         $expect = 0 ;
         $methodsCount = count($methods);
         $message = '';
-        if ($methodsCount>0){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            if ($methodsCount==1)
-                $message = " method $methods[0]() ";
+        if ($methodsCount!=$expect){
+            $message .="$this->namespace controller ";
+            $methodsImplode = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $methodsImplode .='-> '.implode('(), ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message .= 'more';
             else
-                $message = " methods ".implode("() , ",$methods)."() ";
-            $message .= "is protected !!! $this->namespace controller cant be have protected method !!!";
+                $message .= 'less';
+            $message .= " than expected have  protected method !!!\n$this->namespace controller should have $expect protected method but actually have $methodsCount protected method $methodsImplode";
         }
         assertEquals($expect,$methodsCount,$message);
     }
@@ -95,15 +105,20 @@ class MethodsTest extends TestCase
         $methodsCount = count($methods);
         $expect = 0 ;
         $message = '';
-        if (!empty($methods)){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            if ($methodsCount==1)
-                $message = "method $methods[0]()";
+        if ($expect!=$methodsCount){
+            $message .= "$this->namespace controller ";
+            $methodsImplode = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $methodsImplode .= ' -> '.implode('(), ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message .= 'more';
             else
-                $message = "methods ".implode('() , ',$methods)."()";
-            $message.=" in controller $this->namespace is static !!!\n controller $this->namespace dont be have static method !!";
+                $message .= 'less';
+            $message.=" than expected have static method !!!\n controller $this->namespace should have $expect static method but actually have $methodsCount static method $methodsImplode !!!";
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }
@@ -119,15 +134,20 @@ class MethodsTest extends TestCase
         $methodsCount = count($methods);
         $expect = 0 ;
         $message = '';
-        if (!empty($methods)) {
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            if ($methodsCount==1)
-                $message = "method $methods[0]()";
+        if ($expect!=$methodsCount){
+            $message.="$this->namespace controller ";
+            $methodsImplode = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $methodsImplode .= ' -> '.implode('(), ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
             else
-                $message = "methods ".implode('() , ',$methods)."()";
-            $message.=" in controller $this->namespace is final !!!\ncontroller $this->namespace cant be have final method !!";
+                $message.='less';
+            $message.=" than expect have final method !!!\n$this->namespace controller should have $expect final method but actually have $methodsCount final method $methodsImplode !!!";
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }
@@ -143,11 +163,20 @@ class MethodsTest extends TestCase
         $methodsCount = count($methods);
         $expect = 0;
         $message = '';
-        if ($methodsCount>$expect){
-            $methods = array_map(function (\ReflectionMethod $method){
-                return $method->name;
-            },$methods);
-            $message = "abstract method in controller $this->namespace is more than expect \n\t\t\t".implode('(), ',$methods)."() is abstract\nbut expect $this->namespace controller have $expect abstract method but have $methodsCount abstract method !!!\n";
+        if ($methodsCount!=$expect){
+            $message.="$this->namespace controller ";
+            $methodsImplode = '';
+            if ($methodsCount>0){
+                $methods = array_map(function (\ReflectionMethod $method){
+                    return $method->name;
+                },$methods);
+                $methodsImplode .= '-> '.implode('(), ',$methods).'()';
+            }
+            if ($methodsCount>$expect)
+                $message.='more';
+            else
+                $message.='less';
+            $message.=" than expected have abstract method !!\n$this->namespace controller should have $expect abstract method but actually have $methodsCount abstract method $methodsImplode !!!";
         }
         $this->assertEquals($expect,$methodsCount,$message);
     }

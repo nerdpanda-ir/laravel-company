@@ -14,14 +14,24 @@ class PropertiesTest extends TestCase
         $selfProperties = array_filter($properties,function (\ReflectionProperty $property){
             return $property->getDeclaringClass()->name==$this->namespace;
         });
-
-        if (!empty($selfProperties))
-            $selfProperties = array_map(function (\ReflectionProperty $property){
-                return (string)$property;
-            },$selfProperties);
-        $this->assertEmpty(
-            $selfProperties,
-            " controller $this->namespace dont be have property !!! should remove \n\n\t\t".implode("\n\t\t" ,$selfProperties)
-        );
+        $selfPropertiesCount = count($selfProperties);
+        $message = '' ;
+        $expect = 0 ;
+        if ($selfPropertiesCount!=$expect){
+            $message = "controller $this->namespace ";
+            $propertiesImplode ='';
+            if ($selfPropertiesCount>0){
+                $selfProperties = array_map(function (\ReflectionProperty $property){
+                    return (string)$property;
+                },$selfProperties);
+                $propertiesImplode = "\n\n\t\t".implode(PHP_EOL,$selfProperties);
+            }
+            if ($selfPropertiesCount>$expect)
+                $message.='more';
+            else
+                $message.='less';
+            $message.=" than expected have property !!\n$this->namespace controller should have $expect property but actually have $selfPropertiesCount property !!!! $propertiesImplode ";
+        }
+        $this->assertEquals($expect, $selfPropertiesCount , $message);
     }
 }
