@@ -4,6 +4,6 @@
     <x-admin.wrapper>
         <x-partials.admin.header />
         <x-partials.pages.admin.dashboard.main />
-
+        <x-partials.admin.footer />
     </x-admin.wrapper>
 @endsection
