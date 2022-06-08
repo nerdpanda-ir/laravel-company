@@ -1,3 +1,3 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+<x-double-tag tag="div" :attributes="$attributes">
+    {{$slot}}
+</x-double-tag>
