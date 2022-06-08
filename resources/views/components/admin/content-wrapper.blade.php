@@ -1,3 +1,5 @@
-<div>
-    <!-- He who is contented is rich. - Laozi -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    {{$slot}}
 </div>
+<!-- /.content-wrapper -->
