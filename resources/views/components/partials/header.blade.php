@@ -1,4 +1,4 @@
-<x-preloader />
+<x-front.preloader />
 <!-- start header -->
 <header>
     <!-- header-area start -->

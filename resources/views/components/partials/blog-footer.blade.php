@@ -1,2 +1,2 @@
 <x-partials.footer />
-<x-back-to-top />
+<x-front.back-to-top />

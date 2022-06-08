@@ -1,3 +1,3 @@
-<div class="wrapper">
+<x-div class="wrapper">
     {{ $slot }}
-</div>
+</x-div>

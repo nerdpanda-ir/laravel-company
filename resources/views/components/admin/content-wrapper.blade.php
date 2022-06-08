@@ -1,5 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<x-div class="content-wrapper">
     {{$slot}}
-</div>
+</x-div>
 <!-- /.content-wrapper -->
