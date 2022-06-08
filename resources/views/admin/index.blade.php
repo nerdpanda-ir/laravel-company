@@ -3,7 +3,7 @@
 @section('main')
     <x-admin.wrapper>
         <x-partials.admin.header />
-        
+        <x-partials.pages.admin.dashboard.main />
         <!-- Main Footer -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
